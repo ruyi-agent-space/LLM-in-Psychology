@@ -36,6 +36,22 @@ The bibliography is a targeted, curated map, not an exhaustive systematic review
 
 The nine baseline bibliography entries were independently checked at their original pages; substantive limitations and uneven domain coverage are documented in [REVIEW-AUDIT.md](REVIEW-AUDIT.md). The candidate retains 60 nodes and 174 relationships, corrects clinical privacy filtering, and adds individually selected context references and explicit unverified relationship rationales.
 
-The candidate's JavaScript syntax, weekly sorting, clinical privacy path and empty-search behavior were exercised in V8. This is not a fresh browser QA run. Python execution is unavailable in the review thread; new Python and Node regressions are configured for read-only PR verification. Their exact result will be appended after the run. No new live metadata refresh has been claimed for this candidate.
+The candidate's JavaScript syntax, weekly sorting, clinical privacy path and empty-search behavior were exercised in V8. This is not a fresh browser QA run. Python execution is unavailable locally in the review thread; the candidate was therefore verified through read-only PR CI. The exact result and live-preview limits are recorded below.
 
 Automatic approval review rejected moving `main`: it required explicit authorization for a default-branch commit. Main therefore remains unchanged; the candidate is being retained for review separately. Publication and Pages remain disabled.
+
+### Verified PR run
+
+[Run 42959759143](https://github.com/ruyi-agent-space/LLM-in-Psychology/actions/runs/42959759143), code commit `fc1f5887f6462ecc013d7a05227f260b6acd7f15`:
+
+- 38 Python tests passed, including earliest retrieved version dates, future-version exclusion, screening-policy recovery, source-failure preservation and auditable weekly papers.
+- 6 Node tests passed: four view-model cases and two simulated-DOM application cases. The latter exercise actual node selection, related-button binding, filtering and exported JSON bytes; they are not browser or accessibility tests.
+- JavaScript syntax checks passed.
+- Rebuilding curated data reported 60 nodes / 174 edges and produced no generated-file differences.
+- The read-only metadata preview succeeded with explicit **partial** coverage. It fetched 300 Europe PMC records, deduplicated to 296, and retained 43 eligible candidates. Europe PMC reached its configured cap; arXiv remained deferred under the existing cooldown.
+- Three new reading candidates were selected at `2026-11-11T04:31:19Z`: psychotherapy-session assessment, radiology education learning outcomes (adjacent education domain), and a qualitative human-centered pedagogy study. These are metadata candidates, not quality-reviewed recommendations.
+- Weekly sample counts were methods 4, cognition/social behavior 4, clinical 3, measurement 2, education 1. Counts cover five preset categories and the available capped sample, not a global top five.
+- A [private review preview](https://github.com/ruyi-agent-space/LLM-in-Psychology/actions/runs/42959759143/artifacts/13827779237) was uploaded. Artifact ID `13827779237`; ZIP SHA-256 `0da57899238b292d48e84ecae252fc49e1205205f0848e3bc814dc9c11d6b609`; expires 2026-11-25.
+- The PR job used contents-read permission. The main refresh job was skipped, and no refreshed preview data was committed to main or the review branch.
+
+The initial PR run exposed a metacognition substring-classification error, which was corrected. Independent review also caught related-button binding and future-linked-version bugs; dedicated regressions now pass. Browser QA has not been repeated for this candidate. Main remains at the separately reviewed baseline until explicitly authorized.
