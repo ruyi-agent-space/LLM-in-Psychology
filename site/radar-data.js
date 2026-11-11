@@ -1,1 +1,148 @@
-window.RADAR_DATA = {"lastAttemptAt": null, "dailyUpdatedAt": "2026-11-11T00:00:00Z", "weeklyUpdatedAt": null, "status": {"state": "curated_seed", "message": "初始人工精选已核对原始出版页面。自动更新尚未完成首次核验；精选日期不等于论文发表日期。", "sourceResults": []}, "daily": [{"id": "psychometrics-lifecycle", "title": "Psychometric applications of generative artificial intelligence: Lifecycle, risks, and research agenda", "url": "https://doi.org/10.1371/journal.pmen.0000702", "publishedAt": "2026-09-23", "updatedAt": null, "type": "叙述性综述 / 生命周期框架", "source": "Publisher / DOI", "theme": "measurement", "reason": "用一篇近期综述建立心理测量评价清单。", "readingPrompt": "你的目标指标在哪一步获得了人类数据验证？", "caution": "叙述性框架，不是干预效果证据；精选阅读不代表当日新发表。"}, {"id": "clinical-meta", "title": "Generative Large Language Models in Mental Health Care Settings: Systematic Review and Meta-Analysis", "url": "https://doi.org/10.2196/87730", "publishedAt": "2026-08-31", "updatedAt": null, "type": "系统综述与元分析", "source": "Publisher / DOI", "theme": "clinical", "reason": "用研究设计分布与宽预测区间校准对临床应用的预期。", "readingPrompt": "如果移除模拟和回顾性研究，结论还剩多少？", "caution": "不能据此支持自动诊断或无人监督心理治疗；不是今日新闻。"}, {"id": "learning-psychology", "title": "The psychology of learning with generative AI in foreign language education: building a theory of metacognition, trust, and human–AI co-regulation through a systematic review", "url": "https://doi.org/10.3389/fpsyg.2026.1974520", "publishedAt": "2026-10-08", "updatedAt": null, "type": "理论构建型系统综述", "source": "Publisher / DOI", "theme": "education", "reason": "把视角扩展到元认知、信任与学习者自主性。", "readingPrompt": "学习者是否会验证输出，离开AI之后是否仍能完成任务？", "caution": "外语学习情境的理论综合，不能外推为儿童长期发展结论。"}], "weekly": [], "methodology": ["公开元数据样本：Europe PMC 最多 300 条、arXiv 最多 200 条；查询和覆盖有偏差，不代表穷尽检索或领域排名。", "必须同时匹配 LLM 与心理学相关主题；质性/复现方法还需心理学或人类研究语境。DOI、规范化标题或来源 ID 去重。", "日报仅纳入原始发表时间在过去 90 天内的项目；更新时间不刷新文献年龄，缺失或未来发表日期排除。", "每日 3 条：分数 = 90 − 发表年龄（天）+ 3 × 标题主题命中数（上限 3）；先选不同方向，再补齐。分数不是质量或影响力。", "周报每周一更新五个固定方向；数量是过去 7 天首次发表且通过筛选的公开样本，零值不表示没有研究；不是趋势增速或完整热度排名。", "任一来源失败时保留已有成功日报与周报及其时间戳；首次运行可展示足量的部分样本并明确警告。不足 3 条不编造日报。", "精选综述与图谱为独立人工策展输入；自动任务不覆盖 data/research.json 或 data/graph.json，不自动改写综述结论。"]};
+window.RADAR_DATA = {
+  "lastAttemptAt": "2026-11-11T04:03:16Z",
+  "dailyUpdatedAt": "2026-11-11T00:00:00Z",
+  "weeklyUpdatedAt": "2026-11-11T04:03:16Z",
+  "status": {
+    "state": "warning",
+    "message": "来源失败，已有成功内容与时间戳保持不变；新样本覆盖不完整。",
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "lastAttemptAt": "2026-11-11T04:03:16Z"
+      },
+      {
+        "source": "arXiv",
+        "state": "error",
+        "message": "HTTPError: HTTP Error 429: Unknown Error",
+        "lastAttemptAt": "2026-11-11T04:03:16Z"
+      }
+    ]
+  },
+  "daily": [
+    {
+      "id": "psychometrics-lifecycle",
+      "title": "Psychometric applications of generative artificial intelligence: Lifecycle, risks, and research agenda",
+      "url": "https://doi.org/10.1371/journal.pmen.0000702",
+      "publishedAt": "2026-09-23",
+      "updatedAt": null,
+      "type": "叙述性综述 / 生命周期框架",
+      "source": "Publisher / DOI",
+      "theme": "measurement",
+      "reason": "用一篇近期综述建立心理测量评价清单。",
+      "readingPrompt": "你的目标指标在哪一步获得了人类数据验证？",
+      "caution": "叙述性框架，不是干预效果证据；精选阅读不代表当日新发表。"
+    },
+    {
+      "id": "clinical-meta",
+      "title": "Generative Large Language Models in Mental Health Care Settings: Systematic Review and Meta-Analysis",
+      "url": "https://doi.org/10.2196/87730",
+      "publishedAt": "2026-08-31",
+      "updatedAt": null,
+      "type": "系统综述与元分析",
+      "source": "Publisher / DOI",
+      "theme": "clinical",
+      "reason": "用研究设计分布与宽预测区间校准对临床应用的预期。",
+      "readingPrompt": "如果移除模拟和回顾性研究，结论还剩多少？",
+      "caution": "不能据此支持自动诊断或无人监督心理治疗；不是今日新闻。"
+    },
+    {
+      "id": "learning-psychology",
+      "title": "The psychology of learning with generative AI in foreign language education: building a theory of metacognition, trust, and human–AI co-regulation through a systematic review",
+      "url": "https://doi.org/10.3389/fpsyg.2026.1974520",
+      "publishedAt": "2026-10-08",
+      "updatedAt": null,
+      "type": "理论构建型系统综述",
+      "source": "Publisher / DOI",
+      "theme": "education",
+      "reason": "把视角扩展到元认知、信任与学习者自主性。",
+      "readingPrompt": "学习者是否会验证输出，离开AI之后是否仍能完成任务？",
+      "caution": "外语学习情境的理论综合，不能外推为儿童长期发展结论。"
+    }
+  ],
+  "weekly": [
+    {
+      "id": "clinical",
+      "title": "临床与心理健康 · Clinical & mental health",
+      "question": "如何验证心理支持的安全性与真实临床效益？",
+      "signal": "过去 7 天公开检索样本 3 条；非穷尽统计。 来源覆盖不完整。",
+      "count": 3,
+      "sourceIds": [
+        "epmc:MED:42873163",
+        "epmc:MED:42983913",
+        "epmc:MED:42996292"
+      ]
+    },
+    {
+      "id": "simulation",
+      "title": "认知与社会模拟 · Cognitive & social simulation",
+      "question": "模型模拟能否跨情境复现人类认知与社会行为？",
+      "signal": "过去 7 天公开检索样本 8 条；非穷尽统计。 来源覆盖不完整。",
+      "count": 8,
+      "sourceIds": [
+        "epmc:MED:42986726",
+        "epmc:MED:42986948",
+        "epmc:MED:42993784",
+        "epmc:MED:42995166",
+        "epmc:PPR:PPR1359935",
+        "epmc:PPR:PPR1360703",
+        "epmc:PPR:PPR1360764",
+        "epmc:PPR:PPR1360792"
+      ]
+    },
+    {
+      "id": "measurement",
+      "title": "心理测量 · Psychometrics",
+      "question": "量表、人格与偏差测量是否具有构念效度？",
+      "signal": "过去 7 天公开检索样本 2 条；非穷尽统计。 来源覆盖不完整。",
+      "count": 2,
+      "sourceIds": [
+        "epmc:MED:42986323",
+        "epmc:PPR:PPR1359596"
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "质性方法与可复现性 · Qualitative methods & reproducibility",
+      "question": "如何审计质性编码、数据泄漏和复现流程？",
+      "signal": "过去 7 天公开检索样本 0 条；非穷尽统计。 来源覆盖不完整。",
+      "count": 0,
+      "sourceIds": []
+    },
+    {
+      "id": "education",
+      "title": "教育与发展 · Education & development",
+      "question": "学习与发展结果如何在真实环境中验证？",
+      "signal": "过去 7 天公开检索样本 16 条；非穷尽统计。 来源覆盖不完整。",
+      "count": 16,
+      "sourceIds": [
+        "epmc:MED:42986217",
+        "epmc:MED:42987254",
+        "epmc:MED:42987314",
+        "epmc:MED:42989632",
+        "epmc:MED:42989818",
+        "epmc:MED:42993682",
+        "epmc:MED:42993743",
+        "epmc:MED:42993763",
+        "epmc:MED:42993888",
+        "epmc:MED:42993929",
+        "epmc:MED:42993960",
+        "epmc:PPR:PPR1359211",
+        "epmc:PPR:PPR1359296",
+        "epmc:PPR:PPR1359342",
+        "epmc:PPR:PPR1360130",
+        "epmc:PPR:PPR1360149"
+      ]
+    }
+  ],
+  "methodology": [
+    "公开元数据样本：Europe PMC 最多 300 条、arXiv 最多 200 条；查询和覆盖有偏差，不代表穷尽检索或领域排名。",
+    "必须同时匹配 LLM 与心理学相关主题；质性/复现方法还需心理学或人类研究语境。DOI、规范化标题或来源 ID 去重。",
+    "日报仅纳入原始发表时间在过去 90 天内的项目；更新时间不刷新文献年龄，缺失或未来发表日期排除。",
+    "每日 3 条：分数 = 90 − 发表年龄（天）+ 3 × 标题主题命中数（上限 3）；先选不同方向，再补齐。分数不是质量或影响力。",
+    "周报每周一更新五个固定方向；数量是过去 7 天首次发表且通过筛选的公开样本，零值不表示没有研究；不是趋势增速或完整热度排名。",
+    "任一来源失败时保留已有成功日报与周报及其时间戳；首次运行可展示足量的部分样本并明确警告。不足 3 条不编造日报。",
+    "精选综述与图谱为独立人工策展输入；自动任务不覆盖 data/research.json 或 data/graph.json，不自动改写综述结论。"
+  ]
+};
