@@ -134,3 +134,9 @@ test('the bilingual scale example activates equivalent controlled topics',()=>{
  assert.deepEqual(zh.terms.map(term=>term.key),en.terms.map(term=>term.key));
  assert.ok(zh.terms.some(term=>term.key==='validity'));
 });
+
+test('measurement terminology activates the same bilingual topic',()=>{
+ const zh=E.search(data,'心理测量'),en=E.search(data,'measurement');
+ assert.deepEqual(zh.terms,en.terms);
+ assert.ok(en.groups.task.some(row=>row.id==='P01'||row.id==='P02'));
+});

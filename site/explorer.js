@@ -14,7 +14,7 @@
     'who why will with would you your about using use help want need llm llms ai psychology psychological').split(/\s+/));
   const TOPICS = [
     ['measurement', '心理测量与量表', 'Psychometrics and scales',
-      ['心理测量','量表','问卷','条目','测验','评分','测量','psychometric','psychometrics','questionnaire','questionnaires','scale','scales','scoring','item development','test development']],
+      ['心理测量','measurement','measurements','量表','问卷','条目','测验','评分','测量','psychometric','psychometrics','questionnaire','questionnaires','scale','scales','scoring','item development','test development']],
     ['validity', '构念效度与不变性', 'Construct validity and invariance',
       ['效度','验证','构念','不变性','差异项目','validity','validate','validation','construct','constructs','invariance','differential item','dif']],
     ['reliability', '信度与一致性', 'Reliability and consistency',
