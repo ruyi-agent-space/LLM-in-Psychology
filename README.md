@@ -34,9 +34,9 @@
 
 Enter a question above the network or choose an example. Deterministic Chinese/English topic-term matching connects it to the atlas's existing tasks, technologies, research functions, challenges and original references. Each category shows up to four results, with links to the corresponding node, challenge or source.
 
-匹配读取图谱节点及其中英文描述、研究挑战，以及人工整理文献与当前日报/周报中的文献元数据。直接主题命中优先，按主题覆盖、字段位置与词组具体程度排序；沿既有图谱的一跳关联和节点/挑战的文献引用分别标明依据。排序分数用于检索呈现，图谱的编辑映射状态和文献证据范围沿用原始记录。主题词组与英文停用词可在 `site/explorer.js` 中审查维护。
+匹配读取图谱节点及其中英文描述、研究挑战，以及人工整理文献与当前日报/周报中的文献元数据。直接主题命中优先，按主题覆盖、字段位置与词组具体程度排序，并提高标题命中的权重；沿既有图谱的一跳关联和节点/挑战的文献引用分别标明依据。排序分数用于检索呈现，图谱的编辑映射状态和文献证据范围沿用原始记录。主题词组与英文停用词可在 `site/explorer.js` 中审查维护。
 
-The matcher indexes bilingual graph descriptions, research challenges, curated references and the current radar's publication metadata. Direct topic matches rank first, weighted by topic coverage, field position and phrase specificity. One-hop editorial graph connections and references attached to nodes or challenges display their own provenance. Ranking scores order retrieval results; the original graph status and evidence scope are preserved. Topic aliases and English stopwords are maintained in `site/explorer.js`.
+The matcher indexes bilingual graph descriptions, research challenges, curated references and the current radar's publication metadata. Direct topic matches rank first, weighted by topic coverage, field position and phrase specificity, with an additional title-match weight. One-hop editorial graph connections and references attached to nodes or challenges display their own provenance. Ranking scores order retrieval results; the original graph status and evidence scope are preserved. Topic aliases and English stopwords are maintained in `site/explorer.js`.
 
 问题限 500 字符，在当前浏览器内存中处理；刷新页面后清空。语言切换保留当前问题及结果。Questions are limited to 500 characters and processed in browser memory. Reloading clears the question; language selection preserves it and the result set.
 

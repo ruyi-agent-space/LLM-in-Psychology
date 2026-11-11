@@ -113,3 +113,24 @@ test('malformed indexed fields never trigger implicit string conversion',()=>{
  const result=E.search({graph:{nodes:[{id:'X',layer:'task',title:bad,description:null}],edges:[]},research:{challenges:[],sources:[{id:'S',title:[]}]}},'privacy');
  assert.ok(empty(result));
 });
+
+test('version and prompt changes retain the dedicated reproducibility function',()=>{
+ const zh='模型版本更新和提示变化后，如何建立复现基准，监测漂移并报告多次运行的方差？';
+ const en='After model version updates and prompt changes, how can I build a reproducibility benchmark, monitor drift, and report variance across repeated runs?';
+ const a=E.search(data,zh),b=E.search(data,en);
+ assert.equal(a.groups.function[0].id,'F23');
+ assert.equal(b.groups.function[0].id,'F23');
+ assert.ok(a.groups.task.some(row=>row.id==='P15'));
+ assert.deepEqual(a.terms.map(term=>term.key),b.terms.map(term=>term.key));
+});
+test('interview privacy audit includes the dedicated consent and privacy function',()=>{
+ const result=E.search(data,'如何进行访谈隐私审计');
+ assert.ok(result.groups.function.some(row=>row.id==='F22'));
+ assert.ok(result.groups.function.some(row=>row.id==='F04'));
+});
+test('the bilingual scale example activates equivalent controlled topics',()=>{
+ const zh=E.search(data,window.ATLAS_I18N.ui.zh.explorerExampleMeasurement);
+ const en=E.search(data,window.ATLAS_I18N.ui.en.explorerExampleMeasurement);
+ assert.deepEqual(zh.terms.map(term=>term.key),en.terms.map(term=>term.key));
+ assert.ok(zh.terms.some(term=>term.key==='validity'));
+});

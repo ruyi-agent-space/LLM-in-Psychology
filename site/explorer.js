@@ -16,7 +16,7 @@
     ['measurement', '心理测量与量表', 'Psychometrics and scales',
       ['心理测量','量表','问卷','条目','测验','评分','测量','psychometric','psychometrics','questionnaire','questionnaires','scale','scales','scoring','item development','test development']],
     ['validity', '构念效度与不变性', 'Construct validity and invariance',
-      ['效度','构念','不变性','差异项目','validity','validate','validation','construct','constructs','invariance','differential item','dif']],
+      ['效度','验证','构念','不变性','差异项目','validity','validate','validation','construct','constructs','invariance','differential item','dif']],
     ['reliability', '信度与一致性', 'Reliability and consistency',
       ['信度','重测','可靠性','一致性','reliability','test retest','consistency']],
     ['reproducibility', '复现、版本与漂移', 'Reproducibility, versions, and drift',
@@ -48,11 +48,11 @@
     ['retrieval', '文献检索、引用与综合', 'Literature retrieval, citations, and synthesis',
       ['检索','引用','引文','来源','综述','证据综合','文献','retrieval','citation','citations','literature','systematic review','literature review','scoping review','meta analysis','evidence synthesis','rag','grounding','provenance']],
     ['adaptation', '提示、上下文与微调', 'Prompts, context, and fine-tuning',
-      ['提示','上下文','微调','适配','prompt','prompts','prompting','context','fine tuning','fine tune','finetuning','adaptation','qlora']],
+      ['提示','上下文设计','上下文窗口','微调','领域适配','模型适配','prompt','prompts','prompting','context design','context window','fine tuning','fine tune','finetuning','domain adaptation','model adaptation','qlora']],
     ['representation', '多模态与文本表征', 'Multimodality and text representations',
       ['多模态','音频','声音','视觉','图像','嵌入','表征','multimodal','audio','voice','visual','image','embedding','embeddings','representation','representations']],
     ['evaluation', '评估、校准与不确定性', 'Evaluation, calibration, and uncertainty',
-      ['评估','评价','基准','不确定','校准','拒答','红队','审计','benchmark','benchmarks','evaluation','evaluate','uncertainty','uncertain','calibration','calibrate','calibrated','abstention','red team','audit']]
+      ['评估','评价','基准','不确定','校准','拒答','红队','审计','benchmark','benchmarks','evaluation','evaluate','uncertainty','uncertain','calibration','calibrate','calibrated','abstention','red team','audit','audits','auditing']]
   ];
   function text(value) {return typeof value === 'string' ? value.slice(0, MAX_FIELD) : '';}
   function rows(value) {return Array.isArray(value) ? value.filter(v => v && typeof v === 'object' && !Array.isArray(v)) : [];}
@@ -149,7 +149,11 @@
         }
       }
       if (!hit.length) continue;
-      const match = {id:record.id,score:100 + Math.round(4 * relevance),matchedTerms:hit};
+      const titleBonus = selected.reduce((sum,topic)=>{
+        const titleHit=record.fields.some(f=>f.weight===5 && hasTopic(f.value,topic));
+        return titleHit ? sum + 50 * queryWeights.get(topic.key) * (topic.key==='evaluation' ? 0.3 : 1) : sum;
+      },0);
+      const match = {id:record.id,score:100 + Math.round(4 * relevance + titleBonus),matchedTerms:hit};
       matches.get(record.group).set(record.id,match);direct.push({record,match});
     }
     function relate(record, via, score) {
