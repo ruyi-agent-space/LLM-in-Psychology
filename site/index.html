@@ -15,6 +15,16 @@
 <main>
 <section id="network" class="workspace active">
   <div class="section-heading"><div><p class="eyebrow" data-i18n="networkEyebrow">图谱浏览 · 节点筛选 · JSON 导出</p><h1 data-i18n="networkTitle">心理语义任务 X 技术能力网络</h1><p data-i18n="networkDescription">浏览技术、研究功能与心理任务的连接，筛选节点并导出当前图谱。</p></div><div class="edition"><span data-i18n="edition">图谱版本</span><strong id="editionDate">2026-11-11</strong><small data-i18n="layerSequence">技术 → 研究功能 → 心理任务</small></div></div>
+  <section id="questionExplorer" class="question-explorer" aria-labelledby="explorerTitle">
+    <div class="explorer-heading"><div><p class="eyebrow" data-i18n="explorerEyebrow">从问题关联本站资料</p><h2 id="explorerTitle" data-i18n="explorerTitle">研究问题探索</h2><p data-i18n="explorerDescription">输入研究问题，关联已有的心理任务、技术、研究功能、挑战与文献。</p></div><span class="explorer-local" data-i18n="explorerPrivacy">问题在当前浏览器内处理。</span></div>
+    <form id="questionForm">
+      <label for="researchQuestion" data-i18n="explorerInputLabel">你的研究问题</label>
+      <div class="question-controls"><textarea id="researchQuestion" rows="2" maxlength="500" autocomplete="off" data-i18n-placeholder="explorerPlaceholder" placeholder="例如：如何验证跨文化心理量表的效度？" aria-describedby="explorerMethod"></textarea><button id="exploreQuestion" type="submit" data-i18n="explorerSubmit">关联资料</button></div>
+    </form>
+    <p id="explorerMethod" class="explorer-method" data-i18n="explorerMethod">按预设的中英文主题词匹配本站资料，显示匹配主题和图谱关联。每类最多显示 4 项。</p>
+    <div class="explorer-examples"><span data-i18n="explorerExamples">试试这些问题</span><button type="button" data-explorer-example="explorerExampleMeasurement" data-i18n="explorerExampleMeasurement">如何验证跨文化心理量表？</button><button type="button" data-explorer-example="explorerExamplePrivacy" data-i18n="explorerExamplePrivacy">如何审计访谈编码中的隐私风险？</button><button type="button" data-explorer-example="explorerExampleSimulation" data-i18n="explorerExampleSimulation">如何评价合成参与者的外部效度？</button></div>
+    <p id="explorerStatus" role="status" aria-live="polite" data-i18n="explorerWaiting">提交问题后，在这里查看关联资料。</p><div id="explorerResults" class="explorer-results" hidden></div><p id="explorerEvidence" class="explorer-method" hidden data-i18n="explorerEvidence">图谱关系沿用编辑映射，文献保留原始链接与日期。</p>
+  </section>
   <div class="filters">
     <label class="search">⌕ <input id="search" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="搜索节点、任务或验证指标…" data-i18n-aria="searchLabel" aria-label="搜索图谱节点"></label>
     <label><span data-i18n="domain">领域</span><select id="domainFilter"></select></label>
@@ -45,5 +55,5 @@
 </main>
 <footer><strong>LLM in Psychology</strong><span data-i18n="footerDescription">研究图谱与文献导航</span><a href="#evidence" data-i18n="footerResources">资源说明 ↗</a></footer>
 <div id="toast" role="status" aria-live="polite"></div><noscript><p data-i18n="noscript">启用 JavaScript 可使用图谱交互，原始数据保存在仓库 data 目录。</p></noscript>
-<script src="graph-data.js"></script><script src="research-data.js"></script><script src="radar-data.js"></script><script src="view-model.js"></script><script src="i18n.js"></script><script src="app.js"></script>
+<script src="graph-data.js"></script><script src="research-data.js"></script><script src="radar-data.js"></script><script src="view-model.js"></script><script src="i18n.js"></script><script src="explorer.js"></script><script src="app.js"></script>
 </body></html>

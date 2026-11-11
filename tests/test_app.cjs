@@ -40,6 +40,7 @@ function setup(initialLanguage='zh'){
   const context=vm.createContext({window,document,location:{hash:'#network',protocol:'https:'},localStorage:{getItem:key=>preferences.get(key),setItem:(key,value)=>preferences.set(key,value)},setTimeout:()=>0,Blob,URL:{createObjectURL(value){blob=value;return 'blob:test';},revokeObjectURL(){}}});
   vm.runInContext(fs.readFileSync(path.join(root,'site/view-model.js'),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(root,'site/i18n.js'),'utf8'),context);
+  vm.runInContext(fs.readFileSync(path.join(root,'site/explorer.js'),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(root,'site/app.js'),'utf8'),context);
   return {get,language:window.PSYCHOLOGY_ATLAS.setLanguage,document,preferences,clickNode:id=>nodes.find(node=>node.dataset.id===id).handlers.click(),related:()=>related,download:()=>({anchor:exported,blob})};
 }
@@ -86,4 +87,30 @@ test('English covers selected nodes, research cards, status and exported display
  app.language('zh');
  assert.equal(app.document.documentElement.lang,'zh-CN');
  assert.equal(app.preferences.get('psychology-atlas-language'),'zh');
+});
+
+test('question form renders research connections and preserves result identity on language changes',()=>{
+ const app=setup();
+ app.get('researchQuestion').value='如何检验跨文化量表的测量不变性？';
+ app.get('questionForm').onsubmit({preventDefault(){}});
+ assert.equal(app.get('explorerResults').hidden,false);
+ assert.match(app.get('explorerResults').innerHTML,/data-explorer-id="P02"/);
+ assert.match(app.get('explorerResults').innerHTML,/data-explorer-id="T12"/);
+ const ids=html=>[...html.matchAll(/data-explorer-id="([^"]+)"/g)].map(match=>match[1]);
+ const initial=ids(app.get('explorerResults').innerHTML);
+ app.language('en');
+ assert.deepEqual(ids(app.get('explorerResults').innerHTML),initial);
+ assert.match(app.get('explorerResults').innerHTML,/Adapt a measure/);
+ assert.match(app.get('explorerResults').innerHTML,/Matched topics/);
+ assert.equal(app.get('researchQuestion').value,'如何检验跨文化量表的测量不变性？');
+ assert.equal(app.preferences.size,1);
+});
+test('question form handles empty, unrelated and oversized input',()=>{
+ const app=setup();
+ for(const query of ['', 'quantum banana trombone', 'privacy'.repeat(100)]){
+  app.get('researchQuestion').value=query;
+  app.get('questionForm').onsubmit({preventDefault(){}});
+  assert.equal(app.get('explorerResults').hidden,true);
+  assert.ok(app.get('explorerStatus').textContent);
+ }
 });

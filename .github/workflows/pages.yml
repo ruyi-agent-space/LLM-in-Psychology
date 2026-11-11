@@ -59,6 +59,7 @@ jobs:
           node --check site/app.js
           node --check site/view-model.js
           node --check site/i18n.js
+          node --check site/explorer.js
           python scripts/build_data.py
           git diff --exit-code -- data/graph.json site/graph-data.js site/research-data.js
       - name: Install browser checks
