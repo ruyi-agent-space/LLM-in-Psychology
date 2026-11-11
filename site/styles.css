@@ -2,3 +2,18 @@
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
 .connection{border-top:1px solid #dce5dc;padding:10px 0}.connection summary,.signal-papers summary{cursor:pointer;font-size:12px;color:#39788a}.connection p,.signal-papers p{font-size:12px;line-height:1.65}.connection .node-link{margin:0 4px}.signal-papers{margin-top:14px}.signal-papers small{overflow-wrap:anywhere}
+
+.language-switch{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;flex-shrink:0}
+.language-switch button{border:0;border-radius:0;font-size:11px;padding:7px 10px;min-width:38px}
+.language-switch button[aria-pressed="true"]{background:var(--green);color:#fff}
+.topbar{gap:16px;flex-wrap:wrap}.topbar-meta{margin-left:auto;gap:18px}
+.safety-section{margin-top:22px;padding:25px;border:1px solid var(--line);border-radius:var(--radius);background:#eef4ed}
+.safety-section p{font-size:13px;line-height:1.8;color:var(--muted)}.safety-section a{font-size:11px;color:var(--green)}
+.connection-heading{font-size:11px;margin:20px 0 8px}.connection p,.reading-signals p{overflow-wrap:anywhere}
+.reading-signals{font-size:11px;color:var(--muted);line-height:1.8}.reading-signals summary{cursor:pointer;color:var(--green)}
+.resource-list{padding:0;list-style:none}.resource-list .source{display:flex;gap:16px;align-items:flex-start}
+.resource-list .source h2{margin:0 0 10px;font-size:16px}.resource-list .source h2 a{font-size:inherit;line-height:1.6}
+.resource-index{font:24px Georgia,serif;color:#8aab81}.contact-links{display:flex;flex-wrap:wrap;gap:10px}
+.weekly-card,.daily-card,.source,.node-detail{min-width:0;overflow-wrap:anywhere}
+.filters label{min-width:0}.search{min-width:0}.section-heading>div:first-child{min-width:0}
+@media(max-width:650px){.topbar-meta{width:100%;justify-content:flex-end;gap:14px}.section-heading{flex-direction:column}.edition{text-align:left;min-width:0}.edition span{font-size:8px}.safety-section{padding:22px}.language-switch button{font-size:10px}.privacy{display:none}}

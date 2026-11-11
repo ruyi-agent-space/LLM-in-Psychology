@@ -5,8 +5,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const root = path.join(__dirname,'..');
-function setup(){
+function setup(initialLanguage='zh'){
   const elements = new Map();
+  const preferences = new Map([['psychology-atlas-language',initialLanguage]]);
   let nodes=[], related=[], exported=null;
   class Element{
     constructor(id){this.id=id;this.dataset={};this.style={};this.handlers={};this.classList={toggle(){}};this.hidden=false;}
@@ -23,6 +24,7 @@ function setup(){
   const get=id=>{if(!elements.has(id))elements.set(id,new Element(id));return elements.get(id);};
   const all=selector=>selector==='.graph-node'?nodes:selector==='[data-select]'?related:[];
   const document={
+    documentElement:{lang:''}, title:'',
     querySelector(selector){
       if(selector.startsWith('#'))return get(selector.slice(1));
       if(selector==='[data-select]')return related[0]||null;
@@ -35,16 +37,17 @@ function setup(){
   const load=name=>JSON.parse(fs.readFileSync(path.join(root,'data',name+'.json'),'utf8'));
   const window={GRAPH_DATA:load('graph'),RESEARCH_DATA:load('research'),RADAR_DATA:load('radar'),addEventListener(){}};
   let blob;
-  const context=vm.createContext({window,document,location:{hash:'#network'},setTimeout:()=>0,Blob,URL:{createObjectURL(value){blob=value;return 'blob:test';},revokeObjectURL(){}}});
+  const context=vm.createContext({window,document,location:{hash:'#network',protocol:'https:'},localStorage:{getItem:key=>preferences.get(key),setItem:(key,value)=>preferences.set(key,value)},setTimeout:()=>0,Blob,URL:{createObjectURL(value){blob=value;return 'blob:test';},revokeObjectURL(){}}});
   vm.runInContext(fs.readFileSync(path.join(root,'site/view-model.js'),'utf8'),context);
+  vm.runInContext(fs.readFileSync(path.join(root,'site/i18n.js'),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(root,'site/app.js'),'utf8'),context);
-  return {get,clickNode:id=>nodes.find(node=>node.dataset.id===id).handlers.click(),related:()=>related,download:()=>({anchor:exported,blob})};
+  return {get,language:window.PSYCHOLOGY_ATLAS.setLanguage,document,preferences,clickNode:id=>nodes.find(node=>node.dataset.id===id).handlers.click(),related:()=>related,download:()=>({anchor:exported,blob})};
 }
 test('real app node selection binds related buttons and renders relationship limits',()=>{
   const app=setup();
   app.clickNode('T06');
   assert.match(app.get('nodeDetail').innerHTML,/结构化输出与工具/);
-  assert.match(app.get('nodeDetail').innerHTML,/逐关系证据尚未验证/);
+  assert.match(app.get('nodeDetail').innerHTML,/编辑映射/);
   const button=app.related().find(item=>item.dataset.select==='F03');
   assert.equal(typeof button.onclick,'function');
   button.onclick({preventDefault(){}});
@@ -63,4 +66,24 @@ test('filtering clears hidden selection and export contains the active valid net
   assert.ok(!payload.nodes.some(node=>node.id==='P09'));
   const ids=new Set(payload.nodes.map(node=>node.id));
   assert.ok(payload.edges.every(edge=>ids.has(edge.source)&&ids.has(edge.target)));
+});
+
+test('English covers selected nodes, research cards, status and exported display labels',async()=>{
+ const app=setup('en');
+ assert.equal(app.document.documentElement.lang,'en');
+ const graph=JSON.parse(fs.readFileSync(path.join(root,'data/graph.json'),'utf8'));
+ for(const node of graph.nodes){
+  app.clickNode(node.id);
+  assert.doesNotMatch(app.get('nodeDetail').innerHTML,/[\u4e00-\u9fff]/u,node.id);
+ }
+ for(const id of ['weeklyList','dailyList','challengeList','weeklyStatus','dailyStatus']){
+  assert.doesNotMatch(app.get(id).innerHTML+(app.get(id).textContent||''),/[\u4e00-\u9fff]/u,id);
+ }
+ app.get('export').onclick();
+ const payload=JSON.parse(await app.download().blob.text());
+ assert.equal(payload.view.language,'en');
+ assert.match(payload.view.nodeLabels.T01.description,/language generation/);
+ app.language('zh');
+ assert.equal(app.document.documentElement.lang,'zh-CN');
+ assert.equal(app.preferences.get('psychology-atlas-language'),'zh');
 });

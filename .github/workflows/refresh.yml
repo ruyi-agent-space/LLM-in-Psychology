@@ -37,6 +37,7 @@ jobs:
         run: |
           node --check site/app.js
           node --check site/view-model.js
+          node --check site/i18n.js
           node --test tests/test_*.cjs
       - name: Check generated graph and bibliography
         run: |
@@ -73,6 +74,7 @@ jobs:
         run: |
           node --check site/app.js
           node --check site/view-model.js
+          node --check site/i18n.js
           node --test tests/test_*.cjs
       - name: Check generated graph and bibliography
         run: |

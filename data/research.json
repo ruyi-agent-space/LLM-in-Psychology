@@ -197,7 +197,7 @@
     },
     {
       "id": "D3",
-      "title": "临床与咨询辅助",
+      "title": "临床与咨询研究",
       "question": "哪些受约束任务能在专业监督下改善真实工作流，而不增加伤害？",
       "methods": "前瞻真实场景评价；症状/功能结局与不良事件；明确升级人工与危机转介边界。",
       "source_ids": [
@@ -233,7 +233,7 @@
     {
       "id": "C1",
       "title": "构念效度",
-      "description": "流畅作答或量表结构相似，不等于测到了同一个心理构念。",
+      "description": "构念解释结合回答表现、量表结构和外部效标进行验证。",
       "source_ids": [
         "dual-validity",
         "psychometrics-lifecycle"
@@ -244,7 +244,7 @@
     {
       "id": "C2",
       "title": "人类外部效度",
-      "description": "模拟平均反应不能替代真实参与者，也可能压缩个体差异。",
+      "description": "人类外推关注真实参与者的反应分布及个体差异。",
       "source_ids": [
         "simulator-guide",
         "psychometrics-lifecycle"
@@ -267,7 +267,7 @@
     {
       "id": "C4",
       "title": "因果与机制解释",
-      "description": "预测成功与认知机制相同是两种不同主张。",
+      "description": "预测拟合、因果效应与认知机制分别需要证据。",
       "source_ids": [
         "dual-validity"
       ],
@@ -277,7 +277,7 @@
     {
       "id": "C5",
       "title": "跨文化公平性",
-      "description": "语言、群体和情境覆盖不足，需要分组误差与测量不变性检验。",
+      "description": "语言、群体和情境覆盖结合分组误差与测量不变性检验。",
       "source_ids": [
         "psychometrics-lifecycle",
         "clinical-meta"
@@ -288,14 +288,14 @@
     {
       "id": "C6",
       "title": "临床安全与危机处置",
-      "description": "基准表现不能证明临床安全；诊断和治疗应保留专业监督。",
+      "description": "临床安全研究关注真实场景结果、危机升级与专业监督。",
       "source_ids": [
         "clinical-meta",
         "safety-review",
         "mental-health-review"
       ],
       "question": "多轮与隐含风险条件下，系统何时拒答、升级并完成转介？",
-      "test": "临床专家审阅多轮情境；评估严重风险漏检、误报、转介完成与延迟，并以带主动对照的前瞻研究记录真实结局和不良事件。另测有害迎合，专业监督不能替代验证。"
+      "test": "临床专家审阅多轮情境；评估严重风险漏检、误报、转介完成与延迟，并以带主动对照的前瞻研究记录真实结局和不良事件。另测有害迎合，结合专业监督与前瞻验证。"
     },
     {
       "id": "C7",
@@ -310,7 +310,7 @@
     {
       "id": "C8",
       "title": "质性解释与研究者反思",
-      "description": "编码一致率不能取代意义解释、少数观点与文化语境。",
+      "description": "质性分析关注意义解释、少数观点、文化语境与编码一致性。",
       "source_ids": [
         "qualitative-review"
       ],
@@ -320,7 +320,7 @@
     {
       "id": "C9",
       "title": "学习自主性、信任与长期迁移",
-      "description": "此处依赖指学习中的能力卸载；现有教育来源不证明情感依赖、现实关系替代或儿童长期发展影响。",
+      "description": "当前教育来源聚焦能力卸载与学习自主性；情感依赖、现实关系及儿童长期发展需要独立证据。",
       "source_ids": [
         "learning-psychology",
         "pedagogy-umbrella"
@@ -331,7 +331,7 @@
     {
       "id": "C10",
       "title": "证据质量与知识更新",
-      "description": "区分预印本、叙述综述、系统综述与元分析；避免重复研究和出版日期混淆。",
+      "description": "证据整理记录研究类型、重复样本、首次发表与修订日期。",
       "source_ids": [
         "clinical-meta",
         "pedagogy-umbrella",
