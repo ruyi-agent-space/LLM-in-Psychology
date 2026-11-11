@@ -131,7 +131,7 @@ The public metadata sample uses Europe PMC and arXiv with documented caps. Scree
 - 综述内容：综述30项研究，支持LLM辅助编码而非替代研究者；文化语境与解释深度仍需要人的判断。
 - 证据范围与限制：教育技术邻近领域，不能自动推广到所有心理学范式；编码一致性不等于解释有效性，文献包含预印本。
 
-**English summary:** A systematic review of 30 educational-technology studies on assisted qualitative analysis, interviews, focus groups and thematic coding. Human interpretation and cultural context remain central. The current audit verified its abstract and metadata; full PDF access returned 403.
+**English summary:** A systematic review of 30 studies of LLM-assisted qualitative analysis, discussed in an educational-technology context, covering interviews, focus groups and thematic coding. Human interpretation and cultural context remain central. The current audit verified its abstract and metadata; full PDF access returned 403.
 
 #### 7. The psychology of learning with generative AI in foreign language education: building a theory of metacognition, trust, and human–AI co-regulation through a systematic review
 

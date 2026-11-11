@@ -46,6 +46,15 @@ def no_overflow(page, label):
     assert max(result['document'], result['body']) <= result['viewport'] + 1, (label, result)
 
 
+def assert_english_view(page, label):
+    # Keep each language's own name in the language chooser.
+    visible = page.locator('body').inner_text()
+    chooser = page.locator('.language-switch').inner_text()
+    visible = visible.replace(chooser, '', 1)
+    mixed = [line for line in visible.splitlines() if re.search(r'[\u4e00-\u9fff]', line)]
+    assert not mixed, (label, mixed)
+
+
 def run_case(browser, base, width, height, folder, language):
     context = browser.new_context(viewport={'width':width, 'height':height}, accept_downloads=True, service_workers='block')
     errors, unexpected, responses = [], [], {}
@@ -96,8 +105,24 @@ def run_case(browser, base, width, height, folder, language):
         expect(page.locator('.graph-node')).to_have_count(len(graph['nodes']))
         no_overflow(page, 'network')
         if language == 'en':
-            assert not re.search(r'[\u4e00-\u9fff]', page.locator('body').inner_text()), 'Mixed-language network view'
+            assert_english_view(page, 'Mixed-language network view')
 
+        node = page.locator('.graph-node[data-id="T01"]')
+        node.click()
+        original_ids = page.locator('.graph-node').evaluate_all('(nodes) => nodes.map(node => node.dataset.id)')
+        page.locator('#edgeFilter').select_option('support')
+        page.locator('#search').fill('LLM')
+        filtered_ids = page.locator('.graph-node').evaluate_all('(nodes) => nodes.map(node => node.dataset.id)')
+        assert 'T01' in filtered_ids and len(filtered_ids) < len(original_ids)
+        opposite_button = '#languageZh' if language == 'en' else '#languageEn'
+        current_button = '#languageEn' if language == 'en' else '#languageZh'
+        page.locator(opposite_button).click()
+        assert page.locator('.graph-node').evaluate_all('(nodes) => nodes.map(node => node.dataset.id)') == filtered_ids
+        expect(page.locator('.graph-node[data-id="T01"]')).to_have_attribute('aria-pressed','true')
+        expect(page.locator('#search')).to_have_value('LLM')
+        expect(page.locator('#edgeFilter')).to_have_value('support')
+        page.locator(current_button).click()
+        page.locator('#reset').click()
         node = page.locator('.graph-node[data-id="T01"]')
         node.click()
         expect(node).to_have_attribute('aria-pressed','true')
@@ -162,12 +187,12 @@ def run_case(browser, base, width, height, folder, language):
                 expect(page.locator('#sourceList .source')).to_have_count(len(research['sources']))
             no_overflow(page, section)
             if language == 'en':
-                assert not re.search(r'[\u4e00-\u9fff]', page.locator('body').inner_text()), 'Mixed-language section: ' + section
+                assert_english_view(page, 'Mixed-language section: ' + section)
         assert not unexpected, unexpected
         assert not errors, errors
         return {'language':language, 'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'dailyUpdatedAt':actual_radar.get('dailyUpdatedAt'), 'weeklyUpdatedAt':actual_radar.get('weeklyUpdatedAt'), 'coverage':actual_radar.get('status',{}).get('state'), 'status':'passed'}
     except Exception:
-        print(json.dumps({'viewport':width,'pageErrors':errors,'blockedRequests':unexpected}, ensure_ascii=False), file=sys.stderr)
+        print(json.dumps({'viewport':width,'language':language,'pageErrors':errors,'blockedRequests':unexpected}, ensure_ascii=False), file=sys.stderr)
         raise
     finally:
         context.close()
