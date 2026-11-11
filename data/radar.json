@@ -1,6 +1,6 @@
 {
-  "lastAttemptAt": "2026-11-11T08:13:19Z",
-  "dailyUpdatedAt": "2026-11-11T08:13:19Z",
+  "lastAttemptAt": "2026-11-11T09:12:44Z",
+  "dailyUpdatedAt": "2026-11-11T09:12:44Z",
   "weeklyUpdatedAt": "2026-11-11T06:47:03Z",
   "status": {
     "state": "partial",
@@ -10,7 +10,7 @@
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-11T08:13:19Z"
+        "lastAttemptAt": "2026-11-11T09:12:44Z"
       },
       {
         "source": "arXiv",
@@ -18,7 +18,7 @@
         "httpStatus": 429,
         "message": "来源冷却期，未发起请求；覆盖不完整。",
         "lastAttemptAt": "2026-11-11T04:03:16Z",
-        "checkedAt": "2026-11-11T08:13:19Z",
+        "checkedAt": "2026-11-11T09:12:44Z",
         "retryAfterAt": "2026-11-12T04:03:16Z"
       }
     ]
@@ -392,8 +392,8 @@
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-13T08:13:19Z",
-    "windowEnd": "2026-11-11T08:13:19Z",
+    "windowStart": "2026-08-13T09:12:44Z",
+    "windowEnd": "2026-11-11T09:12:44Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -423,8 +423,8 @@
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-13T08:13:19Z",
-    "windowEnd": "2026-11-11T08:13:19Z",
+    "windowStart": "2026-08-13T09:12:44Z",
+    "windowEnd": "2026-11-11T09:12:44Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
