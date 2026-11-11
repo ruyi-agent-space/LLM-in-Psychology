@@ -16,20 +16,22 @@ import xml.etree.ElementTree as ET
 UTC = timezone.utc
 DIRECTIONS = {
     'clinical': ('临床与心理健康 · Clinical & mental health', '如何验证心理支持的安全性与真实临床效益？'),
-    'simulation': ('认知与社会模拟 · Cognitive & social simulation', '模型模拟能否跨情境复现人类认知与社会行为？'),
+    'simulation': ('认知与社会行为 · Cognition & social behavior', '如何检验认知测量、社会行为研究与人类模拟的外部效度？'),
     'measurement': ('心理测量 · Psychometrics', '量表、人格与偏差测量是否具有构念效度？'),
     'methods': ('质性方法与可复现性 · Qualitative methods & reproducibility', '如何审计质性编码、数据泄漏和复现流程？'),
     'education': ('教育与发展 · Education & development', '学习与发展结果如何在真实环境中验证？'),
 }
 LLM = re.compile(r'\b(large language models?|LLMs?|ChatGPT|GPT[- ]?[345o]|generative (?:AI|artificial intelligence)|language model(?:s)?)\b', re.I)
 TERMS = {
-    'clinical': r'mental health|psychotherap|psychiatr|depressi|anxiety|suicid|psycholog.{0,20}(?:support|counsel)|counseling|counselling',
+    'clinical': r'mental health|psychotherap|psychiatr|depressi|anxiety|suicid|\bPTSD\b|post[- ]?traumatic|psycholog.{0,20}(?:support|counsel)|counseling|counselling',
     'simulation': r'cogniti|social simulat|human behavio|theory of mind|social psycholog|decision.making|moral judgment',
     'measurement': r'psychometr|personality|big five|construct valid|psychological assess|psychological measur|psychological scale|response bias',
     'methods': r'qualitative|thematic analys|reproducib|replicab|research method|interview coding',
     'education': r'educati|learning outcome|student|child development|developmental psycholog|pedagog|tutor',
 }
 # Methods alone must still be grounded in psychology/human research.
+SCREENING_VERSION = '1.1.0'
+EDUCATION_PROCESS = re.compile(r'metacognit|self.regulat|motivat|cognitive load|learning (?:outcome|gain|perform|transfer|retention)|academic (?:achievement|perform)|learner autonomy|student (?:engagement|well.?being)|critical thinking|trust calibration|child development|developmental psycholog', re.I)
 PSYCH = re.compile(r'psycholog|mental health|psychotherap|psychiatr|cogniti|social scien|human behavio|personality|psychometr|student|educati|child|interview|social research', re.I)
 
 
@@ -50,57 +52,77 @@ def iso(dt):
     return dt.astimezone(UTC).isoformat(timespec='seconds').replace('+00:00', 'Z')
 
 
-def classify(record):
-    text = record.get('title', '') + ' ' + record.get('abstract', '')
-    if not LLM.search(text):
-        return None
-    hits = {key: len(re.findall(pattern, text, re.I)) for key, pattern in TERMS.items()}
-    if hits['methods'] and not PSYCH.search(text):
-        hits['methods'] = 0
-    best = max(hits, key=hits.get)
-    return best if hits[best] else None
+def screening(record):
+    title, abstract = record.get('title', ''), record.get('abstract', '')
+    if not (LLM.search(title) or len(LLM.findall(abstract)) >= 2):
+        return None, []
+    text = title + ' ' + abstract
+    signals = {key: sorted(set(m.group(0).lower() for m in re.finditer(pattern, text, re.I))) for key, pattern in TERMS.items()}
+    if signals['methods'] and not PSYCH.search(text):
+        signals['methods'] = []
+    if signals['education'] and not EDUCATION_PROCESS.search(text):
+        signals['education'] = []
+    scores = {key: (3 * len(set(m.group(0).lower() for m in re.finditer(TERMS[key], title, re.I))) + min(len(values), 3)) if values else 0 for key, values in signals.items()}
+    best = max(scores, key=scores.get)
+    if not scores[best]:
+        return None, []
+    return best, ['LLM-primary:title' if LLM.search(title) else 'LLM-primary:abstract>=2'] + [best + ':' + value for value in signals[best]]
 
+
+def classify(record):
+    return screening(record)[0]
 
 def normalize_title(title):
     return re.sub(r'[^\w]', '', title.casefold())
 
 
 def deduplicate(records):
-    """Union connected duplicate groups, including DOI/title bridge records."""
+    """Merge retrieved versions before date filtering; retain earliest known date."""
     groups = []
     for item in sorted(records, key=lambda r: (r.get('type') == 'preprint', r.get('id', ''))):
         doi = re.sub(r'^https?://(?:dx\.)?doi.org/', '', item.get('doi', '').lower()).strip()
         keys = {('title', normalize_title(item.get('title', ''))), ('id', item.get('id', ''))}
         if doi:
             keys.add(('doi', doi))
-        keys = {k for k in keys if k[1]}
-        matching = [g for g in groups if g[0] & keys]
+        keys = {key for key in keys if key[1]}
+        matching = [group for group in groups if group[0] & keys]
         if matching:
             keep = matching[0]
             keep[0].update(keys)
+            keep[1].append(item)
             for group in matching[1:]:
                 keep[0].update(group[0])
+                keep[1].extend(group[1])
                 groups.remove(group)
         else:
-            groups.append([keys, item])
-    return [g[1] for g in groups]
-
+            groups.append([keys, [item]])
+    output = []
+    for _, members in groups:
+        representative = dict(sorted(members, key=lambda row: (row.get('type') == 'preprint', row.get('id', '')))[0])
+        representative['recordPublishedAt'] = representative.get('publishedAt')
+        dates = [stamp(row.get('publishedAt')) for row in members]
+        dates = [value for value in dates if value is not None]
+        representative['publishedAt'] = iso(min(dates)) if dates else None
+        representative['dateBasis'] = 'earliest_retrieved_version'
+        versions = [{'id': row.get('id'), 'source': row.get('source'), 'url': row.get('url'), 'publishedAt': row.get('publishedAt'), 'type': row.get('type')} for row in members]
+        representative['versions'] = list({(row['id'], row['publishedAt']): row for row in versions}.values())
+        output.append(representative)
+    return output
 
 def eligible(records, now, days=90):
     accepted = []
-    for row in records:
+    for row in deduplicate(records):
         pub = stamp(row.get('publishedAt'))
-        theme = classify(row)
+        theme, signals = screening(row)
         if not pub or not now - timedelta(days=days) <= pub <= now or not theme:
             continue
         if not row.get('title') or not row.get('url', '').startswith(('https://', 'http://')):
             continue
-        row = dict(row, theme=theme, publishedAt=iso(pub))
+        row = dict(row, theme=theme, publishedAt=iso(pub), matchedSignals=signals)
         updated = stamp(row.get('updatedAt'))
         row['updatedAt'] = iso(updated) if updated and pub <= updated <= now else None
         accepted.append(row)
-    return deduplicate(accepted)
-
+    return accepted
 
 def select_daily(rows, now):
     # Deterministic recency then title relevance. No citation/quality score.
@@ -121,8 +143,8 @@ def select_daily(rows, now):
             break
         if row not in chosen:
             chosen.append(row)
-    return [{k: row.get(k) for k in ('id', 'title', 'url', 'publishedAt', 'updatedAt', 'type', 'source', 'theme')} | {
-        'reason': '公开元数据主题匹配；按发表新近性 + 标题关键词加分排序，并优先方向多样性。',
+    return [{k: row.get(k) for k in ('id', 'title', 'url', 'publishedAt', 'recordPublishedAt', 'updatedAt', 'type', 'source', 'theme', 'dateBasis', 'versions', 'matchedSignals')} | {
+        'reason': '公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。',
         'caution': '仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。',
     } for row in chosen]
 
@@ -188,20 +210,20 @@ def arxiv(now):
 
 
 METHODOLOGY = [
-    '公开元数据样本：Europe PMC 最多 300 条、arXiv 最多 200 条；查询和覆盖有偏差，不代表穷尽检索或领域排名。',
-    '必须同时匹配 LLM 与心理学相关主题；质性/复现方法还需心理学或人类研究语境。DOI、规范化标题或来源 ID 去重。',
-    '日报仅纳入原始发表时间在过去 90 天内的项目；更新时间不刷新文献年龄，缺失或未来发表日期排除。',
-    '每日 3 条：分数 = 90 − 发表年龄（天）+ 3 × 标题主题命中数（上限 3）；先选不同方向，再补齐。分数不是质量或影响力。',
-    '周报每周一更新五个固定方向；数量是过去 7 天首次发表且通过筛选的公开样本，零值不表示没有研究；不是趋势增速或完整热度排名。',
-    '部分来源失败时仍更新足量的日报及到期周报，明确标记覆盖不完整，并单独保留最近完整覆盖时间；全部失败或日报不足 3 条时保留此前日报，不编造条目。HTTP 429 暂停该来源 24 小时。',
-    '精选综述与图谱为独立人工策展输入；自动任务不覆盖 data/research.json 或 data/graph.json，不自动改写综述结论。',
+    "公开元数据样本：Europe PMC最多300条，arXiv最多200条；记录查询、条数上限及达到上限的状态；数据库覆盖有偏差，不是穷尽检索。",
+    "LLM需在标题出现或摘要至少提及两次；教育主题另需元认知、学习结局等心理过程信号；认知/社会行为不自动等同于人类模拟。保留匹配词供审查。",
+    "先按DOI、规范化标题或来源ID合并已检索版本，再取样本内最早已知日期；无法保证找全作品的旧版本。日报窗口90天，周报7天；缺失或未来日期排除。",
+    "每日3条按90−样本内最早已知发表年龄+标题主题信号排序，优先方向多样性。分数不是质量、影响力或疗效。",
+    "周报每周一更新，并在筛选规则变化时重算；五个预设方向按样本数排序，保留逐篇标题、链接、日期和匹配信号。零值不代表没有研究，不能称全领域前五。",
+    "单源失败可更新足量候选，但标明覆盖不完整；全部失败或不足3条保留旧日报与日期。HTTP429停止即时重试并冷却24小时。",
+    "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
 ]
 
 
 def refresh(previous, now, providers=None, force_weekly=False):
     providers = providers or {'Europe PMC': europe_pmc, 'arXiv': arxiv}
     output = copy.deepcopy(previous)
-    output.update(lastAttemptAt=iso(now), methodology=METHODOLOGY)
+    output.update(lastAttemptAt=iso(now), methodology=METHODOLOGY, screeningVersion=SCREENING_VERSION)
     output.setdefault('daily', [])
     output.setdefault('weekly', [])
     output.setdefault('dailyUpdatedAt', None)
@@ -234,6 +256,8 @@ def refresh(previous, now, providers=None, force_weekly=False):
     failures = any(r['state'] != 'ok' for r in results)
     all_failed = all(r['state'] != 'ok' for r in results)
     rows = eligible(records, now)
+    coverage = {'recordsFetched': len(records), 'deduplicatedRecords': len(deduplicate(records)), 'eligibleRecords': len(rows), 'sourceLimits': {'Europe PMC': 300, 'arXiv': 200}, 'sourceResults': [{'source': r['source'], 'state': r['state'], 'count': r.get('count'), 'limitReached': r.get('count', 0) >= {'Europe PMC': 300, 'arXiv': 200}.get(r['source'], 10**9)} for r in results], 'dateBasis': 'earliest retrieved version; earlier unobserved versions may exist', 'windowStart': iso(now - timedelta(days=90)), 'windowEnd': iso(now), 'queries': {'Europe PMC': '(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days', 'arXiv': '(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending'}}
+    output['attemptCoverage'] = coverage
     daily = select_daily(rows, now)
     messages = []
     if failures:
@@ -241,15 +265,21 @@ def refresh(previous, now, providers=None, force_weekly=False):
     if len(daily) < 3:
         messages.append(f'90 天内合格样本仅 {len(daily)} 条，保留此前日报；不补造条目。')
     if len(daily) == 3 and not all_failed:
-        output.update(daily=daily, dailyUpdatedAt=iso(now), dailyCoverage='partial' if failures else 'complete')
+        output.update(daily=daily, dailyUpdatedAt=iso(now), dailyCoverage='partial' if failures else 'complete', dailyPolicyVersion=SCREENING_VERSION, dailySample=copy.deepcopy(coverage))
         if not failures:
             output['lastCompleteDailyAt'] = iso(now)
     last_weekly = stamp(previous.get('weeklyUpdatedAt'))
     week_start = (now - timedelta(days=now.weekday())).replace(hour=0, minute=0, second=0, microsecond=0)
-    due = force_weekly or not previous.get('weekly') or last_weekly is None or last_weekly < week_start
+    due = force_weekly or previous.get('screeningVersion') != SCREENING_VERSION or not previous.get('weekly') or last_weekly is None or last_weekly < week_start
     if due and not all_failed:
         recent = [r for r in rows if stamp(r['publishedAt']) >= now - timedelta(days=7)]
-        output['weekly'] = [{'id': key, 'title': title, 'question': question, 'signal': f'过去 7 天公开检索样本 {sum(r["theme"] == key for r in recent)} 条；非穷尽统计。' + (' 来源覆盖不完整。' if failures else ''), 'count': sum(r['theme'] == key for r in recent), 'sourceIds': [r['id'] for r in recent if r['theme'] == key]} for key, (title, question) in DIRECTIONS.items()]
+        weekly = []
+        for key, (title, question) in DIRECTIONS.items():
+            matched = [row for row in recent if row['theme'] == key]
+            papers = [{field: row.get(field) for field in ('id', 'title', 'url', 'publishedAt', 'recordPublishedAt', 'dateBasis', 'matchedSignals')} for row in matched]
+            weekly.append({'id': key, 'title': title, 'question': question, 'signal': f'过去 7 天检索样本 {len(matched)} 条；仅在五个预设方向中按数量排序。' + (' 来源覆盖不完整。' if failures else ''), 'count': len(matched), 'sourceIds': [row['id'] for row in matched], 'papers': papers})
+        output['weekly'] = sorted(weekly, key=lambda row: (-row['count'], row['id']))
+        output['weeklySample'] = dict(coverage, windowStart=iso(now - timedelta(days=7)), weeklyRecords=len(recent), windowEnd=iso(now))
         output['weeklyUpdatedAt'] = iso(now)
         output['weeklyCoverage'] = 'partial' if failures else 'complete'
         if not failures:

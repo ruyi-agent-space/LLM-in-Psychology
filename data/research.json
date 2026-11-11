@@ -2,8 +2,8 @@
   "as_of": "2026-11-11",
   "window_start": "2025-11-11",
   "window_end": "2026-11-11",
-  "method_note": "经定向检索并核对出版社/ACL/arXiv原始页面的精选证据地图，不是穷尽性系统综述。日期采用首次在线发表，月份不强行补日；预印本修订另标。五方向与十挑战是跨文献编辑综合，不是任何单篇论文的原始分类。",
-  "coverage_note": "8项窗口内来源（包括方法指南），1项窗口外基础预印本。发展心理学目前主要由跨领域理论综述提供接口，缺少本轮已核实的儿童长期结局专门综述。",
+  "method_note": "经定向检索并核对出版社/ACL/arXiv原始页面的精选证据地图，不是穷尽性系统综述。窗口采用所引用版本的在线发表日期，不等同于该工作的首次公开日期；预印本首发与修订分别记录，月份不强行补日。五方向与十挑战是跨文献编辑综合。",
+  "coverage_note": "11项窗口内来源（包括方法指南），1项窗口外基础预印本；所引用版本日期不等于作品首次公开日期。教育及邻近教育技术来源较多，不能代表心理学分支均衡覆盖。发展心理学、儿童长期结局、老年与组织心理缺少本轮独立综述支持。",
   "sources": [
     {
       "id": "psychometrics-lifecycle",
@@ -23,13 +23,16 @@
       "title": "From Prompts to Constructs: A Dual-Validity Framework for Large Language Model Research in Psychology",
       "url": "https://doi.org/10.1146/annurev-psych-100925-034807",
       "date": "2026-08-10",
-      "date_note": "Review in Advance 首次上线；编入2027年第78卷，不能把卷年当作上线日期。",
+      "date_note": "所引用期刊版本于2026-08-10在线先行，编入2027年第78卷；工作预印本已于2025-06-20公开，2026-08-15修订。",
       "type": "理论 / 方法学综述",
       "scope": "心理测量、因果推断、认知建模、人类模拟",
       "findings": "工具性能、行为描述、人类模拟和认知机制主张需要逐层提高证据要求；需同时验证测量解释和因果推断。",
       "limitations": "提供评价框架，不是临床试验或定量系统综述；在线先行稿可能修改。",
       "window": "recent",
-      "verification": "Annual Reviews 原文摘要和日期已读取"
+      "verification": "Annual Reviews 原文摘要和日期已读取",
+      "preprint_first_published": "2025-06-20",
+      "preprint_updated": "2026-08-15",
+      "preprint_url": "https://arxiv.org/abs/2506.16697"
     },
     {
       "id": "clinical-meta",
@@ -40,9 +43,10 @@
       "type": "系统综述与元分析",
       "scope": "心理健康筛查、诊断、决策支持、治疗辅助和文书",
       "findings": "纳入66项研究，其中37项情境/模拟研究、22项回顾性研究、7项前瞻研究；较有希望的是结构明确的语言任务。",
-      "limitations": "诊断元分析仅8项研究，异质性及预测区间很大；不能据此宣称临床有效或可无人监督部署。",
+      "limitations": "诊断元分析仅8项研究，异质性及预测区间很大；不能据此宣称临床有效或可无人监督部署。 作者评定多数领域为低确定性，文档/监测为中等，但该领域未有前瞻实施研究；专业监督本身不能替代验证。",
       "window": "recent",
-      "verification": "JMIR正式全文已读取"
+      "verification": "JMIR正式全文已读取",
+      "search_cutoff": "2026-03"
     },
     {
       "id": "theory-integration",
@@ -93,9 +97,10 @@
       "type": "理论构建型系统综述",
       "scope": "教育心理、元认知、信任校准、共同调节",
       "findings": "纳入51项实证研究，提出元认知—信任—共同调节框架；教育价值取决于学习者对AI输出的检查与自主决策。",
-      "limitations": "主要为外语学习场景；理论综合不是因果机制的直接验证，不能直接推论儿童长期发展效果。",
+      "limitations": "限于外语学习。单作者提取和编码，无独立复核或编码者一致性程序，也未做正式质量或偏倚评估；框架不是因果机制验证，不能外推儿童长期发展效果。",
       "window": "recent",
-      "verification": "Frontiers全文摘要及日期已读取"
+      "verification": "Frontiers全文摘要及日期已读取",
+      "search_cutoff": "2026-06-16"
     },
     {
       "id": "pedagogy-umbrella",
@@ -105,10 +110,11 @@
       "date_note": "Springer正式发表日期。",
       "type": "综述的综述 / 系统证据综合",
       "scope": "教育心理、认知任务、学习支架、学习者自主性",
-      "findings": "按PRISMA和AMSTAR分析50篇综述，梳理建构主义、认知主义与联通主义等教学范式。",
-      "limitations": "二级证据可能重复纳入同一原始研究；不是50项独立试验，也不直接证明长期学习收益。",
+      "findings": "作者报告纳入50篇综述，梳理建构主义、认知主义与联通主义等教学范式；正文筛选及质量分组数字合计49，数量不一致待核对。",
+      "limitations": "检索截至2025-08，检索范围包含一般聊天机器人及智能辅导系统，不能全算纯LLM证据。二级证据可能重复纳入原始研究；正文数量不一致，不能视为50项独立试验或长期学习收益证明。",
       "window": "recent",
-      "verification": "Springer摘要及日期已读取"
+      "verification": "Springer摘要及日期已读取",
+      "search_cutoff": "2025-08"
     },
     {
       "id": "llm-psychometrics-foundation",
@@ -121,7 +127,49 @@
       "findings": "提供LLM心理测量的评价、验证和增强框架，作为近期综述的背景阅读。",
       "limitations": "预印本，原始首发在窗口外；给模型施测人类量表不自动建立跨实体构念效度。",
       "window": "foundational",
-      "verification": "arXiv版本历史已读取"
+      "verification": "arXiv版本历史已读取",
+      "preprint_first_published": "2025-05-13",
+      "preprint_updated": "2026-03-11"
+    },
+    {
+      "id": "mental-health-review",
+      "title": "Large Language Models in Mental Health Research and Treatment",
+      "url": "https://doi.org/10.1146/annurev-biodatasci-092524-113527",
+      "date": "2026-05-18",
+      "date_note": "Review in Advance 首发2026-05-18；卷刊日期2026-08。",
+      "type": "叙述性综述",
+      "scope": "语言评估、数字表型、电子病历分析与治疗早期应用",
+      "findings": "连接语言测量、心理健康研究和早期干预，讨论偏差、幻觉、隐私及不适当建议。",
+      "limitations": "不是定量疗效汇总；数字表型相关性不等于个体诊断有效，不能证明无人监督治疗安全。",
+      "window": "recent",
+      "verification": "Annual Reviews原始摘要与日期已核实"
+    },
+    {
+      "id": "safety-review",
+      "title": "Safety Mechanisms and Risk Mitigation in Generative AI Mental Health Chatbots: A Systematic Scoping Review",
+      "url": "https://doi.org/10.3390/healthcare14101395",
+      "date": "2026-05-20",
+      "date_note": "正式发表2026-05-20；检索截至2025-07，发表新近不等于证据检索新近。",
+      "search_cutoff": "2025-07",
+      "type": "系统范围综述",
+      "scope": "心理健康生成式AI聊天机器人的安全机制、危机转介与不良事件报告",
+      "findings": "综合21项研究，梳理监督、限制与危机应对机制，指出转介及不良事件监测报告不足。",
+      "limitations": "范围综述，不是安全机制效果量汇总；机制出现频率不能证明有效，离线测试不能推断真实危机处置安全。",
+      "window": "recent",
+      "verification": "出版社原页与综述方法已核实"
+    },
+    {
+      "id": "guide-llm",
+      "title": "A reporting checklist for large language models in behavioural science",
+      "url": "https://www.nature.com/articles/s41562-026-02492-7",
+      "date": "2026-06-09",
+      "date_note": "Nature Human Behaviour正式上线2026-06-09。",
+      "type": "方法报告规范 / Comment",
+      "scope": "行为科学LLM研究的透明性、复现与伦理记录",
+      "findings": "提供研究设计、模型与提示、数据、评价和结果报告的清单。",
+      "limitations": "报告规范本身不证明研究有效、构念成立或临床可用；不是系统综述。",
+      "window": "recent",
+      "verification": "Nature原始文章及日期已核实"
     }
   ],
   "directions": [
@@ -138,7 +186,7 @@
     },
     {
       "id": "D2",
-      "title": "认知、社会与行为模拟",
+      "title": "认知、社会行为与模拟",
       "question": "模型在哪些边界内能预测人类行为，哪些结果只是提示或训练数据的产物？",
       "methods": "人类对照、未见任务、人口分布匹配、因果干预和机制探查；分离行为拟合与认知解释。",
       "source_ids": [
@@ -153,7 +201,9 @@
       "question": "哪些受约束任务能在专业监督下改善真实工作流，而不增加伤害？",
       "methods": "前瞻真实场景评价；症状/功能结局与不良事件；明确升级人工与危机转介边界。",
       "source_ids": [
-        "clinical-meta"
+        "clinical-meta",
+        "mental-health-review",
+        "safety-review"
       ]
     },
     {
@@ -163,7 +213,8 @@
       "methods": "人机双重编码、分歧审计、原文证据定位、跨文化检验、隐私保护。",
       "source_ids": [
         "qualitative-review",
-        "psychometrics-lifecycle"
+        "psychometrics-lifecycle",
+        "guide-llm"
       ]
     },
     {
@@ -186,7 +237,9 @@
       "source_ids": [
         "dual-validity",
         "psychometrics-lifecycle"
-      ]
+      ],
+      "question": "指标解释能否跨提示、量表与人类外部效标成立？",
+      "test": "在独立人类样本检验收敛、区分与预测效度；改变提示与量表，检查不变性。"
     },
     {
       "id": "C2",
@@ -195,7 +248,9 @@
       "source_ids": [
         "simulator-guide",
         "psychometrics-lifecycle"
-      ]
+      ],
+      "question": "模型能否预测未见任务中的真人反应分布和个体差异？",
+      "test": "留出任务、人群和新题；比较完整分布、个体异质性及干预效应。"
     },
     {
       "id": "C3",
@@ -203,8 +258,11 @@
       "description": "提示措辞、随机采样、模型更新和训练截止期可改变结论。",
       "source_ids": [
         "simulator-guide",
-        "clinical-meta"
-      ]
+        "clinical-meta",
+        "guide-llm"
+      ],
+      "question": "结论在题序、采样、提示和版本改变后是否保持？",
+      "test": "记录模型、提示、采样和日期，多次运行及版本复测，报告方差与结论翻转。"
     },
     {
       "id": "C4",
@@ -212,7 +270,9 @@
       "description": "预测成功与认知机制相同是两种不同主张。",
       "source_ids": [
         "dual-validity"
-      ]
+      ],
+      "question": "预测准确是否足以支持所声称的因果与心理机制？",
+      "test": "预注册机制假设、竞争模型与反事实实验，分离行为拟合、因果效应和机制解释。"
     },
     {
       "id": "C5",
@@ -221,15 +281,21 @@
       "source_ids": [
         "psychometrics-lifecycle",
         "clinical-meta"
-      ]
+      ],
+      "question": "不同语言及群体的误差、构念解释和建议适宜性是否相同？",
+      "test": "与本地真人参照比较分组误差和DIF，检查跨语言不变性及群体内部差异。"
     },
     {
       "id": "C6",
       "title": "临床安全与危机处置",
       "description": "基准表现不能证明临床安全；诊断和治疗应保留专业监督。",
       "source_ids": [
-        "clinical-meta"
-      ]
+        "clinical-meta",
+        "safety-review",
+        "mental-health-review"
+      ],
+      "question": "多轮与隐含风险条件下，系统何时拒答、升级并完成转介？",
+      "test": "临床专家审阅多轮情境；评估严重风险漏检、误报、转介完成与延迟，并以带主动对照的前瞻研究记录真实结局和不良事件。另测有害迎合，专业监督不能替代验证。"
     },
     {
       "id": "C7",
@@ -237,7 +303,9 @@
       "description": "访谈、咨询记录与数字行为痕迹需要最小化采集、明确同意和受控存储。",
       "source_ids": [
         "psychometrics-lifecycle"
-      ]
+      ],
+      "question": "敏感心理数据的收集、保存、再利用、访问与删除是否可审计？",
+      "test": "检查最小化收集、知情同意、访问日志与删除验证；评估再识别及泄露风险。"
     },
     {
       "id": "C8",
@@ -245,16 +313,20 @@
       "description": "编码一致率不能取代意义解释、少数观点与文化语境。",
       "source_ids": [
         "qualitative-review"
-      ]
+      ],
+      "question": "辅助编码能否保留反例、语境、少数观点与研究者反思？",
+      "test": "人机双重编码与分歧审计，保留原文定位、反例和反思记录。"
     },
     {
       "id": "C9",
-      "title": "依赖、信任与长期发展",
-      "description": "即时任务提升不代表独立能力增长，需要评估自主性、过度依赖和长期迁移。",
+      "title": "学习自主性、信任与长期迁移",
+      "description": "此处依赖指学习中的能力卸载；现有教育来源不证明情感依赖、现实关系替代或儿童长期发展影响。",
       "source_ids": [
         "learning-psychology",
         "pedagogy-umbrella"
-      ]
+      ],
+      "question": "使用AI后的学习自主性和无AI迁移是否长期保持？",
+      "test": "纵向、延迟及无AI迁移测验，测量自主性、信任校准及能力卸载；年龄分层。"
     },
     {
       "id": "C10",
@@ -262,31 +334,37 @@
       "description": "区分预印本、叙述综述、系统综述与元分析；避免重复研究和出版日期混淆。",
       "source_ids": [
         "clinical-meta",
-        "pedagogy-umbrella"
-      ]
+        "pedagogy-umbrella",
+        "guide-llm"
+      ],
+      "question": "结论所依赖的研究设计、重复样本及更新状态是否透明？",
+      "test": "按设计评估偏倚与异质性，核查综述重叠、版本日期、检索截止及失败更新。"
     }
   ],
   "daily_readings": [
     {
       "source_id": "psychometrics-lifecycle",
-      "date": "2026-09-23",
       "why": "用一篇近期综述建立心理测量评价清单。",
       "reading_prompt": "你的目标指标在哪一步获得了人类数据验证？",
-      "disclaimer": "叙述性框架，不是干预效果证据；精选阅读不代表当日新发表。"
+      "disclaimer": "叙述性框架，不是干预效果证据；精选阅读不代表当日新发表。",
+      "publication_date": "2026-09-23",
+      "selected_for_batch": "2026-11-11"
     },
     {
       "source_id": "clinical-meta",
-      "date": "2026-08-31",
       "why": "用研究设计分布与宽预测区间校准对临床应用的预期。",
       "reading_prompt": "如果移除模拟和回顾性研究，结论还剩多少？",
-      "disclaimer": "不能据此支持自动诊断或无人监督心理治疗；不是今日新闻。"
+      "disclaimer": "不能据此支持自动诊断或无人监督心理治疗；不是今日新闻。",
+      "publication_date": "2026-08-31",
+      "selected_for_batch": "2026-11-11"
     },
     {
       "source_id": "learning-psychology",
-      "date": "2026-10-08",
       "why": "把视角扩展到元认知、信任与学习者自主性。",
       "reading_prompt": "学习者是否会验证输出，离开AI之后是否仍能完成任务？",
-      "disclaimer": "外语学习情境的理论综合，不能外推为儿童长期发展结论。"
+      "disclaimer": "外语学习情境的理论综合，不能外推为儿童长期发展结论。 单作者、无独立复核和正式质量评价。",
+      "publication_date": "2026-10-08",
+      "selected_for_batch": "2026-11-11"
     }
   ]
 }

@@ -6,7 +6,13 @@ on:
   push:
     branches: [main]
     paths:
-      - scripts/refresh.py
+      - 'scripts/**'
+      - 'tests/**'
+      - 'site/app.js'
+      - 'site/view-model.js'
+      - 'site/index.html'
+      - 'site/styles.css'
+      - 'data/research.json'
       - .github/workflows/refresh.yml
 permissions:
   contents: write
@@ -27,6 +33,15 @@ jobs:
           python-version: '3.12'
       - name: Fixture tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: JavaScript syntax and view regressions
+        run: |
+          node --check site/app.js
+          node --check site/view-model.js
+          node --test tests/test_view.cjs
+      - name: Check generated graph and bibliography
+        run: |
+          python scripts/build_data.py
+          git diff --exit-code -- data/graph.json site/graph-data.js site/research-data.js
       - name: Refresh metadata and record failures
         id: refresh
         continue-on-error: true

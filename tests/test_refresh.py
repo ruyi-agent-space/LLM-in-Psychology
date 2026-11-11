@@ -22,7 +22,7 @@ def fail(_):
 
 class RefreshTests(unittest.TestCase):
     def rows(self):
-        return [paper(1), paper(2, 'ChatGPT for personality measurement'), paper(3, 'Large language models in education')]
+        return [paper(1), paper(2, 'ChatGPT for personality measurement'), paper(3, 'Large language models for student metacognition')]
 
     def test_europe_pmc_parser(self):
         payload = {'resultList': {'result': [{'id': '123', 'source': 'MED', 'title': 'LLM mental health', 'firstPublicationDate': '2026-11-08', 'doi': '10/example', 'abstractText': '<p>Psychology</p>'}]}}
@@ -47,7 +47,7 @@ class RefreshTests(unittest.TestCase):
         self.assertIsNone(r.classify(paper(1, 'Depression in adults')))
         self.assertIsNone(r.classify(paper(1, 'LLM reproducibility in code generation')))
         self.assertEqual(r.classify(paper(1, 'LLM qualitative interviews in psychology')), 'methods')
-        for title, theme in [('LLM theory of mind', 'simulation'), ('LLM education', 'education'), ('LLM psychometrics', 'measurement'), ('LLM mental health', 'clinical')]:
+        for title, theme in [('LLM theory of mind', 'simulation'), ('LLM student metacognition', 'education'), ('LLM psychometrics', 'measurement'), ('LLM mental health', 'clinical')]:
             self.assertEqual(r.classify(paper(1, title)), theme)
 
     def test_dates(self):
@@ -151,7 +151,8 @@ class RefreshTests(unittest.TestCase):
 
     def test_weekly_fixed_sample(self):
         result = r.refresh({}, NOW, {'one': lambda _: self.rows() + [paper(4, 'LLM cognitive simulation', days=8)]})
-        self.assertEqual([x['id'] for x in result['weekly']], list(r.DIRECTIONS))
+        self.assertEqual({x['id'] for x in result['weekly']}, set(r.DIRECTIONS))
+        self.assertEqual([x['count'] for x in result['weekly']], sorted((x['count'] for x in result['weekly']), reverse=True))
         self.assertEqual(sum(x['count'] for x in result['weekly']), 3)
         self.assertEqual(result['dailyUpdatedAt'], r.iso(NOW))
         self.assertEqual(result['weeklyUpdatedAt'], r.iso(NOW))
@@ -162,6 +163,53 @@ class RefreshTests(unittest.TestCase):
         self.assertEqual(result['weekly'], [])
         self.assertIsNone(result['dailyUpdatedAt'])
         self.assertEqual(result['status']['state'], 'error')
+
+
+    def test_education_requires_psychological_process(self):
+        self.assertIsNone(r.classify(paper(1, 'LLM education for nurses')))
+        self.assertIsNone(r.classify(paper(2, 'LLM ophthalmic question answering', abstract='Patient education and readable information.')))
+        self.assertEqual(r.classify(paper(3, 'LLM student metacognition and learning transfer')), 'education')
+
+    def test_llm_must_be_primary(self):
+        self.assertIsNone(r.classify(paper(1, 'Cognitive load in analytics', abstract='ChatGPT is mentioned in related work.')))
+        self.assertEqual(r.classify(paper(2, 'Cognitive load in analytics', abstract='Large language models guide navigation. LLMs are evaluated for cognitive load.')), 'simulation')
+
+    def test_ptsd_and_matching_signals(self):
+        row = paper(1, 'LLM assessments of PTSD in cognitive therapy')
+        self.assertEqual(r.classify(row), 'clinical')
+        self.assertTrue(any('ptsd' in signal for signal in r.eligible([row], NOW)[0]['matchedSignals']))
+
+    def test_versions_merge_before_recency_filter(self):
+        old = paper('old', 'Original preprint', days=110, doi='10/example', type='preprint')
+        new = paper('new', 'LLM mental health journal version', days=1, doi='10/example')
+        self.assertEqual(r.eligible([new, old], NOW), [])
+
+    def test_retrieved_version_dates_are_auditable(self):
+        old = paper('old', 'Original title', days=30, doi='10/example', type='preprint')
+        new = paper('new', 'LLM mental health journal version', days=1, doi='10/example')
+        row = r.eligible([new, old], NOW)[0]
+        self.assertEqual(row['publishedAt'], old['publishedAt'])
+        self.assertEqual(row['recordPublishedAt'], new['publishedAt'])
+        self.assertEqual(row['type'], 'paper')
+        self.assertEqual(len(row['versions']), 2)
+
+    def test_weekly_counts_have_readable_evidence(self):
+        result = r.refresh({}, NOW, {'fixture': lambda _: self.rows()})
+        self.assertEqual(result['weeklySample']['eligibleRecords'], 3)
+        self.assertEqual(result['weeklySample']['weeklyRecords'], 3)
+        for item in result['weekly']:
+            self.assertEqual(item['count'], len(item['papers']))
+            self.assertEqual(item['sourceIds'], [row['id'] for row in item['papers']])
+            for row in item['papers']:
+                self.assertTrue(row['url'].startswith('https://'))
+                self.assertTrue(row['matchedSignals'])
+
+    def test_screening_policy_change_rebuilds_weekly(self):
+        previous = r.refresh({}, NOW, {'fixture': lambda _: self.rows()})
+        previous['screeningVersion'] = 'old-policy'
+        later = NOW + timedelta(days=1)
+        result = r.refresh(previous, later, {'fixture': lambda _: self.rows()})
+        self.assertEqual(result['weeklyUpdatedAt'], r.iso(later))
 
 if __name__ == '__main__':
     unittest.main()
@@ -175,7 +223,7 @@ class WeeklyRecoveryTests(unittest.TestCase):
         self.assertEqual(len(out['weekly']),5)
     def test_same_week_keeps_weekly_snapshot(self):
         now=NOW+timedelta(days=2)
-        old={'daily':[],'weekly':[{'id':'previous'}],'weeklyUpdatedAt':r.iso(NOW)}
+        old={'daily':[],'weekly':[{'id':'previous'}],'weeklyUpdatedAt':r.iso(NOW),'screeningVersion':r.SCREENING_VERSION}
         out=r.refresh(old,now,providers={'fixture':lambda _:[]})
         self.assertEqual(out['weekly'],old['weekly'])
         self.assertEqual(out['weeklyUpdatedAt'],old['weeklyUpdatedAt'])
