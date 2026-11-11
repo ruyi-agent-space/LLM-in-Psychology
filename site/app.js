@@ -238,6 +238,7 @@
     $('#toast').textContent=t('exported');$('#toast').style.display='block';setTimeout(()=>$('#toast').style.display='none',2500);
   };
   $$('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
+  $('#researchQuestion').value='';
   $('#questionForm').onsubmit=event=>{event.preventDefault();exploreQuestion();};
   $$('[data-explorer-example]').forEach(button=>button.onclick=()=>{$('#researchQuestion').value=t(button.dataset.explorerExample);exploreQuestion();});
   window.addEventListener('hashchange',route);

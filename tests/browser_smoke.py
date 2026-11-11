@@ -252,6 +252,14 @@ def run_case(browser, base, width, height, folder, language):
             no_overflow(page, section)
             if language == 'en':
                 assert_english_view(page, 'Mixed-language section: ' + section)
+        page.locator('.navigation a[href="#network"]').click()
+        question_input.fill(question)
+        page.locator('#exploreQuestion').click()
+        expect(page.locator('#explorerResults')).to_be_visible()
+        page.reload(wait_until='networkidle')
+        expect(page.locator('#researchQuestion')).to_have_value('')
+        expect(page.locator('#explorerResults')).to_be_hidden()
+        expect(page.locator('html')).to_have_attribute('lang','en' if language == 'en' else 'zh-CN')
         assert not unexpected, unexpected
         assert not errors, errors
         assert not failed_requests, failed_requests
