@@ -1,41 +1,25 @@
-# GitHub Pages readiness · 2026-11-11
+# Public GitHub Pages
 
-Verified starting state: private source repository, `has_pages=false`, main `b6d90253a357c7fb6ed8265f46c3f1be78d0d2d4`. No website has been published by this change.
+Target: https://ruyi-agent-space.github.io/LLM-in-Psychology/
 
-## Audience and account prerequisites
+The repository was verified public with Pages enabled before preparing this deployment. Only `site/` is published. Its seven files were checked for credentials, individual records and nonpublic clinical/interview content; the reviewed content is a research map plus public paper metadata. This is a scoped inspection, not a guarantee about all repository history.
 
-A private source repository does not make its Pages website private. GitHub Pro/Team can host from private repositories, but visitor access remains public unless the organization has Enterprise Cloud access control and explicitly chooses Private. Organization plan and private-Pages entitlement have not been verified.
+## Update order
 
-- [Pages access control](https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)
-- [Publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-- [Enterprise Cloud Pages API](https://docs.github.com/en/enterprise-cloud@latest/rest/pages/pages#update-information-about-a-github-enterprise-cloud-pages-site)
+The radar runs at 06:00 UTC and recomputes weekly counts on Monday or after a missed update. A successful main radar workflow completion triggers the Pages workflow. It checks latest main, runs the data and browser tests, and publishes the exact checked artifact. Source changes or manual dispatch can also deploy. PR runs only validate.
 
-Before enabling deployment, an authorized administrator must verify Enterprise Cloud eligibility and organization permission to create private project sites; configure Pages Source as GitHub Actions and its visitor visibility as Private; then verify Pages metadata has `public:false` and `build_type:workflow`. Keep the repository private. Use the actual returned private URL; do not assume the public Finance-style URL.
+This completion trigger is required because pushes made with `GITHUB_TOKEN` do not trigger another push workflow. A failed radar run does not replace the site; its last snapshot retains date-based stale warnings. Successful partial-source refreshes retain their visible partial-coverage status.
 
-Current connected tools manage repository contents and PRs but do not expose Pages administration or organization-plan settings. No local execution environment is available. Administrative settings have not been changed.
+## Deployment checks
 
-## Prepared workflow
+The guard verifies the original repository is public, the existing Pages site is public, its source is GitHub Actions, and its URL matches the expected project site. It does not create Pages or change visibility. A missing setting or insufficient permission stops deployment with the exact failing step.
 
-`.github/workflows/pages.yml` validates the app and creates a private downloadable artifact. Deployment is disabled unless the repository variable `PSYCHOLOGY_PAGES_MODE` is explicitly `private`. The guard then requires both repository and Pages privacy to be verified. Missing configuration, permission errors, public visibility or unknown privacy stop deployment. The workflow does not create Pages or change visibility.
+The deployment uses `github-pages`, Pages write and OIDC permissions, a unique artifact name and an artifact-availability check. The deploy checkout is pinned to the validated source SHA. The workflow then opens the actual deployed URL in anonymous Chromium at desktop and narrow widths, checks project-path assets, navigation, JSON bytes and document overflow.
 
-After an authorized administrator confirms private access, set that variable and run the Pages workflow. It uses the existing `github-pages` environment and Pages/OIDC permissions. Environment protection may require approval. OIDC authenticates deployment; it does not control visitor access.
+A cron entry is not proof of a completed scheduled publication. Deployment and live-check evidence must be read from the actual Pages run. If the repository audience is changed later, reassess the existing website's audience separately; the guard only controls new deployments.
 
-## Refresh and deployment order
+## Administrative settings
 
-The radar refresh remains at 06:00 UTC, with weekly counts on Monday and missed-update recovery. Pages listens for successful main-branch radar workflow completion, validates latest main, and deploys the exact checked artifact. PR runs cannot deploy. Source changes and manual dispatch can also validate the site.
+In Settings > Pages, Source must be GitHub Actions. If it is not, an administrator must change that setting. Existing connected repository tools do not expose Pages administration; the workflow will report its read-back configuration. Do not change repository visibility to bypass a settings failure.
 
-A data commit made with `GITHUB_TOKEN` does not trigger another push workflow. The completion trigger avoids that gap. [GitHub trigger rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
-
-A failed refresh is not published. The previous site remains with date-based stale warnings. A successful partial-source refresh may deploy with its partial-coverage warning. Counts and metadata selection do not establish research quality.
-
-## Acceptance evidence still required
-
-- Read back repository privacy and Pages `public:false`.
-- Record a successful deployment and actual private URL.
-- Verify an authorized reader can view it, while anonymous/no-access visitors cannot fetch HTML or JS/data.
-- Verify project-path assets, desktop/mobile controls, node links and downloaded JSON.
-- Verify a real refresh completion leads to a real Pages deployment; cron configuration alone is not proof.
-
-The existing [post-merge radar run](https://github.com/ruyi-agent-space/LLM-in-Psychology/actions/runs/42974835666) succeeded and updated data at 06:47:03 UTC. It did not deploy Pages. arXiv remained in 429 cooldown; Europe PMC reached its 300-record cap.
-
-If public visitor access is preferred, obtain explicit approval. Publishing the website exposes its HTML, browser code and bundled research data even if git history stays private. Making the repository public is a separate, broader change exposing repository contents and history; it is not required for private Pages.
+Official references: [custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [trigger rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).

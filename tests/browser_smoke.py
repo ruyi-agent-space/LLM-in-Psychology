@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Local HTTP browser checks only; no deployment or external-source access."""
+import argparse
 import functools
 import json
 import sys
 import tempfile
 import threading
+import time
+from urllib.request import Request, urlopen
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -51,9 +54,9 @@ def run_case(browser, base, width, height, folder):
         parsed = urlsplit(route.request.url)
         if parsed.scheme in ('blob','data'):
             route.continue_()
-        elif parsed.scheme == 'http' and parsed.netloc == origin and parsed.path.startswith(PREFIX):
+        elif parsed.scheme in ('http','https') and parsed.netloc == origin and parsed.path.startswith(PREFIX):
             route.continue_()
-        elif parsed.scheme == 'http' and parsed.netloc == origin and parsed.path == '/favicon.ico':
+        elif parsed.scheme in ('http','https') and parsed.netloc == origin and parsed.path == '/favicon.ico':
             route.fulfill(status=204, body='')
         else:
             unexpected.append(route.request.url)
@@ -67,6 +70,9 @@ def run_case(browser, base, width, height, folder):
     try:
         response = page.goto(base, wait_until='networkidle')
         assert response and response.status == 200
+        actual_radar = page.evaluate('window.RADAR_DATA')
+        expected_radar = json.loads((ROOT / 'data/radar.json').read_text())
+        assert actual_radar == expected_radar, 'Hosted radar differs from the checked deployment snapshot'
         graph = page.evaluate('window.GRAPH_DATA')
         research = page.evaluate('window.RESEARCH_DATA')
         daily_count = page.evaluate('(window.RADAR_DATA.daily || []).length')
@@ -135,7 +141,7 @@ def run_case(browser, base, width, height, folder):
             no_overflow(page, section)
         assert not unexpected, unexpected
         assert not errors, errors
-        return {'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'status':'passed'}
+        return {'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'dailyUpdatedAt':actual_radar.get('dailyUpdatedAt'), 'weeklyUpdatedAt':actual_radar.get('weeklyUpdatedAt'), 'coverage':actual_radar.get('status',{}).get('state'), 'status':'passed'}
     except Exception:
         print(json.dumps({'viewport':width,'pageErrors':errors,'blockedRequests':unexpected}, ensure_ascii=False), file=sys.stderr)
         raise
@@ -143,12 +149,43 @@ def run_case(browser, base, width, height, folder):
         context.close()
 
 
+
+def wait_for_public_site(base):
+    expected = json.loads((ROOT / 'data/radar.json').read_text())
+    error = None
+    for attempt in range(12):
+        try:
+            headers = {'Cache-Control':'no-cache', 'User-Agent':'Psychology-Pages-Verification'}
+            with urlopen(Request(base, headers=headers), timeout=15) as response:
+                html = response.read(300000).decode('utf-8')
+            with urlopen(Request(base + 'radar-data.js', headers=headers), timeout=15) as response:
+                wrapper = response.read(800000).decode('utf-8').strip()
+            actual = json.loads(wrapper.removeprefix('window.RADAR_DATA = ').removesuffix(';').strip())
+            if 'PUBLIC RESEARCH ATLAS' in html and actual == expected:
+                return
+            error = RuntimeError('The deployed page or radar snapshot is not current yet.')
+        except Exception as exc:
+            error = exc
+        if attempt < 11:
+            time.sleep(5)
+    raise RuntimeError(f'Live site did not match the checked deployment: {type(error).__name__}: {error}')
+
+
 def main():
-    assert (SITE / 'index.html').is_file()
-    server = ThreadingHTTPServer(('127.0.0.1',0), functools.partial(PrefixHandler, directory=str(SITE)))
-    thread = threading.Thread(target=server.serve_forever, daemon=True)
-    thread.start()
-    base = f'http://127.0.0.1:{server.server_port}{PREFIX}'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--url', help='Verify the authorized public Pages URL')
+    args = parser.parse_args()
+    server, thread = None, None
+    if args.url:
+        base = args.url.rstrip('/') + '/'
+        assert base == 'https://ruyi-agent-space.github.io/LLM-in-Psychology/', 'Unexpected live verification target'
+        wait_for_public_site(base)
+    else:
+        assert (SITE / 'index.html').is_file()
+        server = ThreadingHTTPServer(('127.0.0.1',0), functools.partial(PrefixHandler, directory=str(SITE)))
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        base = f'http://127.0.0.1:{server.server_port}{PREFIX}'
     try:
         with tempfile.TemporaryDirectory(prefix='psychology-smoke-') as folder:
             with sync_playwright() as playwright:
@@ -158,10 +195,11 @@ def main():
                 finally:
                     browser.close()
     finally:
-        server.shutdown()
-        server.server_close()
-        thread.join(timeout=5)
-    print(json.dumps({'browserSmoke':reports}, ensure_ascii=False))
+        if server:
+            server.shutdown()
+            server.server_close()
+            thread.join(timeout=5)
+    print(json.dumps({'mode':'live' if args.url else 'local', 'url':base, 'browserSmoke':reports}, ensure_ascii=False))
 
 
 if __name__ == '__main__':
