@@ -41,7 +41,7 @@ class GraphTests(unittest.TestCase):
             self.assertTrue(s['date_note'])
             self.assertLessEqual(s['date'],self.r['window_end'])
             if s['window']=='recent':self.assertGreaterEqual(s['date'],self.r['window_start'])
-        self.assertEqual(sum(s['window']=='recent' for s in self.r['sources']),8)
+        self.assertEqual(sum(s['window']=='recent' for s in self.r['sources']),11)
     def test_browser_wrappers_match(self):
         for name,var in [('graph','GRAPH_DATA'),('research','RESEARCH_DATA'),('radar','RADAR_DATA')]:
             js=(ROOT/f'site/{name}-data.js').read_text()
@@ -53,4 +53,26 @@ class GraphTests(unittest.TestCase):
         self.assertNotIn('https://fonts.',html)
         self.assertNotIn('fetch(', (ROOT/'site/app.js').read_text())
         self.assertNotIn('PUBLIC ·',html)
+
+    def test_context_is_selected_and_relationship_evidence_is_explicit(self):
+        ids = {source['id'] for source in self.r['sources']}
+        technology_sources = {tuple(n['sourceIds']) for n in self.g['nodes'] if n['layer'] == 'technology'}
+        self.assertGreater(len(technology_sources), 1)
+        self.assertIn('clinical', self.by['F22']['domains'])
+        for edge in self.g['edges']:
+            self.assertTrue(edge['rationale'])
+            self.assertEqual(edge['relationshipEvidence'], 'unverified')
+            self.assertTrue(set(edge['contextSourceIds']).issubset(ids))
+            if edge['contextSourceIds']:
+                self.assertTrue(edge['contextLocation'])
+        self.assertTrue(self.by['P14']['evidenceGap'])
+
+    def test_challenges_are_researchable_and_source_dates_disambiguated(self):
+        for challenge in self.r['challenges']:
+            self.assertTrue(challenge['question'])
+            self.assertTrue(challenge['test'])
+        dual = next(source for source in self.r['sources'] if source['id'] == 'dual-validity')
+        self.assertLess(dual['preprint_first_published'], self.r['window_start'])
+        self.assertGreater(dual['date'], self.r['window_start'])
+
 if __name__=='__main__':unittest.main()

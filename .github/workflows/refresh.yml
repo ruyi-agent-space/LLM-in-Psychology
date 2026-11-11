@@ -3,18 +3,60 @@ on:
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths:
-      - scripts/refresh.py
+      - 'scripts/**'
+      - 'tests/**'
+      - 'site/app.js'
+      - 'site/view-model.js'
+      - 'site/index.html'
+      - 'site/styles.css'
+      - 'data/research.json'
       - .github/workflows/refresh.yml
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: psychology-radar-main
   cancel-in-progress: false
 jobs:
+  verify-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python regressions
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: JavaScript syntax and view regressions
+        run: |
+          node --check site/app.js
+          node --check site/view-model.js
+          node --test tests/test_*.cjs
+      - name: Check generated graph and bibliography
+        run: |
+          python scripts/build_data.py
+          git diff --exit-code -- data/graph.json site/graph-data.js site/research-data.js
+      - name: Read-only metadata preview
+        id: preview
+        continue-on-error: true
+        run: python scripts/refresh.py --summary
+      - name: Private review preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: psychology-review-preview
+          path: site/
+          if-no-files-found: error
+          retention-days: 14
   refresh:
+    permissions:
+      contents: write
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -27,6 +69,15 @@ jobs:
           python-version: '3.12'
       - name: Fixture tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: JavaScript syntax and view regressions
+        run: |
+          node --check site/app.js
+          node --check site/view-model.js
+          node --test tests/test_view.cjs
+      - name: Check generated graph and bibliography
+        run: |
+          python scripts/build_data.py
+          git diff --exit-code -- data/graph.json site/graph-data.js site/research-data.js
       - name: Refresh metadata and record failures
         id: refresh
         continue-on-error: true

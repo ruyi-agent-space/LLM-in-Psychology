@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "LLM in Psychology Research Atlas",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "asOf": "2026-11-11",
-    "evidencePolicy": "All edges are editorial hypotheses; source links establish topic context, not efficacy. No personal participant data.",
+    "evidencePolicy": "All edges are unverified editorial hypotheses. Selected review citations provide context, not evidence that a relation is effective or necessary.",
     "domains": {
       "measurement": "心理测量",
       "cognitive": "认知与决策",
@@ -12,7 +12,8 @@
       "methods": "质性与研究方法",
       "education": "教育与学习",
       "developmental": "发展与生命周期"
-    }
+    },
+    "domainPolicy": "Domains describe editorial use contexts, not evidence strength. Cross-cutting technologies are shown through their connections; developmental evidence gaps remain explicit."
   },
   "nodes": [
     {
@@ -33,17 +34,12 @@
       "metric": "任务外测试、错误分布",
       "risk": "训练数据偏差与能力错觉",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
         "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "dual-validity"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T02",
@@ -63,17 +59,12 @@
       "metric": "提示敏感性、重复运行一致性",
       "risk": "角色设定不等于真实人格",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
         "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T03",
@@ -81,29 +72,21 @@
       "en": "Retrieval & grounding",
       "layer": "technology",
       "domains": [
-        "measurement",
-        "cognitive",
-        "social",
-        "clinical",
         "methods",
-        "education",
-        "developmental"
+        "clinical",
+        "education"
       ],
       "description": "检索公开来源并定位原始证据。",
       "metric": "检索召回、引文蕴含",
       "risk": "检索到文献不代表正确解释",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
         "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "safety-review",
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T04",
@@ -114,26 +97,19 @@
         "measurement",
         "cognitive",
         "social",
-        "clinical",
-        "methods",
-        "education",
-        "developmental"
+        "clinical"
       ],
       "description": "适配受约束研究任务。",
       "metric": "独立保留集、基线比较",
       "risk": "数据污染与群体过拟合",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
         "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "simulator-guide"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T05",
@@ -143,27 +119,20 @@
       "domains": [
         "measurement",
         "cognitive",
-        "social",
-        "clinical",
         "methods",
-        "education",
-        "developmental"
+        "clinical",
+        "social"
       ],
       "description": "把文本转为可比较表征。",
       "metric": "外部效度、测量不变性",
       "risk": "表征距离不等于心理距离",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "mental-health-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T06",
@@ -171,29 +140,20 @@
       "en": "Structured tools",
       "layer": "technology",
       "domains": [
-        "measurement",
-        "cognitive",
-        "social",
-        "clinical",
         "methods",
-        "education",
-        "developmental"
+        "clinical",
+        "measurement"
       ],
       "description": "形成可检验的结构化记录。",
       "metric": "字段正确率、工具审计",
       "risk": "格式正确不保证内容正确",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
         "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T07",
@@ -201,11 +161,7 @@
       "en": "Multimodal models",
       "layer": "technology",
       "domains": [
-        "measurement",
         "cognitive",
-        "social",
-        "clinical",
-        "methods",
         "education",
         "developmental"
       ],
@@ -213,17 +169,12 @@
       "metric": "模态消融、分组误差",
       "risk": "表情或声音不直接揭示心理状态",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
         "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "mental-health-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T08",
@@ -231,29 +182,21 @@
       "en": "Longitudinal state",
       "layer": "technology",
       "domains": [
-        "measurement",
-        "cognitive",
-        "social",
         "clinical",
-        "methods",
-        "education",
-        "developmental"
+        "social",
+        "developmental",
+        "education"
       ],
       "description": "在同意范围内追踪研究状态。",
       "metric": "时间一致性、删除验证",
       "risk": "敏感轨迹泄露与错误累积",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "mental-health-review",
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T09",
@@ -262,11 +205,9 @@
       "layer": "technology",
       "domains": [
         "measurement",
+        "clinical",
         "cognitive",
         "social",
-        "clinical",
-        "methods",
-        "education",
         "developmental"
       ],
       "description": "表达校准、拒答和不确定性。",
@@ -274,16 +215,11 @@
       "risk": "自报置信度未必可靠",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T10",
@@ -303,17 +239,13 @@
       "metric": "独立测试、最坏组结果",
       "risk": "基准泄漏与代理指标优化",
       "sourceIds": [
-        "psychometrics-lifecycle",
         "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "llm-psychometrics-foundation",
+        "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T11",
@@ -321,29 +253,21 @@
       "en": "Privacy controls",
       "layer": "technology",
       "domains": [
-        "measurement",
-        "cognitive",
-        "social",
-        "clinical",
         "methods",
-        "education",
-        "developmental"
+        "clinical",
+        "developmental",
+        "measurement"
       ],
       "description": "最小化数据、分权访问与受控保留。",
       "metric": "再识别攻击、删除与访问审计",
       "risk": "去标识化不保证匿名",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "safety-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T12",
@@ -352,28 +276,20 @@
       "layer": "technology",
       "domains": [
         "measurement",
-        "cognitive",
         "social",
         "clinical",
-        "methods",
-        "education",
-        "developmental"
+        "education"
       ],
       "description": "检查语言与情境差异。",
       "metric": "跨语言不变性、群体误差",
       "risk": "直译不等于文化等价",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T13",
@@ -381,29 +297,20 @@
       "en": "Provenance",
       "layer": "technology",
       "domains": [
-        "measurement",
-        "cognitive",
-        "social",
-        "clinical",
         "methods",
-        "education",
-        "developmental"
+        "clinical",
+        "measurement"
       ],
       "description": "保留来源、日期和处理轨迹。",
       "metric": "证据可追溯率",
       "risk": "伪引文与来源丢失",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "guide-llm",
+        "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T14",
@@ -411,11 +318,10 @@
       "en": "Causal design",
       "layer": "technology",
       "domains": [
-        "measurement",
         "cognitive",
         "social",
-        "clinical",
         "methods",
+        "measurement",
         "education",
         "developmental"
       ],
@@ -423,17 +329,12 @@
       "metric": "随机化、混淆检查、敏感性分析",
       "risk": "预测与机制解释混淆",
       "sourceIds": [
-        "psychometrics-lifecycle",
         "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "simulator-guide"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T15",
@@ -442,7 +343,6 @@
       "layer": "technology",
       "domains": [
         "measurement",
-        "cognitive",
         "social",
         "clinical",
         "methods",
@@ -453,17 +353,13 @@
       "metric": "升级召回率、人工负担",
       "risk": "橡皮图章式监督",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
         "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "safety-review",
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T16",
@@ -471,29 +367,21 @@
       "en": "Safety guardrails",
       "layer": "technology",
       "domains": [
-        "measurement",
-        "cognitive",
-        "social",
         "clinical",
         "methods",
-        "education",
-        "developmental"
+        "developmental",
+        "education"
       ],
       "description": "约束系统行为与高风险输出。",
       "metric": "对抗测试、漏报与误报",
       "risk": "单层过滤不能保证安全",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
         "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "safety-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T17",
@@ -502,28 +390,22 @@
       "layer": "technology",
       "domains": [
         "measurement",
-        "cognitive",
-        "social",
-        "clinical",
         "methods",
-        "education",
+        "clinical",
+        "social",
+        "cognitive",
         "developmental"
       ],
       "description": "记录模型、提示、采样与变化。",
       "metric": "版本复现率、漂移监测",
       "risk": "闭源服务漂移与不可复现",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
-        "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "guide-llm",
+        "simulator-guide"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "T18",
@@ -531,29 +413,21 @@
       "en": "Agent orchestration",
       "layer": "technology",
       "domains": [
-        "measurement",
         "cognitive",
         "social",
         "clinical",
-        "methods",
-        "education",
-        "developmental"
+        "education"
       ],
       "description": "管理受限模拟与工具步骤。",
       "metric": "轨迹审计、消融与人工对照",
       "risk": "涌现叙事不代表人类机制",
       "sourceIds": [
-        "psychometrics-lifecycle",
-        "dual-validity",
-        "theory-integration",
         "simulator-guide",
-        "clinical-meta",
-        "qualitative-review",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": true
     },
     {
       "id": "F01",
@@ -568,12 +442,12 @@
       "metric": "引用支持率、漏检率",
       "risk": "把相关性误当支持",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "clinical-meta"
+        "clinical-meta",
+        "guide-llm"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F02",
@@ -587,11 +461,12 @@
       "metric": "设计识别、重复研究检查",
       "risk": "叙述流畅掩盖异质性",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity"
+        "clinical-meta",
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F03",
@@ -606,12 +481,12 @@
       "metric": "精确率、召回率、人工差异",
       "risk": "遗漏关键否定与语境",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "clinical-meta"
+        "clinical-meta",
+        "mental-health-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F04",
@@ -625,11 +500,11 @@
       "metric": "分歧审计、反例与反思记录",
       "risk": "抹平少数观点",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity"
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F05",
@@ -645,12 +520,11 @@
       "risk": "内容新颖不代表有效",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "llm-psychometrics-foundation"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F06",
@@ -665,12 +539,12 @@
       "metric": "收敛、区分与预测效度",
       "risk": "跨实体构念误用",
       "sourceIds": [
-        "psychometrics-lifecycle",
         "dual-validity",
-        "theory-integration"
+        "psychometrics-lifecycle"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F07",
@@ -686,11 +560,12 @@
       "risk": "从个体语言武断推断心理状况",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "clinical-meta"
+        "clinical-meta",
+        "mental-health-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F08",
@@ -706,11 +581,11 @@
       "risk": "拟人化、权威感与过度信任",
       "sourceIds": [
         "clinical-meta",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "learning-psychology"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F09",
@@ -724,10 +599,12 @@
       "metric": "漏报、误报、响应延迟",
       "risk": "漏掉危机或错误安抚",
       "sourceIds": [
-        "clinical-meta"
+        "clinical-meta",
+        "safety-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F10",
@@ -743,11 +620,11 @@
       "risk": "把通用教育当个体治疗",
       "sourceIds": [
         "clinical-meta",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "mental-health-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F11",
@@ -762,12 +639,12 @@
       "metric": "角色一致性、训练迁移",
       "risk": "刻板印象和过度简化",
       "sourceIds": [
-        "clinical-meta",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "simulator-guide",
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F12",
@@ -783,11 +660,11 @@
       "risk": "替代真实参与者",
       "sourceIds": [
         "simulator-guide",
-        "theory-integration",
         "dual-validity"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F13",
@@ -802,12 +679,14 @@
       "metric": "对照条件、反事实鲁棒性",
       "risk": "把答题正确当心理机制",
       "sourceIds": [
-        "simulator-guide",
         "theory-integration",
-        "learning-psychology"
+        "llm-psychometrics-foundation"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false,
+      "evidenceGap": "本轮来源提供理论或邻近场景背景，未核实儿童长期结局专门证据。",
+      "ageScope": "不可从成人或外语学习证据推断儿童长期效果。"
     },
     {
       "id": "F14",
@@ -822,12 +701,12 @@
       "metric": "留出任务误差、分布差异",
       "risk": "样本记忆与外推失败",
       "sourceIds": [
-        "theory-integration",
         "dual-validity",
         "simulator-guide"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F15",
@@ -842,12 +721,12 @@
       "metric": "独立可检验性、预注册一致性",
       "risk": "事后合理化和研究者自由度",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "theory-integration"
+        "guide-llm",
+        "dual-validity"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F16",
@@ -863,12 +742,11 @@
       "risk": "语义、文化或难度混淆",
       "sourceIds": [
         "theory-integration",
-        "dual-validity",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "learning-psychology"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F17",
@@ -884,12 +762,11 @@
       "risk": "字面翻译丢失意义",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "simulator-guide",
-        "theory-integration"
+        "llm-psychometrics-foundation"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F18",
@@ -904,12 +781,14 @@
       "metric": "时间外测试、缺失机制敏感性",
       "risk": "把漂移误当个体变化",
       "sourceIds": [
-        "theory-integration",
-        "learning-psychology",
-        "clinical-meta"
+        "mental-health-review",
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false,
+      "evidenceGap": "本轮来源提供理论或邻近场景背景，未核实儿童长期结局专门证据。",
+      "ageScope": "不可从成人或外语学习证据推断儿童长期效果。"
     },
     {
       "id": "F19",
@@ -925,11 +804,13 @@
       "risk": "依赖与能力卸载",
       "sourceIds": [
         "learning-psychology",
-        "pedagogy-umbrella",
-        "theory-integration"
+        "pedagogy-umbrella"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false,
+      "evidenceGap": "本轮来源提供理论或邻近场景背景，未核实儿童长期结局专门证据。",
+      "ageScope": "不可从成人或外语学习证据推断儿童长期效果。"
     },
     {
       "id": "F20",
@@ -944,12 +825,12 @@
       "metric": "审计可重建率、事实支持",
       "risk": "推理文本不等于真实机制",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
+        "guide-llm",
         "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F21",
@@ -965,12 +846,11 @@
       "risk": "平均分掩盖伤害",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "simulator-guide",
-        "theory-integration"
+        "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F22",
@@ -979,19 +859,19 @@
       "layer": "function",
       "domains": [
         "methods",
-        "developmental"
+        "developmental",
+        "clinical"
       ],
       "description": "约束采集、共享、保留和删除。",
       "metric": "同意可理解性、再识别与删除检查",
       "risk": "敏感文本与未成年人暴露",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "theory-integration",
-        "learning-psychology"
+        "psychometrics-lifecycle",
+        "safety-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F23",
@@ -1006,12 +886,12 @@
       "metric": "多次运行与版本敏感性",
       "risk": "不可获取模型和时间漂移",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "psychometrics-lifecycle"
+        "guide-llm",
+        "llm-psychometrics-foundation"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "F24",
@@ -1027,11 +907,11 @@
       "risk": "仿真故事被误作实证",
       "sourceIds": [
         "simulator-guide",
-        "theory-integration",
-        "dual-validity"
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P01",
@@ -1049,7 +929,8 @@
         "dual-validity"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P02",
@@ -1065,12 +946,11 @@
       "risk": "群体公平性不足",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "simulator-guide",
-        "theory-integration"
+        "llm-psychometrics-foundation"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P03",
@@ -1084,11 +964,12 @@
       "metric": "未见条件预测、效应方向",
       "risk": "记忆已有实验答案",
       "sourceIds": [
-        "theory-integration",
+        "simulator-guide",
         "dual-validity"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P04",
@@ -1103,10 +984,11 @@
       "risk": "人格标签拟人化",
       "sourceIds": [
         "simulator-guide",
-        "theory-integration"
+        "llm-psychometrics-foundation"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P05",
@@ -1122,11 +1004,11 @@
       "risk": "无法推广真实社会",
       "sourceIds": [
         "simulator-guide",
-        "theory-integration",
-        "dual-validity"
+        "theory-integration"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P06",
@@ -1140,11 +1022,11 @@
       "metric": "反例、分歧、反思记录",
       "risk": "语境流失与隐私泄露",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity"
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P07",
@@ -1159,12 +1041,13 @@
       "metric": "独立标注、跨语境稳健性",
       "risk": "从语言过度推断心理状态",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "theory-integration"
+        "mental-health-review",
+        "psychometrics-lifecycle",
+        "qualitative-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P08",
@@ -1178,10 +1061,12 @@
       "metric": "事实错误、遗漏、人工负担",
       "risk": "私密记录外泄或错误进入病历",
       "sourceIds": [
-        "clinical-meta"
+        "clinical-meta",
+        "mental-health-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P09",
@@ -1195,10 +1080,12 @@
       "metric": "校准、漏报、前瞻结局",
       "risk": "基准分数代替临床验证",
       "sourceIds": [
-        "clinical-meta"
+        "clinical-meta",
+        "safety-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P10",
@@ -1214,11 +1101,11 @@
       "risk": "把模拟熟练误当临床胜任",
       "sourceIds": [
         "clinical-meta",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "simulator-guide"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P11",
@@ -1232,10 +1119,12 @@
       "metric": "漏报与误报、升级延迟",
       "risk": "安全漏洞与虚假保证",
       "sourceIds": [
+        "safety-review",
         "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P12",
@@ -1249,11 +1138,11 @@
       "metric": "信任校准、无AI迁移",
       "risk": "任务加速掩盖依赖",
       "sourceIds": [
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "learning-psychology"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P13",
@@ -1271,7 +1160,8 @@
         "pedagogy-umbrella"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P14",
@@ -1287,11 +1177,13 @@
       "risk": "儿童隐私、自主性和长期影响",
       "sourceIds": [
         "theory-integration",
-        "learning-psychology",
-        "pedagogy-umbrella"
+        "learning-psychology"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false,
+      "evidenceGap": "本轮来源提供理论或邻近场景背景，未核实儿童长期结局专门证据。",
+      "ageScope": "不可从成人或外语学习证据推断儿童长期效果。"
     },
     {
       "id": "P15",
@@ -1306,12 +1198,11 @@
       "metric": "运行与版本方差、独立复现",
       "risk": "基准污染与配置不可恢复",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "psychometrics-lifecycle"
+        "guide-llm"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P16",
@@ -1327,11 +1218,11 @@
       "risk": "平均安全性不保护每个人",
       "sourceIds": [
         "psychometrics-lifecycle",
-        "dual-validity",
-        "qualitative-review"
+        "safety-review"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P17",
@@ -1346,12 +1237,11 @@
       "metric": "偏倚评价、异质性、设计分层",
       "risk": "异质结果被合并过度解释",
       "sourceIds": [
-        "clinical-meta",
-        "qualitative-review",
-        "dual-validity"
+        "clinical-meta"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     },
     {
       "id": "P18",
@@ -1366,12 +1256,12 @@
       "metric": "预注册一致性、最小效应与功效",
       "risk": "选择性报告、不可证伪解释",
       "sourceIds": [
-        "qualitative-review",
-        "dual-validity",
-        "theory-integration"
+        "guide-llm",
+        "dual-validity"
       ],
       "evidence": "review_context",
-      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。",
+      "crossCutting": false
     }
   ],
   "edges": [
@@ -1381,7 +1271,11 @@
       "target": "F01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“检索增强与引用”可作为“文献检索与证据定位”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T13-F01-support",
@@ -1389,7 +1283,11 @@
       "target": "F01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“来源与数据谱系”可作为“文献检索与证据定位”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F02-support",
@@ -1397,7 +1295,11 @@
       "target": "F02",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“研究综合与比较”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F02-support",
@@ -1405,7 +1307,11 @@
       "target": "F02",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“研究综合与比较”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T03-F02-support",
@@ -1413,7 +1319,11 @@
       "target": "F02",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“检索增强与引用”可作为“研究综合与比较”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F03-support",
@@ -1421,7 +1331,11 @@
       "target": "F03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“结构化信息提取”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T06-F03-support",
@@ -1429,7 +1343,13 @@
       "target": "F03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“结构化输出与工具”可作为“结构化信息提取”的候选实现或研究路径。",
+      "contextSourceIds": [
+        "clinical-meta"
+      ],
+      "contextLocation": "Results: documentation, summarization and monitoring",
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F04-support",
@@ -1437,7 +1357,11 @@
       "target": "F04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“访谈与主题辅助编码”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F04-support",
@@ -1445,7 +1369,11 @@
       "target": "F04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“访谈与主题辅助编码”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T05-F04-support",
@@ -1453,7 +1381,11 @@
       "target": "F04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“嵌入与表征”可作为“访谈与主题辅助编码”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F05-support",
@@ -1461,7 +1393,11 @@
       "target": "F05",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“量表条目与测验生成”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F05-support",
@@ -1469,7 +1405,11 @@
       "target": "F05",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“量表条目与测验生成”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T04-F05-support",
@@ -1477,7 +1417,11 @@
       "target": "F05",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“领域适配与微调”可作为“量表条目与测验生成”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T05-F06-support",
@@ -1485,7 +1429,11 @@
       "target": "F06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“嵌入与表征”可作为“构念操作化与验证”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F06-support",
@@ -1493,7 +1441,11 @@
       "target": "F06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“评估与红队测试”可作为“构念操作化与验证”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T14-F06-support",
@@ -1501,7 +1453,13 @@
       "target": "F06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验与因果设计”可作为“构念操作化与验证”的候选实现或研究路径。",
+      "contextSourceIds": [
+        "dual-validity"
+      ],
+      "contextLocation": "Abstract: integrating psychometric validation and causal inference",
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T04-F07-support",
@@ -1509,7 +1467,11 @@
       "target": "F07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“领域适配与微调”可作为“文本评分与行为指标”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T05-F07-support",
@@ -1517,7 +1479,11 @@
       "target": "F07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“嵌入与表征”可作为“文本评分与行为指标”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T06-F07-support",
@@ -1525,7 +1491,11 @@
       "target": "F07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“结构化输出与工具”可作为“文本评分与行为指标”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F08-support",
@@ -1533,7 +1503,11 @@
       "target": "F08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“情境化沟通辅助”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F08-support",
@@ -1541,7 +1515,11 @@
       "target": "F08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“情境化沟通辅助”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T12-F08-support",
@@ -1549,7 +1527,11 @@
       "target": "F08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“多语与文化适配”可作为“情境化沟通辅助”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T09-F09-support",
@@ -1557,7 +1539,11 @@
       "target": "F09",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“概率与不确定性”可作为“风险识别与人工升级”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F09-support",
@@ -1565,7 +1551,13 @@
       "target": "F09",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“人工审阅与升级”可作为“风险识别与人工升级”的候选实现或研究路径。",
+      "contextSourceIds": [
+        "safety-review"
+      ],
+      "contextLocation": "Results: delivery-phase oversight and crisis referral",
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T16-F09-support",
@@ -1573,7 +1565,11 @@
       "target": "F09",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“安全策略与约束”可作为“风险识别与人工升级”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T03-F10-support",
@@ -1581,7 +1577,11 @@
       "target": "F10",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“检索增强与引用”可作为“心理教育内容辅助”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T12-F10-support",
@@ -1589,7 +1589,11 @@
       "target": "F10",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“多语与文化适配”可作为“心理教育内容辅助”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F10-support",
@@ -1597,7 +1601,11 @@
       "target": "F10",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“人工审阅与升级”可作为“心理教育内容辅助”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F11-support",
@@ -1605,7 +1613,11 @@
       "target": "F11",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“标准化角色扮演”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T08-F11-support",
@@ -1613,7 +1625,11 @@
       "target": "F11",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“受控记忆与纵向状态”可作为“标准化角色扮演”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T18-F11-support",
@@ -1621,7 +1637,11 @@
       "target": "F11",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“代理与仿真编排”可作为“标准化角色扮演”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F12-support",
@@ -1629,7 +1649,11 @@
       "target": "F12",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“合成参与者模拟”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T04-F12-support",
@@ -1637,7 +1661,11 @@
       "target": "F12",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“领域适配与微调”可作为“合成参与者模拟”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T18-F12-support",
@@ -1645,7 +1673,11 @@
       "target": "F12",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“代理与仿真编排”可作为“合成参与者模拟”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F13-support",
@@ -1653,7 +1685,11 @@
       "target": "F13",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“视角与社会推理”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F13-support",
@@ -1661,7 +1697,11 @@
       "target": "F13",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“视角与社会推理”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T14-F13-support",
@@ -1669,7 +1709,11 @@
       "target": "F13",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验与因果设计”可作为“视角与社会推理”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T05-F14-support",
@@ -1677,7 +1721,11 @@
       "target": "F14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“嵌入与表征”可作为“认知与决策预测”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T09-F14-support",
@@ -1685,7 +1733,11 @@
       "target": "F14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“概率与不确定性”可作为“认知与决策预测”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T14-F14-support",
@@ -1693,7 +1745,11 @@
       "target": "F14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验与因果设计”可作为“认知与决策预测”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F15-support",
@@ -1701,7 +1757,11 @@
       "target": "F15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“实验设计与假设生成”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T03-F15-support",
@@ -1709,7 +1769,11 @@
       "target": "F15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“检索增强与引用”可作为“实验设计与假设生成”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T14-F15-support",
@@ -1717,7 +1781,11 @@
       "target": "F15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验与因果设计”可作为“实验设计与假设生成”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T01-F16-support",
@@ -1725,7 +1793,11 @@
       "target": "F16",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“基础语言模型”可作为“刺激材料与难度控制”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F16-support",
@@ -1733,7 +1805,11 @@
       "target": "F16",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“刺激材料与难度控制”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T07-F16-support",
@@ -1741,7 +1817,11 @@
       "target": "F16",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“多模态模型”可作为“刺激材料与难度控制”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T12-F17-support",
@@ -1749,7 +1829,11 @@
       "target": "F17",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“多语与文化适配”可作为“跨语言适配与翻译”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T05-F17-support",
@@ -1757,7 +1841,11 @@
       "target": "F17",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“嵌入与表征”可作为“跨语言适配与翻译”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F17-support",
@@ -1765,7 +1853,11 @@
       "target": "F17",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“人工审阅与升级”可作为“跨语言适配与翻译”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T08-F18-support",
@@ -1773,7 +1865,11 @@
       "target": "F18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“受控记忆与纵向状态”可作为“纵向轨迹与变化”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T09-F18-support",
@@ -1781,7 +1877,11 @@
       "target": "F18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“概率与不确定性”可作为“纵向轨迹与变化”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T17-F18-support",
@@ -1789,7 +1889,11 @@
       "target": "F18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“模型与提示版本管理”可作为“纵向轨迹与变化”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T02-F19-support",
@@ -1797,7 +1901,11 @@
       "target": "F19",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“提示与上下文设计”可作为“学习支架与反思”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T03-F19-support",
@@ -1805,7 +1913,11 @@
       "target": "F19",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“检索增强与引用”可作为“学习支架与反思”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F19-support",
@@ -1813,7 +1925,11 @@
       "target": "F19",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“人工审阅与升级”可作为“学习支架与反思”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T06-F20-support",
@@ -1821,7 +1937,11 @@
       "target": "F20",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“结构化输出与工具”可作为“可解释审计与出处”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T13-F20-support",
@@ -1829,7 +1949,11 @@
       "target": "F20",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“来源与数据谱系”可作为“可解释审计与出处”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T17-F20-support",
@@ -1837,7 +1961,11 @@
       "target": "F20",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“模型与提示版本管理”可作为“可解释审计与出处”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F21-support",
@@ -1845,7 +1973,11 @@
       "target": "F21",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“评估与红队测试”可作为“公平性与群体评估”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T12-F21-support",
@@ -1853,7 +1985,11 @@
       "target": "F21",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“多语与文化适配”可作为“公平性与群体评估”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T09-F21-support",
@@ -1861,7 +1997,11 @@
       "target": "F21",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“概率与不确定性”可作为“公平性与群体评估”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F22-support",
@@ -1869,7 +2009,11 @@
       "target": "F22",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“隐私保护与访问控制”可作为“同意与隐私治理”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F22-support",
@@ -1877,7 +2021,11 @@
       "target": "F22",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“人工审阅与升级”可作为“同意与隐私治理”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T16-F22-support",
@@ -1885,7 +2033,11 @@
       "target": "F22",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“安全策略与约束”可作为“同意与隐私治理”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F23-support",
@@ -1893,7 +2045,11 @@
       "target": "F23",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“评估与红队测试”可作为“复现与漂移监测”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T13-F23-support",
@@ -1901,7 +2057,11 @@
       "target": "F23",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“来源与数据谱系”可作为“复现与漂移监测”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T17-F23-support",
@@ -1909,7 +2069,11 @@
       "target": "F23",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“模型与提示版本管理”可作为“复现与漂移监测”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T18-F24-support",
@@ -1917,7 +2081,11 @@
       "target": "F24",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“代理与仿真编排”可作为“多代理互动实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T14-F24-support",
@@ -1925,7 +2093,11 @@
       "target": "F24",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验与因果设计”可作为“多代理互动实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F24-support",
@@ -1933,7 +2105,11 @@
       "target": "F24",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“评估与红队测试”可作为“多代理互动实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F05-P01-support",
@@ -1941,7 +2117,11 @@
       "target": "P01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“量表条目与测验生成”可作为“验证一个心理测量构念”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F06-P01-support",
@@ -1949,7 +2129,11 @@
       "target": "P01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“构念操作化与验证”可作为“验证一个心理测量构念”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F07-P01-support",
@@ -1957,7 +2141,11 @@
       "target": "P01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“文本评分与行为指标”可作为“验证一个心理测量构念”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F21-P01-support",
@@ -1965,7 +2153,11 @@
       "target": "P01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“公平性与群体评估”可作为“验证一个心理测量构念”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P01-support",
@@ -1973,7 +2165,11 @@
       "target": "P01",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“复现与漂移监测”可作为“验证一个心理测量构念”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F05-P02-support",
@@ -1981,7 +2177,11 @@
       "target": "P02",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“量表条目与测验生成”可作为“开发跨文化量表候选”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F17-P02-support",
@@ -1989,7 +2189,11 @@
       "target": "P02",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“跨语言适配与翻译”可作为“开发跨文化量表候选”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F21-P02-support",
@@ -1997,7 +2201,11 @@
       "target": "P02",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“公平性与群体评估”可作为“开发跨文化量表候选”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F12-P03-support",
@@ -2005,7 +2213,13 @@
       "target": "P03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“合成参与者模拟”可作为“复现认知行为实验”的候选实现或研究路径。",
+      "contextSourceIds": [
+        "simulator-guide"
+      ],
+      "contextLocation": "Validation framework: direct, indirect and generative validation",
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F14-P03-support",
@@ -2013,7 +2227,11 @@
       "target": "P03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“认知与决策预测”可作为“复现认知行为实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F15-P03-support",
@@ -2021,7 +2239,11 @@
       "target": "P03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验设计与假设生成”可作为“复现认知行为实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F16-P03-support",
@@ -2029,7 +2251,11 @@
       "target": "P03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“刺激材料与难度控制”可作为“复现认知行为实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P03-support",
@@ -2037,7 +2263,11 @@
       "target": "P03",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“复现与漂移监测”可作为“复现认知行为实验”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F06-P04-support",
@@ -2045,7 +2275,11 @@
       "target": "P04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“构念操作化与验证”可作为“检验社会判断与人格”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F12-P04-support",
@@ -2053,7 +2287,11 @@
       "target": "P04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“合成参与者模拟”可作为“检验社会判断与人格”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F13-P04-support",
@@ -2061,7 +2299,11 @@
       "target": "P04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“视角与社会推理”可作为“检验社会判断与人格”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F21-P04-support",
@@ -2069,7 +2311,11 @@
       "target": "P04",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“公平性与群体评估”可作为“检验社会判断与人格”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F12-P05-support",
@@ -2077,7 +2323,11 @@
       "target": "P05",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“合成参与者模拟”可作为“构建群体互动仿真”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F14-P05-support",
@@ -2085,7 +2335,11 @@
       "target": "P05",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“认知与决策预测”可作为“构建群体互动仿真”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F24-P05-support",
@@ -2093,7 +2347,11 @@
       "target": "P05",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“多代理互动实验”可作为“构建群体互动仿真”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F03-P06-support",
@@ -2101,7 +2359,11 @@
       "target": "P06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“结构化信息提取”可作为“辅助访谈主题分析”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F04-P06-support",
@@ -2109,7 +2371,11 @@
       "target": "P06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“访谈与主题辅助编码”可作为“辅助访谈主题分析”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F20-P06-support",
@@ -2117,7 +2383,11 @@
       "target": "P06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“可解释审计与出处”可作为“辅助访谈主题分析”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P06-support",
@@ -2125,7 +2395,11 @@
       "target": "P06",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“同意与隐私治理”可作为“辅助访谈主题分析”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F03-P07-support",
@@ -2133,7 +2407,11 @@
       "target": "P07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“结构化信息提取”可作为“研究叙事与心理语言”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F04-P07-support",
@@ -2141,7 +2419,11 @@
       "target": "P07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“访谈与主题辅助编码”可作为“研究叙事与心理语言”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F07-P07-support",
@@ -2149,7 +2431,11 @@
       "target": "P07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“文本评分与行为指标”可作为“研究叙事与心理语言”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F17-P07-support",
@@ -2157,7 +2443,11 @@
       "target": "P07",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“跨语言适配与翻译”可作为“研究叙事与心理语言”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F03-P08-support",
@@ -2165,7 +2455,13 @@
       "target": "P08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“结构化信息提取”可作为“制作临床文书草稿”的候选实现或研究路径。",
+      "contextSourceIds": [
+        "clinical-meta"
+      ],
+      "contextLocation": "Results: documentation, summarization and monitoring",
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F08-P08-support",
@@ -2173,7 +2469,11 @@
       "target": "P08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“情境化沟通辅助”可作为“制作临床文书草稿”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F20-P08-support",
@@ -2181,7 +2481,11 @@
       "target": "P08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“可解释审计与出处”可作为“制作临床文书草稿”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P08-support",
@@ -2189,7 +2493,11 @@
       "target": "P08",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“同意与隐私治理”可作为“制作临床文书草稿”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F07-P09-support",
@@ -2197,7 +2505,11 @@
       "target": "P09",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“文本评分与行为指标”可作为“评估监督式筛查支持”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F09-P09-support",
@@ -2205,7 +2517,11 @@
       "target": "P09",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“风险识别与人工升级”可作为“评估监督式筛查支持”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F21-P09-support",
@@ -2213,7 +2529,11 @@
       "target": "P09",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“公平性与群体评估”可作为“评估监督式筛查支持”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F08-P10-support",
@@ -2221,7 +2541,11 @@
       "target": "P10",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“情境化沟通辅助”可作为“训练咨询沟通技能”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F10-P10-support",
@@ -2229,7 +2553,11 @@
       "target": "P10",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“心理教育内容辅助”可作为“训练咨询沟通技能”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F11-P10-support",
@@ -2237,7 +2565,11 @@
       "target": "P10",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“标准化角色扮演”可作为“训练咨询沟通技能”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F09-P11-support",
@@ -2245,7 +2577,13 @@
       "target": "P11",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“风险识别与人工升级”可作为“评估安全升级流程”的候选实现或研究路径。",
+      "contextSourceIds": [
+        "safety-review"
+      ],
+      "contextLocation": "Results and Discussion: crisis identification and safety outcomes",
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F20-P11-support",
@@ -2253,7 +2591,11 @@
       "target": "P11",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“可解释审计与出处”可作为“评估安全升级流程”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P11-support",
@@ -2261,7 +2603,11 @@
       "target": "P11",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“复现与漂移监测”可作为“评估安全升级流程”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F08-P12-support",
@@ -2269,7 +2615,11 @@
       "target": "P12",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“情境化沟通辅助”可作为“研究元认知与AI信任”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F16-P12-support",
@@ -2277,7 +2627,11 @@
       "target": "P12",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“刺激材料与难度控制”可作为“研究元认知与AI信任”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F19-P12-support",
@@ -2285,7 +2639,11 @@
       "target": "P12",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“学习支架与反思”可作为“研究元认知与AI信任”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F16-P13-support",
@@ -2293,7 +2651,11 @@
       "target": "P13",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“刺激材料与难度控制”可作为“评估学习支架与迁移”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F19-P13-support",
@@ -2301,7 +2663,11 @@
       "target": "P13",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“学习支架与反思”可作为“评估学习支架与迁移”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P13-support",
@@ -2309,7 +2675,11 @@
       "target": "P13",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“复现与漂移监测”可作为“评估学习支架与迁移”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F13-P14-support",
@@ -2317,7 +2687,11 @@
       "target": "P14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“视角与社会推理”可作为“研究年龄与发展差异”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F18-P14-support",
@@ -2325,7 +2699,11 @@
       "target": "P14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“纵向轨迹与变化”可作为“研究年龄与发展差异”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F19-P14-support",
@@ -2333,7 +2711,11 @@
       "target": "P14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“学习支架与反思”可作为“研究年龄与发展差异”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P14-support",
@@ -2341,7 +2723,11 @@
       "target": "P14",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“同意与隐私治理”可作为“研究年龄与发展差异”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F15-P15-support",
@@ -2349,7 +2735,11 @@
       "target": "P15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验设计与假设生成”可作为“建立版本化复现基准”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F20-P15-support",
@@ -2357,7 +2747,11 @@
       "target": "P15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“可解释审计与出处”可作为“建立版本化复现基准”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F21-P15-support",
@@ -2365,7 +2759,11 @@
       "target": "P15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“公平性与群体评估”可作为“建立版本化复现基准”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P15-support",
@@ -2373,7 +2771,11 @@
       "target": "P15",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“复现与漂移监测”可作为“建立版本化复现基准”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F20-P16-support",
@@ -2381,7 +2783,11 @@
       "target": "P16",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“可解释审计与出处”可作为“审计公平与隐私风险”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F21-P16-support",
@@ -2389,7 +2795,11 @@
       "target": "P16",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“公平性与群体评估”可作为“审计公平与隐私风险”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P16-support",
@@ -2397,7 +2807,11 @@
       "target": "P16",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“同意与隐私治理”可作为“审计公平与隐私风险”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F01-P17-support",
@@ -2405,7 +2819,11 @@
       "target": "P17",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“文献检索与证据定位”可作为“综合干预与工作流证据”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F02-P17-support",
@@ -2413,7 +2831,11 @@
       "target": "P17",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“研究综合与比较”可作为“综合干预与工作流证据”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F20-P17-support",
@@ -2421,7 +2843,11 @@
       "target": "P17",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“可解释审计与出处”可作为“综合干预与工作流证据”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F01-P18-support",
@@ -2429,7 +2855,11 @@
       "target": "P18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“文献检索与证据定位”可作为“预注册可证伪研究方案”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F15-P18-support",
@@ -2437,7 +2867,11 @@
       "target": "P18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“实验设计与假设生成”可作为“预注册可证伪研究方案”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F16-P18-support",
@@ -2445,7 +2879,11 @@
       "target": "P18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“刺激材料与难度控制”可作为“预注册可证伪研究方案”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P18-support",
@@ -2453,7 +2891,11 @@
       "target": "P18",
       "type": "support",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：“复现与漂移监测”可作为“预注册可证伪研究方案”的候选实现或研究路径。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F03-constraint",
@@ -2461,7 +2903,11 @@
       "target": "F03",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“结构化信息提取”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F04-constraint",
@@ -2469,7 +2915,11 @@
       "target": "F04",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“访谈与主题辅助编码”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F07-constraint",
@@ -2477,7 +2927,11 @@
       "target": "F07",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“文本评分与行为指标”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F08-constraint",
@@ -2485,7 +2939,11 @@
       "target": "F08",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“情境化沟通辅助”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F09-constraint",
@@ -2493,7 +2951,11 @@
       "target": "F09",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“风险识别与人工升级”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F10-constraint",
@@ -2501,7 +2963,11 @@
       "target": "F10",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“心理教育内容辅助”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F11-constraint",
@@ -2509,7 +2975,11 @@
       "target": "F11",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“标准化角色扮演”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F18-constraint",
@@ -2517,7 +2987,11 @@
       "target": "F18",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“纵向轨迹与变化”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T15-F19-constraint",
@@ -2525,7 +2999,11 @@
       "target": "F19",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“学习支架与反思”时，应检验“人工审阅与升级”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F03-constraint",
@@ -2533,7 +3011,11 @@
       "target": "F03",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“结构化信息提取”时，应检验“隐私保护与访问控制”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F04-constraint",
@@ -2541,7 +3023,11 @@
       "target": "F04",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“访谈与主题辅助编码”时，应检验“隐私保护与访问控制”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F07-constraint",
@@ -2549,7 +3035,11 @@
       "target": "F07",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“文本评分与行为指标”时，应检验“隐私保护与访问控制”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F08-constraint",
@@ -2557,7 +3047,11 @@
       "target": "F08",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“情境化沟通辅助”时，应检验“隐私保护与访问控制”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F18-constraint",
@@ -2565,7 +3059,11 @@
       "target": "F18",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“纵向轨迹与变化”时，应检验“隐私保护与访问控制”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T11-F22-constraint",
@@ -2573,7 +3071,11 @@
       "target": "F22",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“同意与隐私治理”时，应检验“隐私保护与访问控制”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F05-constraint",
@@ -2581,7 +3083,11 @@
       "target": "F05",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“量表条目与测验生成”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F06-constraint",
@@ -2589,7 +3095,11 @@
       "target": "F06",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“构念操作化与验证”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F07-constraint",
@@ -2597,7 +3107,11 @@
       "target": "F07",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“文本评分与行为指标”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F12-constraint",
@@ -2605,7 +3119,11 @@
       "target": "F12",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“合成参与者模拟”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F13-constraint",
@@ -2613,7 +3131,11 @@
       "target": "F13",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“视角与社会推理”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F14-constraint",
@@ -2621,7 +3143,11 @@
       "target": "F14",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“认知与决策预测”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F17-constraint",
@@ -2629,7 +3155,11 @@
       "target": "F17",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“跨语言适配与翻译”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F19-constraint",
@@ -2637,7 +3167,11 @@
       "target": "F19",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“学习支架与反思”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "T10-F24-constraint",
@@ -2645,7 +3179,11 @@
       "target": "F24",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“多代理互动实验”时，应检验“评估与红队测试”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P01-constraint",
@@ -2653,7 +3191,11 @@
       "target": "P01",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“验证一个心理测量构念”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P02-constraint",
@@ -2661,7 +3203,11 @@
       "target": "P02",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“开发跨文化量表候选”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P03-constraint",
@@ -2669,7 +3215,11 @@
       "target": "P03",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“复现认知行为实验”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P04-constraint",
@@ -2677,7 +3227,11 @@
       "target": "P04",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“检验社会判断与人格”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P05-constraint",
@@ -2685,7 +3239,11 @@
       "target": "P05",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“构建群体互动仿真”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P09-constraint",
@@ -2693,7 +3251,11 @@
       "target": "P09",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“评估监督式筛查支持”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P12-constraint",
@@ -2701,7 +3263,11 @@
       "target": "P12",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“研究元认知与AI信任”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P13-constraint",
@@ -2709,7 +3275,11 @@
       "target": "P13",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“评估学习支架与迁移”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F23-P14-constraint",
@@ -2717,7 +3287,11 @@
       "target": "P14",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“研究年龄与发展差异”时，应检验“复现与漂移监测”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P06-constraint",
@@ -2725,7 +3299,11 @@
       "target": "P06",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“辅助访谈主题分析”时，应检验“同意与隐私治理”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P07-constraint",
@@ -2733,7 +3311,11 @@
       "target": "P07",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“研究叙事与心理语言”时，应检验“同意与隐私治理”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P08-constraint",
@@ -2741,7 +3323,11 @@
       "target": "P08",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“制作临床文书草稿”时，应检验“同意与隐私治理”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P09-constraint",
@@ -2749,7 +3335,11 @@
       "target": "P09",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“评估监督式筛查支持”时，应检验“同意与隐私治理”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P10-constraint",
@@ -2757,7 +3347,11 @@
       "target": "P10",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“训练咨询沟通技能”时，应检验“同意与隐私治理”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     },
     {
       "id": "F22-P14-constraint",
@@ -2765,7 +3359,11 @@
       "target": "P14",
       "type": "constraint",
       "evidence": "editorial_hypothesis",
-      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。",
+      "rationale": "编辑提出：开展“研究年龄与发展差异”时，应检验“同意与隐私治理”约束。",
+      "contextSourceIds": [],
+      "contextLocation": null,
+      "relationshipEvidence": "unverified"
     }
   ]
 }

@@ -4,14 +4,25 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 D={'measurement':'心理测量','cognitive':'认知与决策','social':'社会与人格','clinical':'临床与咨询','methods':'质性与研究方法','education':'教育与学习','developmental':'发展与生命周期'}
-SRC={'measurement':['psychometrics-lifecycle','dual-validity'],'cognitive':['theory-integration','dual-validity'],'social':['simulator-guide','theory-integration'],'clinical':['clinical-meta'],'methods':['qualitative-review','dual-validity'],'education':['learning-psychology','pedagogy-umbrella'],'developmental':['theory-integration','learning-psychology']}
+CONTEXT_SOURCES = {"T01": ["theory-integration", "dual-validity"], "T02": ["simulator-guide", "theory-integration"], "T03": ["clinical-meta", "safety-review", "qualitative-review"], "T04": ["psychometrics-lifecycle", "clinical-meta", "simulator-guide"], "T05": ["psychometrics-lifecycle", "mental-health-review"], "T06": ["clinical-meta", "qualitative-review"], "T07": ["theory-integration", "mental-health-review"], "T08": ["mental-health-review", "theory-integration"], "T09": ["psychometrics-lifecycle", "clinical-meta"], "T10": ["dual-validity", "llm-psychometrics-foundation", "clinical-meta"], "T11": ["psychometrics-lifecycle", "safety-review"], "T12": ["psychometrics-lifecycle", "clinical-meta"], "T13": ["guide-llm", "clinical-meta"], "T14": ["dual-validity", "simulator-guide"], "T15": ["clinical-meta", "safety-review", "qualitative-review"], "T16": ["clinical-meta", "safety-review"], "T17": ["guide-llm", "simulator-guide"], "T18": ["simulator-guide", "theory-integration"], "F01": ["clinical-meta", "guide-llm"], "F02": ["clinical-meta", "qualitative-review"], "F03": ["clinical-meta", "mental-health-review"], "F04": ["qualitative-review"], "F05": ["psychometrics-lifecycle", "llm-psychometrics-foundation"], "F06": ["dual-validity", "psychometrics-lifecycle"], "F07": ["psychometrics-lifecycle", "clinical-meta", "mental-health-review"], "F08": ["clinical-meta", "learning-psychology"], "F09": ["clinical-meta", "safety-review"], "F10": ["clinical-meta", "mental-health-review"], "F11": ["simulator-guide", "theory-integration"], "F12": ["simulator-guide", "dual-validity"], "F13": ["theory-integration", "llm-psychometrics-foundation"], "F14": ["dual-validity", "simulator-guide"], "F15": ["guide-llm", "dual-validity"], "F16": ["theory-integration", "learning-psychology"], "F17": ["psychometrics-lifecycle", "llm-psychometrics-foundation"], "F18": ["mental-health-review", "theory-integration"], "F19": ["learning-psychology", "pedagogy-umbrella"], "F20": ["guide-llm", "clinical-meta"], "F21": ["psychometrics-lifecycle", "clinical-meta"], "F22": ["psychometrics-lifecycle", "safety-review"], "F23": ["guide-llm", "llm-psychometrics-foundation"], "F24": ["simulator-guide", "theory-integration"], "P01": ["psychometrics-lifecycle", "dual-validity"], "P02": ["psychometrics-lifecycle", "llm-psychometrics-foundation"], "P03": ["simulator-guide", "dual-validity"], "P04": ["simulator-guide", "llm-psychometrics-foundation"], "P05": ["simulator-guide", "theory-integration"], "P06": ["qualitative-review"], "P07": ["mental-health-review", "psychometrics-lifecycle", "qualitative-review"], "P08": ["clinical-meta", "mental-health-review"], "P09": ["clinical-meta", "safety-review"], "P10": ["clinical-meta", "simulator-guide"], "P11": ["safety-review", "clinical-meta"], "P12": ["learning-psychology"], "P13": ["learning-psychology", "pedagogy-umbrella"], "P14": ["theory-integration", "learning-psychology"], "P15": ["guide-llm"], "P16": ["psychometrics-lifecycle", "safety-review"], "P17": ["clinical-meta"], "P18": ["guide-llm", "dual-validity"]}
+TECH_DOMAINS = {"T01": ["measurement", "cognitive", "social", "clinical", "methods", "education", "developmental"], "T02": ["measurement", "cognitive", "social", "clinical", "methods", "education", "developmental"], "T03": ["methods", "clinical", "education"], "T04": ["measurement", "cognitive", "social", "clinical"], "T05": ["measurement", "cognitive", "methods", "clinical", "social"], "T06": ["methods", "clinical", "measurement"], "T07": ["cognitive", "education", "developmental"], "T08": ["clinical", "social", "developmental", "education"], "T09": ["measurement", "clinical", "cognitive", "social", "developmental"], "T10": ["measurement", "cognitive", "social", "clinical", "methods", "education", "developmental"], "T11": ["methods", "clinical", "developmental", "measurement"], "T12": ["measurement", "social", "clinical", "education"], "T13": ["methods", "clinical", "measurement"], "T14": ["cognitive", "social", "methods", "measurement", "education", "developmental"], "T15": ["measurement", "social", "clinical", "methods", "education", "developmental"], "T16": ["clinical", "methods", "developmental", "education"], "T17": ["measurement", "methods", "clinical", "social", "cognitive", "developmental"], "T18": ["cognitive", "social", "clinical", "education"]}
+EDGE_CONTEXT = {"T06-F03-support": [["clinical-meta"], "Results: documentation, summarization and monitoring"], "F03-P08-support": [["clinical-meta"], "Results: documentation, summarization and monitoring"], "T15-F09-support": [["safety-review"], "Results: delivery-phase oversight and crisis referral"], "F09-P11-support": [["safety-review"], "Results and Discussion: crisis identification and safety outcomes"], "T14-F06-support": [["dual-validity"], "Abstract: integrating psychometric validation and causal inference"], "F12-P03-support": [["simulator-guide"], "Validation framework: direct, indirect and generative validation"]}
 nodes=[];edges=[]
 def node(id,title,en,layer,domains,description,metric,risk):
-    sources=list(dict.fromkeys(s for d in domains for s in SRC[d]))
+    sources=CONTEXT_SOURCES[id]
     nodes.append(dict(id=id,title=title,en=en,layer=layer,domains=domains,description=description,metric=metric,risk=risk,sourceIds=sources,evidence='review_context',claim='文献提供主题背景；此节点的具体实现和有效性需独立验证。'))
+    nodes[-1]['crossCutting'] = layer == 'technology'
+    if id in ('F13','F18','F19','P14'):
+        nodes[-1]['evidenceGap'] = '本轮来源提供理论或邻近场景背景，未核实儿童长期结局专门证据。'
+        nodes[-1]['ageScope'] = '不可从成人或外语学习证据推断儿童长期效果。'
 def edge(a,b,kind='support'):
     if not any(e['source']==a and e['target']==b and e['type']==kind for e in edges):
         edges.append(dict(id=f'{a}-{b}-{kind}',source=a,target=b,type=kind,evidence='editorial_hypothesis',claim='编辑性设计映射；非已验证依赖、因果机制或疗效结论。'))
+        names = {n['id']: n['title'] for n in nodes}
+        edges[-1]['rationale'] = (f'编辑提出：开展“{names[b]}”时，应检验“{names[a]}”约束。' if kind == 'constraint' else f'编辑提出：“{names[a]}”可作为“{names[b]}”的候选实现或研究路径。')
+        context = EDGE_CONTEXT.get(edges[-1]['id'], [[], None])
+        edges[-1]['contextSourceIds'], edges[-1]['contextLocation'] = context
+        edges[-1]['relationshipEvidence'] = 'unverified'
 tech=[
 ('T01','基础语言模型','Foundation model','生成与理解语言的技术底座。','任务外测试、错误分布','训练数据偏差与能力错觉'),
 ('T02','提示与上下文设计','Prompt & context','明确任务、角色、反例与上下文。','提示敏感性、重复运行一致性','角色设定不等于真实人格'),
@@ -31,7 +42,7 @@ tech=[
 ('T16','安全策略与约束','Safety guardrails','约束系统行为与高风险输出。','对抗测试、漏报与误报','单层过滤不能保证安全'),
 ('T17','模型与提示版本管理','Version control','记录模型、提示、采样与变化。','版本复现率、漂移监测','闭源服务漂移与不可复现'),
 ('T18','代理与仿真编排','Agent orchestration','管理受限模拟与工具步骤。','轨迹审计、消融与人工对照','涌现叙事不代表人类机制')]
-for id,t,en,desc,m,r in tech: node(id,t,en,'technology',list(D),desc,m,r)
+for id,t,en,desc,m,r in tech: node(id,t,en,'technology',TECH_DOMAINS[id],desc,m,r)
 funcs=[
 ('F01','文献检索与证据定位','Evidence retrieval',['methods','clinical'],['T03','T13'],'定位与问题有关的证据与日期。','引用支持率、漏检率','把相关性误当支持'),
 ('F02','研究综合与比较','Evidence synthesis',['methods'],['T01','T02','T03'],'比较不同设计、样本与结论边界。','设计识别、重复研究检查','叙述流畅掩盖异质性'),
@@ -54,7 +65,7 @@ funcs=[
 ('F19','学习支架与反思','Learning scaffolds',['education','developmental'],['T02','T03','T15'],'支持自主解释、反思与无AI迁移。','延迟测验、迁移、自主性','依赖与能力卸载'),
 ('F20','可解释审计与出处','Explanation & audit',['methods','clinical'],['T06','T13','T17'],'核查过程、证据和决策责任。','审计可重建率、事实支持','推理文本不等于真实机制'),
 ('F21','公平性与群体评估','Fairness evaluation',['measurement','social'],['T10','T12','T09'],'报告最坏组误差和适用范围。','分组误差、差异项目功能','平均分掩盖伤害'),
-('F22','同意与隐私治理','Consent & privacy',['methods','developmental'],['T11','T15','T16'],'约束采集、共享、保留和删除。','同意可理解性、再识别与删除检查','敏感文本与未成年人暴露'),
+('F22','同意与隐私治理','Consent & privacy',['methods','developmental','clinical'],['T11','T15','T16'],'约束采集、共享、保留和删除。','同意可理解性、再识别与删除检查','敏感文本与未成年人暴露'),
 ('F23','复现与漂移监测','Reproducibility',['methods','measurement'],['T10','T13','T17'],'记录完整研究配置和结果变化。','多次运行与版本敏感性','不可获取模型和时间漂移'),
 ('F24','多代理互动实验','Multi-agent experiments',['social','cognitive'],['T18','T14','T10'],'检验受控群体互动假设。','人类对照、消融、机制区分','仿真故事被误作实证')]
 for id,t,en,ds,ts,desc,m,r in funcs:
@@ -88,7 +99,8 @@ for fid in ['F03','F04','F07','F08','F18','F22']:edge('T11',fid,'constraint')
 for fid in ['F05','F06','F07','F12','F13','F14','F17','F19','F24']:edge('T10',fid,'constraint')
 for pid in ['P01','P02','P03','P04','P05','P09','P12','P13','P14']:edge('F23',pid,'constraint')
 for pid in ['P06','P07','P08','P09','P10','P14']:edge('F22',pid,'constraint')
-graph=dict(metadata=dict(title='LLM in Psychology Research Atlas',version='1.0.0',asOf='2026-11-11',evidencePolicy='All edges are editorial hypotheses; source links establish topic context, not efficacy. No personal participant data.',domains=D),nodes=nodes,edges=edges)
+graph=dict(metadata=dict(title='LLM in Psychology Research Atlas',version='1.1.0',asOf='2026-11-11',evidencePolicy='All edges are unverified editorial hypotheses. Selected review citations provide context, not evidence that a relation is effective or necessary.',domains=D),nodes=nodes,edges=edges)
+graph['metadata']['domainPolicy'] = 'Domains describe editorial use contexts, not evidence strength. Cross-cutting technologies are shown through their connections; developmental evidence gaps remain explicit.'
 (ROOT/'data').mkdir(exist_ok=True);(ROOT/'site').mkdir(exist_ok=True)
 (ROOT/'data/graph.json').write_text(json.dumps(graph,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'site/graph-data.js').write_text('window.GRAPH_DATA = '+json.dumps(graph,ensure_ascii=False)+';\n')
