@@ -2,7 +2,7 @@ window.ATLAS_I18N = {
   "ui": {
     "zh": {
       "pageTitle": "LLM in Psychology · 心理语义任务 X 技术能力网络",
-      "brandSubtitle": "心理学研究图谱",
+      "brandSubtitle": "心理语义研究图谱",
       "publicAtlas": "公开研究图谱",
       "repository": "代码仓库 ↗",
       "language": "界面语言",
@@ -137,7 +137,7 @@ window.ATLAS_I18N = {
     },
     "en": {
       "pageTitle": "LLM in Psychology · Psychological Semantic Tasks X Technical Capabilities Network",
-      "brandSubtitle": "PSYCHOLOGY RESEARCH ATLAS",
+      "brandSubtitle": "PSYCHOSEMANTIC RESEARCH ATLAS",
       "publicAtlas": "PUBLIC RESEARCH ATLAS",
       "repository": "Repository ↗",
       "language": "Interface language",
