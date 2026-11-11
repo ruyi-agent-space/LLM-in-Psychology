@@ -147,6 +147,6 @@ window.RADAR_DATA = {
   ],
   "dailyCoverage": "partial",
   "lastCompleteDailyAt": null,
-  "weeklyCoverage": null,
+  "weeklyCoverage": "partial",
   "lastCompleteWeeklyAt": null
 };
