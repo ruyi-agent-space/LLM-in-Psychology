@@ -28,3 +28,8 @@ test('relation filter and JSON export slice preserve valid endpoints',()=>{
  }
  assert.deepEqual(view.networkSlice(graph,{domain:'all',edge:'all',query:'no-such-node-261111'}),{nodes:[],edges:[]});
 });
+
+test('old-policy counts are withheld until a matching snapshot exists',()=>{
+ assert.deepEqual(view.weeklySnapshot({weeklyPolicyVersion:'older',weekly:[{id:'clinical',count:99}]}),[]);
+ assert.equal(view.weeklySnapshot({weeklyPolicyVersion:view.screeningVersion,weekly:[{id:'clinical',count:0}]}).length,1);
+});

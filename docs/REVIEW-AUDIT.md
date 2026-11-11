@@ -36,6 +36,6 @@ Retrieved versions are grouped before date filtering. The earliest observed grou
 
 JavaScript syntax was independently compiled in V8, and sample-count sorting, the clinical privacy path and empty search were exercised against the committed-data candidate. These are not browser tests.
 
-The workflow now also runs three Node view regressions, checks JavaScript syntax, and rebuilds graph/bibliography artifacts to reject generated-data drift. Python regression fixtures cover the new screening, version-date and audit-record behavior. The exact Actions outcome is recorded in VALIDATION.md after the run.
+The workflow now also runs four Node view regressions, checks JavaScript syntax, and rebuilds graph/bibliography artifacts to reject generated-data drift. Python regression fixtures cover the new screening, version-date and audit-record behavior. The exact Actions outcome is recorded in VALIDATION.md after the run. Old-policy weekly counts are withheld until recomputed; the PR job can produce a private preview without updating main.
 
 The downloaded dashboard remains a static local snapshot. Automatic updates occur in the private repository and downloadable artifact; a previously downloaded copy does not synchronize itself. arXiv's existing 429 cooldown is retained. A successful partial workflow does not establish complete provider coverage or guarantee future schedules.

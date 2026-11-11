@@ -1,5 +1,7 @@
 'use strict';
 const AtlasView = (() => {
+  const screeningVersion = '1.1.0';
+  const weeklySnapshot = radar => radar.weeklyPolicyVersion === screeningVersion ? radar.weekly : [];
   const directionIds = {D1:'measurement', D2:'simulation', D3:'clinical', D4:'methods', D5:'education'};
   function weeklyDirections(directions, weekly) {
     return directions.map((direction, index) => ({direction, index, live:(weekly || []).find(row => row.id === directionIds[direction.id])}))
@@ -26,7 +28,7 @@ const AtlasView = (() => {
     }
     return {nodes,edges};
   }
-  return {weeklyDirections,networkSlice};
+  return {screeningVersion,weeklySnapshot,weeklyDirections,networkSlice};
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = AtlasView;
 if (typeof window !== 'undefined') window.ATLAS_VIEW = AtlasView;

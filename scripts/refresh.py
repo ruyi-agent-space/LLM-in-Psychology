@@ -270,7 +270,7 @@ def refresh(previous, now, providers=None, force_weekly=False):
             output['lastCompleteDailyAt'] = iso(now)
     last_weekly = stamp(previous.get('weeklyUpdatedAt'))
     week_start = (now - timedelta(days=now.weekday())).replace(hour=0, minute=0, second=0, microsecond=0)
-    due = force_weekly or previous.get('screeningVersion') != SCREENING_VERSION or not previous.get('weekly') or last_weekly is None or last_weekly < week_start
+    due = force_weekly or previous.get('weeklyPolicyVersion') != SCREENING_VERSION or previous.get('screeningVersion') != SCREENING_VERSION or not previous.get('weekly') or last_weekly is None or last_weekly < week_start
     if due and not all_failed:
         recent = [r for r in rows if stamp(r['publishedAt']) >= now - timedelta(days=7)]
         weekly = []
@@ -281,6 +281,7 @@ def refresh(previous, now, providers=None, force_weekly=False):
         output['weekly'] = sorted(weekly, key=lambda row: (-row['count'], row['id']))
         output['weeklySample'] = dict(coverage, windowStart=iso(now - timedelta(days=7)), weeklyRecords=len(recent), windowEnd=iso(now))
         output['weeklyUpdatedAt'] = iso(now)
+        output['weeklyPolicyVersion'] = SCREENING_VERSION
         output['weeklyCoverage'] = 'partial' if failures else 'complete'
         if not failures:
             output['lastCompleteWeeklyAt'] = iso(now)

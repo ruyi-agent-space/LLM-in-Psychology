@@ -211,6 +211,15 @@ class RefreshTests(unittest.TestCase):
         result = r.refresh(previous, later, {'fixture': lambda _: self.rows()})
         self.assertEqual(result['weeklyUpdatedAt'], r.iso(later))
 
+
+    def test_failed_policy_change_retries_weekly_in_same_week(self):
+        previous = r.refresh({}, NOW, {'fixture': lambda _: self.rows()})
+        previous['screeningVersion'] = previous['weeklyPolicyVersion'] = 'older'
+        failed = r.refresh(previous, NOW + timedelta(hours=1), {'fixture': fail})
+        recovered = r.refresh(failed, NOW + timedelta(hours=2), {'fixture': lambda _: self.rows()})
+        self.assertEqual(recovered['weeklyUpdatedAt'], r.iso(NOW + timedelta(hours=2)))
+        self.assertEqual(recovered['weeklyPolicyVersion'], r.SCREENING_VERSION)
+
 if __name__ == '__main__':
     unittest.main()
 
@@ -223,7 +232,7 @@ class WeeklyRecoveryTests(unittest.TestCase):
         self.assertEqual(len(out['weekly']),5)
     def test_same_week_keeps_weekly_snapshot(self):
         now=NOW+timedelta(days=2)
-        old={'daily':[],'weekly':[{'id':'previous'}],'weeklyUpdatedAt':r.iso(NOW),'screeningVersion':r.SCREENING_VERSION}
+        old={'daily':[],'weekly':[{'id':'previous'}],'weeklyUpdatedAt':r.iso(NOW),'screeningVersion':r.SCREENING_VERSION,'weeklyPolicyVersion':r.SCREENING_VERSION}
         out=r.refresh(old,now,providers={'fixture':lambda _:[]})
         self.assertEqual(out['weekly'],old['weekly'])
         self.assertEqual(out['weeklyUpdatedAt'],old['weeklyUpdatedAt'])
