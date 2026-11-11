@@ -1,0 +1,2771 @@
+{
+  "metadata": {
+    "title": "LLM in Psychology Research Atlas",
+    "version": "1.0.0",
+    "asOf": "2026-11-11",
+    "evidencePolicy": "All edges are editorial hypotheses; source links establish topic context, not efficacy. No personal participant data.",
+    "domains": {
+      "measurement": "心理测量",
+      "cognitive": "认知与决策",
+      "social": "社会与人格",
+      "clinical": "临床与咨询",
+      "methods": "质性与研究方法",
+      "education": "教育与学习",
+      "developmental": "发展与生命周期"
+    }
+  },
+  "nodes": [
+    {
+      "id": "T01",
+      "title": "基础语言模型",
+      "en": "Foundation model",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "生成与理解语言的技术底座。",
+      "metric": "任务外测试、错误分布",
+      "risk": "训练数据偏差与能力错觉",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T02",
+      "title": "提示与上下文设计",
+      "en": "Prompt & context",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "明确任务、角色、反例与上下文。",
+      "metric": "提示敏感性、重复运行一致性",
+      "risk": "角色设定不等于真实人格",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T03",
+      "title": "检索增强与引用",
+      "en": "Retrieval & grounding",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "检索公开来源并定位原始证据。",
+      "metric": "检索召回、引文蕴含",
+      "risk": "检索到文献不代表正确解释",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T04",
+      "title": "领域适配与微调",
+      "en": "Domain adaptation",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "适配受约束研究任务。",
+      "metric": "独立保留集、基线比较",
+      "risk": "数据污染与群体过拟合",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T05",
+      "title": "嵌入与表征",
+      "en": "Embeddings",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "把文本转为可比较表征。",
+      "metric": "外部效度、测量不变性",
+      "risk": "表征距离不等于心理距离",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T06",
+      "title": "结构化输出与工具",
+      "en": "Structured tools",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "形成可检验的结构化记录。",
+      "metric": "字段正确率、工具审计",
+      "risk": "格式正确不保证内容正确",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T07",
+      "title": "多模态模型",
+      "en": "Multimodal models",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "联合文本、音频或视觉线索。",
+      "metric": "模态消融、分组误差",
+      "risk": "表情或声音不直接揭示心理状态",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T08",
+      "title": "受控记忆与纵向状态",
+      "en": "Longitudinal state",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "在同意范围内追踪研究状态。",
+      "metric": "时间一致性、删除验证",
+      "risk": "敏感轨迹泄露与错误累积",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T09",
+      "title": "概率与不确定性",
+      "en": "Uncertainty",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "表达校准、拒答和不确定性。",
+      "metric": "校准误差、选择性风险",
+      "risk": "自报置信度未必可靠",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T10",
+      "title": "评估与红队测试",
+      "en": "Evaluation harness",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "比较基线并系统发现失效。",
+      "metric": "独立测试、最坏组结果",
+      "risk": "基准泄漏与代理指标优化",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T11",
+      "title": "隐私保护与访问控制",
+      "en": "Privacy controls",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "最小化数据、分权访问与受控保留。",
+      "metric": "再识别攻击、删除与访问审计",
+      "risk": "去标识化不保证匿名",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T12",
+      "title": "多语与文化适配",
+      "en": "Cultural adaptation",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "检查语言与情境差异。",
+      "metric": "跨语言不变性、群体误差",
+      "risk": "直译不等于文化等价",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T13",
+      "title": "来源与数据谱系",
+      "en": "Provenance",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "保留来源、日期和处理轨迹。",
+      "metric": "证据可追溯率",
+      "risk": "伪引文与来源丢失",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T14",
+      "title": "实验与因果设计",
+      "en": "Causal design",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "把任务假设变成可证伪实验。",
+      "metric": "随机化、混淆检查、敏感性分析",
+      "risk": "预测与机制解释混淆",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T15",
+      "title": "人工审阅与升级",
+      "en": "Human oversight",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "定义人工决策、拒绝与升级边界。",
+      "metric": "升级召回率、人工负担",
+      "risk": "橡皮图章式监督",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T16",
+      "title": "安全策略与约束",
+      "en": "Safety guardrails",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "约束系统行为与高风险输出。",
+      "metric": "对抗测试、漏报与误报",
+      "risk": "单层过滤不能保证安全",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T17",
+      "title": "模型与提示版本管理",
+      "en": "Version control",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "记录模型、提示、采样与变化。",
+      "metric": "版本复现率、漂移监测",
+      "risk": "闭源服务漂移与不可复现",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "T18",
+      "title": "代理与仿真编排",
+      "en": "Agent orchestration",
+      "layer": "technology",
+      "domains": [
+        "measurement",
+        "cognitive",
+        "social",
+        "clinical",
+        "methods",
+        "education",
+        "developmental"
+      ],
+      "description": "管理受限模拟与工具步骤。",
+      "metric": "轨迹审计、消融与人工对照",
+      "risk": "涌现叙事不代表人类机制",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration",
+        "simulator-guide",
+        "clinical-meta",
+        "qualitative-review",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F01",
+      "title": "文献检索与证据定位",
+      "en": "Evidence retrieval",
+      "layer": "function",
+      "domains": [
+        "methods",
+        "clinical"
+      ],
+      "description": "定位与问题有关的证据与日期。",
+      "metric": "引用支持率、漏检率",
+      "risk": "把相关性误当支持",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F02",
+      "title": "研究综合与比较",
+      "en": "Evidence synthesis",
+      "layer": "function",
+      "domains": [
+        "methods"
+      ],
+      "description": "比较不同设计、样本与结论边界。",
+      "metric": "设计识别、重复研究检查",
+      "risk": "叙述流畅掩盖异质性",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F03",
+      "title": "结构化信息提取",
+      "en": "Structured extraction",
+      "layer": "function",
+      "domains": [
+        "methods",
+        "clinical"
+      ],
+      "description": "从授权文本提取预先定义字段。",
+      "metric": "精确率、召回率、人工差异",
+      "risk": "遗漏关键否定与语境",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F04",
+      "title": "访谈与主题辅助编码",
+      "en": "Qualitative coding",
+      "layer": "function",
+      "domains": [
+        "methods"
+      ],
+      "description": "建议代码并保留原始证据片段。",
+      "metric": "分歧审计、反例与反思记录",
+      "risk": "抹平少数观点",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F05",
+      "title": "量表条目与测验生成",
+      "en": "Item development",
+      "layer": "function",
+      "domains": [
+        "measurement",
+        "education"
+      ],
+      "description": "产生待专家和样本验证的条目。",
+      "metric": "内容效度、项目反应模型",
+      "risk": "内容新颖不代表有效",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F06",
+      "title": "构念操作化与验证",
+      "en": "Construct validation",
+      "layer": "function",
+      "domains": [
+        "measurement",
+        "cognitive"
+      ],
+      "description": "连接操作、指标与可辩护解释。",
+      "metric": "收敛、区分与预测效度",
+      "risk": "跨实体构念误用",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F07",
+      "title": "文本评分与行为指标",
+      "en": "Scoring & markers",
+      "layer": "function",
+      "domains": [
+        "measurement",
+        "clinical"
+      ],
+      "description": "生成有校准要求的研究指标。",
+      "metric": "与独立标准一致性、校准",
+      "risk": "从个体语言武断推断心理状况",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F08",
+      "title": "情境化沟通辅助",
+      "en": "Communication support",
+      "layer": "function",
+      "domains": [
+        "clinical",
+        "education"
+      ],
+      "description": "起草待人工审核的沟通材料。",
+      "metric": "情境适当性、事实错误",
+      "risk": "拟人化、权威感与过度信任",
+      "sourceIds": [
+        "clinical-meta",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F09",
+      "title": "风险识别与人工升级",
+      "en": "Risk escalation",
+      "layer": "function",
+      "domains": [
+        "clinical"
+      ],
+      "description": "研究升级到有资质人员的安全流程。",
+      "metric": "漏报、误报、响应延迟",
+      "risk": "漏掉危机或错误安抚",
+      "sourceIds": [
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F10",
+      "title": "心理教育内容辅助",
+      "en": "Psychoeducation support",
+      "layer": "function",
+      "domains": [
+        "clinical",
+        "education"
+      ],
+      "description": "制作需审阅的通用教育材料。",
+      "metric": "事实核验、可理解性",
+      "risk": "把通用教育当个体治疗",
+      "sourceIds": [
+        "clinical-meta",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F11",
+      "title": "标准化角色扮演",
+      "en": "Role-play",
+      "layer": "function",
+      "domains": [
+        "clinical",
+        "education"
+      ],
+      "description": "模拟训练情境，不冒充真实患者。",
+      "metric": "角色一致性、训练迁移",
+      "risk": "刻板印象和过度简化",
+      "sourceIds": [
+        "clinical-meta",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F12",
+      "title": "合成参与者模拟",
+      "en": "Participant simulation",
+      "layer": "function",
+      "domains": [
+        "social",
+        "cognitive"
+      ],
+      "description": "探索假设并与真实人类数据比较。",
+      "metric": "分布匹配、未见任务外部效度",
+      "risk": "替代真实参与者",
+      "sourceIds": [
+        "simulator-guide",
+        "theory-integration",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F13",
+      "title": "视角与社会推理",
+      "en": "Social reasoning",
+      "layer": "function",
+      "domains": [
+        "social",
+        "developmental"
+      ],
+      "description": "评估情境推理和视角任务表现。",
+      "metric": "对照条件、反事实鲁棒性",
+      "risk": "把答题正确当心理机制",
+      "sourceIds": [
+        "simulator-guide",
+        "theory-integration",
+        "learning-psychology"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F14",
+      "title": "认知与决策预测",
+      "en": "Behavior prediction",
+      "layer": "function",
+      "domains": [
+        "cognitive",
+        "social"
+      ],
+      "description": "预测受限任务行为并标注不确定性。",
+      "metric": "留出任务误差、分布差异",
+      "risk": "样本记忆与外推失败",
+      "sourceIds": [
+        "theory-integration",
+        "dual-validity",
+        "simulator-guide"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F15",
+      "title": "实验设计与假设生成",
+      "en": "Study design",
+      "layer": "function",
+      "domains": [
+        "methods",
+        "cognitive"
+      ],
+      "description": "辅助可证伪假设和研究方案。",
+      "metric": "独立可检验性、预注册一致性",
+      "risk": "事后合理化和研究者自由度",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F16",
+      "title": "刺激材料与难度控制",
+      "en": "Stimulus generation",
+      "layer": "function",
+      "domains": [
+        "cognitive",
+        "education"
+      ],
+      "description": "生成需预试验的刺激或教学材料。",
+      "metric": "难度匹配、操控检查",
+      "risk": "语义、文化或难度混淆",
+      "sourceIds": [
+        "theory-integration",
+        "dual-validity",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F17",
+      "title": "跨语言适配与翻译",
+      "en": "Cross-cultural adaptation",
+      "layer": "function",
+      "domains": [
+        "measurement",
+        "social"
+      ],
+      "description": "生成候选翻译并安排文化校验。",
+      "metric": "测量不变性、认知访谈",
+      "risk": "字面翻译丢失意义",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "simulator-guide",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F18",
+      "title": "纵向轨迹与变化",
+      "en": "Longitudinal analysis",
+      "layer": "function",
+      "domains": [
+        "developmental",
+        "clinical"
+      ],
+      "description": "研究随时间变化且保留不确定性。",
+      "metric": "时间外测试、缺失机制敏感性",
+      "risk": "把漂移误当个体变化",
+      "sourceIds": [
+        "theory-integration",
+        "learning-psychology",
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F19",
+      "title": "学习支架与反思",
+      "en": "Learning scaffolds",
+      "layer": "function",
+      "domains": [
+        "education",
+        "developmental"
+      ],
+      "description": "支持自主解释、反思与无AI迁移。",
+      "metric": "延迟测验、迁移、自主性",
+      "risk": "依赖与能力卸载",
+      "sourceIds": [
+        "learning-psychology",
+        "pedagogy-umbrella",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F20",
+      "title": "可解释审计与出处",
+      "en": "Explanation & audit",
+      "layer": "function",
+      "domains": [
+        "methods",
+        "clinical"
+      ],
+      "description": "核查过程、证据和决策责任。",
+      "metric": "审计可重建率、事实支持",
+      "risk": "推理文本不等于真实机制",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F21",
+      "title": "公平性与群体评估",
+      "en": "Fairness evaluation",
+      "layer": "function",
+      "domains": [
+        "measurement",
+        "social"
+      ],
+      "description": "报告最坏组误差和适用范围。",
+      "metric": "分组误差、差异项目功能",
+      "risk": "平均分掩盖伤害",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "simulator-guide",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F22",
+      "title": "同意与隐私治理",
+      "en": "Consent & privacy",
+      "layer": "function",
+      "domains": [
+        "methods",
+        "developmental"
+      ],
+      "description": "约束采集、共享、保留和删除。",
+      "metric": "同意可理解性、再识别与删除检查",
+      "risk": "敏感文本与未成年人暴露",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "theory-integration",
+        "learning-psychology"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F23",
+      "title": "复现与漂移监测",
+      "en": "Reproducibility",
+      "layer": "function",
+      "domains": [
+        "methods",
+        "measurement"
+      ],
+      "description": "记录完整研究配置和结果变化。",
+      "metric": "多次运行与版本敏感性",
+      "risk": "不可获取模型和时间漂移",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "psychometrics-lifecycle"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "F24",
+      "title": "多代理互动实验",
+      "en": "Multi-agent experiments",
+      "layer": "function",
+      "domains": [
+        "social",
+        "cognitive"
+      ],
+      "description": "检验受控群体互动假设。",
+      "metric": "人类对照、消融、机制区分",
+      "risk": "仿真故事被误作实证",
+      "sourceIds": [
+        "simulator-guide",
+        "theory-integration",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P01",
+      "title": "验证一个心理测量构念",
+      "en": "Validate a construct",
+      "layer": "task",
+      "domains": [
+        "measurement"
+      ],
+      "description": "在独立真实样本上检验指标含义。",
+      "metric": "构念效度与外部标准",
+      "risk": "未经验证用于个体评估",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P02",
+      "title": "开发跨文化量表候选",
+      "en": "Adapt a measure",
+      "layer": "task",
+      "domains": [
+        "measurement",
+        "social"
+      ],
+      "description": "生成条目与译文，开展认知访谈与校准。",
+      "metric": "不变性、DIF与内容效度",
+      "risk": "群体公平性不足",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "simulator-guide",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P03",
+      "title": "复现认知行为实验",
+      "en": "Replicate cognition task",
+      "layer": "task",
+      "domains": [
+        "cognitive"
+      ],
+      "description": "对比模型与人类在新实验条件的反应。",
+      "metric": "未见条件预测、效应方向",
+      "risk": "记忆已有实验答案",
+      "sourceIds": [
+        "theory-integration",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P04",
+      "title": "检验社会判断与人格",
+      "en": "Study social judgment",
+      "layer": "task",
+      "domains": [
+        "social"
+      ],
+      "description": "描述有限任务行为，不把模型当人。",
+      "metric": "人类分布匹配、提示敏感性",
+      "risk": "人格标签拟人化",
+      "sourceIds": [
+        "simulator-guide",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P05",
+      "title": "构建群体互动仿真",
+      "en": "Model group interaction",
+      "layer": "task",
+      "domains": [
+        "social",
+        "cognitive"
+      ],
+      "description": "检验群体机制假设和边界条件。",
+      "metric": "独立实证、消融与稳健性",
+      "risk": "无法推广真实社会",
+      "sourceIds": [
+        "simulator-guide",
+        "theory-integration",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P06",
+      "title": "辅助访谈主题分析",
+      "en": "Analyze interviews",
+      "layer": "task",
+      "domains": [
+        "methods"
+      ],
+      "description": "仅对获授权、最小化数据做辅助编码。",
+      "metric": "反例、分歧、反思记录",
+      "risk": "语境流失与隐私泄露",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P07",
+      "title": "研究叙事与心理语言",
+      "en": "Study psychological language",
+      "layer": "task",
+      "domains": [
+        "methods",
+        "cognitive"
+      ],
+      "description": "研究语言模式与外部标准的关系。",
+      "metric": "独立标注、跨语境稳健性",
+      "risk": "从语言过度推断心理状态",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P08",
+      "title": "制作临床文书草稿",
+      "en": "Draft clinical documentation",
+      "layer": "task",
+      "domains": [
+        "clinical"
+      ],
+      "description": "需受控数据环境与专业人员审阅。",
+      "metric": "事实错误、遗漏、人工负担",
+      "risk": "私密记录外泄或错误进入病历",
+      "sourceIds": [
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P09",
+      "title": "评估监督式筛查支持",
+      "en": "Evaluate supervised screening",
+      "layer": "task",
+      "domains": [
+        "clinical"
+      ],
+      "description": "研究筛查支持流程，不提供自主诊断。",
+      "metric": "校准、漏报、前瞻结局",
+      "risk": "基准分数代替临床验证",
+      "sourceIds": [
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P10",
+      "title": "训练咨询沟通技能",
+      "en": "Train counseling skills",
+      "layer": "task",
+      "domains": [
+        "clinical",
+        "education"
+      ],
+      "description": "以合成角色训练沟通并由专家评价。",
+      "metric": "技能迁移、专家与学员反馈",
+      "risk": "把模拟熟练误当临床胜任",
+      "sourceIds": [
+        "clinical-meta",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P11",
+      "title": "评估安全升级流程",
+      "en": "Test safety escalation",
+      "layer": "task",
+      "domains": [
+        "clinical"
+      ],
+      "description": "以受控情境验证人工介入与问责流程。",
+      "metric": "漏报与误报、升级延迟",
+      "risk": "安全漏洞与虚假保证",
+      "sourceIds": [
+        "clinical-meta"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P12",
+      "title": "研究元认知与AI信任",
+      "en": "Study metacognition & trust",
+      "layer": "task",
+      "domains": [
+        "education"
+      ],
+      "description": "研究何时检查、依赖或拒绝模型输出。",
+      "metric": "信任校准、无AI迁移",
+      "risk": "任务加速掩盖依赖",
+      "sourceIds": [
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P13",
+      "title": "评估学习支架与迁移",
+      "en": "Evaluate learning transfer",
+      "layer": "task",
+      "domains": [
+        "education"
+      ],
+      "description": "追踪延迟、独立作答和迁移能力。",
+      "metric": "延迟测验、迁移效果",
+      "risk": "即时成绩当长期获益",
+      "sourceIds": [
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P14",
+      "title": "研究年龄与发展差异",
+      "en": "Study developmental change",
+      "layer": "task",
+      "domains": [
+        "developmental",
+        "education"
+      ],
+      "description": "证据待补强；年龄分层与保护优先。",
+      "metric": "纵向与年龄分层结果",
+      "risk": "儿童隐私、自主性和长期影响",
+      "sourceIds": [
+        "theory-integration",
+        "learning-psychology",
+        "pedagogy-umbrella"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P15",
+      "title": "建立版本化复现基准",
+      "en": "Build reproducibility benchmark",
+      "layer": "task",
+      "domains": [
+        "methods",
+        "measurement"
+      ],
+      "description": "记录模型、提示、样本和评价脚本。",
+      "metric": "运行与版本方差、独立复现",
+      "risk": "基准污染与配置不可恢复",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "psychometrics-lifecycle"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P16",
+      "title": "审计公平与隐私风险",
+      "en": "Audit fairness & privacy",
+      "layer": "task",
+      "domains": [
+        "measurement",
+        "methods"
+      ],
+      "description": "评估受约束用例的风险和退出机制。",
+      "metric": "最坏组误差、再识别风险",
+      "risk": "平均安全性不保护每个人",
+      "sourceIds": [
+        "psychometrics-lifecycle",
+        "dual-validity",
+        "qualitative-review"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P17",
+      "title": "综合干预与工作流证据",
+      "en": "Synthesize intervention evidence",
+      "layer": "task",
+      "domains": [
+        "clinical",
+        "methods"
+      ],
+      "description": "区分模拟、回顾与前瞻研究及真实结局。",
+      "metric": "偏倚评价、异质性、设计分层",
+      "risk": "异质结果被合并过度解释",
+      "sourceIds": [
+        "clinical-meta",
+        "qualitative-review",
+        "dual-validity"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    },
+    {
+      "id": "P18",
+      "title": "预注册可证伪研究方案",
+      "en": "Preregister a study",
+      "layer": "task",
+      "domains": [
+        "methods",
+        "cognitive"
+      ],
+      "description": "明确假设、比较组、排除条件与指标。",
+      "metric": "预注册一致性、最小效应与功效",
+      "risk": "选择性报告、不可证伪解释",
+      "sourceIds": [
+        "qualitative-review",
+        "dual-validity",
+        "theory-integration"
+      ],
+      "evidence": "review_context",
+      "claim": "文献提供主题背景；此节点的具体实现和有效性需独立验证。"
+    }
+  ],
+  "edges": [
+    {
+      "id": "T03-F01-support",
+      "source": "T03",
+      "target": "F01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T13-F01-support",
+      "source": "T13",
+      "target": "F01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F02-support",
+      "source": "T01",
+      "target": "F02",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F02-support",
+      "source": "T02",
+      "target": "F02",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T03-F02-support",
+      "source": "T03",
+      "target": "F02",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F03-support",
+      "source": "T01",
+      "target": "F03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T06-F03-support",
+      "source": "T06",
+      "target": "F03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F04-support",
+      "source": "T01",
+      "target": "F04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F04-support",
+      "source": "T02",
+      "target": "F04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T05-F04-support",
+      "source": "T05",
+      "target": "F04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F05-support",
+      "source": "T01",
+      "target": "F05",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F05-support",
+      "source": "T02",
+      "target": "F05",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T04-F05-support",
+      "source": "T04",
+      "target": "F05",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T05-F06-support",
+      "source": "T05",
+      "target": "F06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F06-support",
+      "source": "T10",
+      "target": "F06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T14-F06-support",
+      "source": "T14",
+      "target": "F06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T04-F07-support",
+      "source": "T04",
+      "target": "F07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T05-F07-support",
+      "source": "T05",
+      "target": "F07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T06-F07-support",
+      "source": "T06",
+      "target": "F07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F08-support",
+      "source": "T01",
+      "target": "F08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F08-support",
+      "source": "T02",
+      "target": "F08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T12-F08-support",
+      "source": "T12",
+      "target": "F08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T09-F09-support",
+      "source": "T09",
+      "target": "F09",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F09-support",
+      "source": "T15",
+      "target": "F09",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T16-F09-support",
+      "source": "T16",
+      "target": "F09",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T03-F10-support",
+      "source": "T03",
+      "target": "F10",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T12-F10-support",
+      "source": "T12",
+      "target": "F10",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F10-support",
+      "source": "T15",
+      "target": "F10",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F11-support",
+      "source": "T02",
+      "target": "F11",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T08-F11-support",
+      "source": "T08",
+      "target": "F11",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T18-F11-support",
+      "source": "T18",
+      "target": "F11",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F12-support",
+      "source": "T02",
+      "target": "F12",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T04-F12-support",
+      "source": "T04",
+      "target": "F12",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T18-F12-support",
+      "source": "T18",
+      "target": "F12",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F13-support",
+      "source": "T01",
+      "target": "F13",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F13-support",
+      "source": "T02",
+      "target": "F13",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T14-F13-support",
+      "source": "T14",
+      "target": "F13",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T05-F14-support",
+      "source": "T05",
+      "target": "F14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T09-F14-support",
+      "source": "T09",
+      "target": "F14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T14-F14-support",
+      "source": "T14",
+      "target": "F14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F15-support",
+      "source": "T01",
+      "target": "F15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T03-F15-support",
+      "source": "T03",
+      "target": "F15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T14-F15-support",
+      "source": "T14",
+      "target": "F15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T01-F16-support",
+      "source": "T01",
+      "target": "F16",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F16-support",
+      "source": "T02",
+      "target": "F16",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T07-F16-support",
+      "source": "T07",
+      "target": "F16",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T12-F17-support",
+      "source": "T12",
+      "target": "F17",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T05-F17-support",
+      "source": "T05",
+      "target": "F17",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F17-support",
+      "source": "T15",
+      "target": "F17",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T08-F18-support",
+      "source": "T08",
+      "target": "F18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T09-F18-support",
+      "source": "T09",
+      "target": "F18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T17-F18-support",
+      "source": "T17",
+      "target": "F18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T02-F19-support",
+      "source": "T02",
+      "target": "F19",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T03-F19-support",
+      "source": "T03",
+      "target": "F19",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F19-support",
+      "source": "T15",
+      "target": "F19",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T06-F20-support",
+      "source": "T06",
+      "target": "F20",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T13-F20-support",
+      "source": "T13",
+      "target": "F20",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T17-F20-support",
+      "source": "T17",
+      "target": "F20",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F21-support",
+      "source": "T10",
+      "target": "F21",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T12-F21-support",
+      "source": "T12",
+      "target": "F21",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T09-F21-support",
+      "source": "T09",
+      "target": "F21",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F22-support",
+      "source": "T11",
+      "target": "F22",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F22-support",
+      "source": "T15",
+      "target": "F22",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T16-F22-support",
+      "source": "T16",
+      "target": "F22",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F23-support",
+      "source": "T10",
+      "target": "F23",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T13-F23-support",
+      "source": "T13",
+      "target": "F23",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T17-F23-support",
+      "source": "T17",
+      "target": "F23",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T18-F24-support",
+      "source": "T18",
+      "target": "F24",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T14-F24-support",
+      "source": "T14",
+      "target": "F24",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F24-support",
+      "source": "T10",
+      "target": "F24",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F05-P01-support",
+      "source": "F05",
+      "target": "P01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F06-P01-support",
+      "source": "F06",
+      "target": "P01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F07-P01-support",
+      "source": "F07",
+      "target": "P01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F21-P01-support",
+      "source": "F21",
+      "target": "P01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P01-support",
+      "source": "F23",
+      "target": "P01",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F05-P02-support",
+      "source": "F05",
+      "target": "P02",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F17-P02-support",
+      "source": "F17",
+      "target": "P02",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F21-P02-support",
+      "source": "F21",
+      "target": "P02",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F12-P03-support",
+      "source": "F12",
+      "target": "P03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F14-P03-support",
+      "source": "F14",
+      "target": "P03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F15-P03-support",
+      "source": "F15",
+      "target": "P03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F16-P03-support",
+      "source": "F16",
+      "target": "P03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P03-support",
+      "source": "F23",
+      "target": "P03",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F06-P04-support",
+      "source": "F06",
+      "target": "P04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F12-P04-support",
+      "source": "F12",
+      "target": "P04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F13-P04-support",
+      "source": "F13",
+      "target": "P04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F21-P04-support",
+      "source": "F21",
+      "target": "P04",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F12-P05-support",
+      "source": "F12",
+      "target": "P05",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F14-P05-support",
+      "source": "F14",
+      "target": "P05",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F24-P05-support",
+      "source": "F24",
+      "target": "P05",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F03-P06-support",
+      "source": "F03",
+      "target": "P06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F04-P06-support",
+      "source": "F04",
+      "target": "P06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F20-P06-support",
+      "source": "F20",
+      "target": "P06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P06-support",
+      "source": "F22",
+      "target": "P06",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F03-P07-support",
+      "source": "F03",
+      "target": "P07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F04-P07-support",
+      "source": "F04",
+      "target": "P07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F07-P07-support",
+      "source": "F07",
+      "target": "P07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F17-P07-support",
+      "source": "F17",
+      "target": "P07",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F03-P08-support",
+      "source": "F03",
+      "target": "P08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F08-P08-support",
+      "source": "F08",
+      "target": "P08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F20-P08-support",
+      "source": "F20",
+      "target": "P08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P08-support",
+      "source": "F22",
+      "target": "P08",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F07-P09-support",
+      "source": "F07",
+      "target": "P09",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F09-P09-support",
+      "source": "F09",
+      "target": "P09",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F21-P09-support",
+      "source": "F21",
+      "target": "P09",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F08-P10-support",
+      "source": "F08",
+      "target": "P10",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F10-P10-support",
+      "source": "F10",
+      "target": "P10",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F11-P10-support",
+      "source": "F11",
+      "target": "P10",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F09-P11-support",
+      "source": "F09",
+      "target": "P11",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F20-P11-support",
+      "source": "F20",
+      "target": "P11",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P11-support",
+      "source": "F23",
+      "target": "P11",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F08-P12-support",
+      "source": "F08",
+      "target": "P12",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F16-P12-support",
+      "source": "F16",
+      "target": "P12",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F19-P12-support",
+      "source": "F19",
+      "target": "P12",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F16-P13-support",
+      "source": "F16",
+      "target": "P13",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F19-P13-support",
+      "source": "F19",
+      "target": "P13",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P13-support",
+      "source": "F23",
+      "target": "P13",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F13-P14-support",
+      "source": "F13",
+      "target": "P14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F18-P14-support",
+      "source": "F18",
+      "target": "P14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F19-P14-support",
+      "source": "F19",
+      "target": "P14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P14-support",
+      "source": "F22",
+      "target": "P14",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F15-P15-support",
+      "source": "F15",
+      "target": "P15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F20-P15-support",
+      "source": "F20",
+      "target": "P15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F21-P15-support",
+      "source": "F21",
+      "target": "P15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P15-support",
+      "source": "F23",
+      "target": "P15",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F20-P16-support",
+      "source": "F20",
+      "target": "P16",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F21-P16-support",
+      "source": "F21",
+      "target": "P16",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P16-support",
+      "source": "F22",
+      "target": "P16",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F01-P17-support",
+      "source": "F01",
+      "target": "P17",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F02-P17-support",
+      "source": "F02",
+      "target": "P17",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F20-P17-support",
+      "source": "F20",
+      "target": "P17",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F01-P18-support",
+      "source": "F01",
+      "target": "P18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F15-P18-support",
+      "source": "F15",
+      "target": "P18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F16-P18-support",
+      "source": "F16",
+      "target": "P18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P18-support",
+      "source": "F23",
+      "target": "P18",
+      "type": "support",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F03-constraint",
+      "source": "T15",
+      "target": "F03",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F04-constraint",
+      "source": "T15",
+      "target": "F04",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F07-constraint",
+      "source": "T15",
+      "target": "F07",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F08-constraint",
+      "source": "T15",
+      "target": "F08",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F09-constraint",
+      "source": "T15",
+      "target": "F09",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F10-constraint",
+      "source": "T15",
+      "target": "F10",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F11-constraint",
+      "source": "T15",
+      "target": "F11",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F18-constraint",
+      "source": "T15",
+      "target": "F18",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T15-F19-constraint",
+      "source": "T15",
+      "target": "F19",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F03-constraint",
+      "source": "T11",
+      "target": "F03",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F04-constraint",
+      "source": "T11",
+      "target": "F04",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F07-constraint",
+      "source": "T11",
+      "target": "F07",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F08-constraint",
+      "source": "T11",
+      "target": "F08",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F18-constraint",
+      "source": "T11",
+      "target": "F18",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T11-F22-constraint",
+      "source": "T11",
+      "target": "F22",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F05-constraint",
+      "source": "T10",
+      "target": "F05",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F06-constraint",
+      "source": "T10",
+      "target": "F06",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F07-constraint",
+      "source": "T10",
+      "target": "F07",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F12-constraint",
+      "source": "T10",
+      "target": "F12",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F13-constraint",
+      "source": "T10",
+      "target": "F13",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F14-constraint",
+      "source": "T10",
+      "target": "F14",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F17-constraint",
+      "source": "T10",
+      "target": "F17",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F19-constraint",
+      "source": "T10",
+      "target": "F19",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "T10-F24-constraint",
+      "source": "T10",
+      "target": "F24",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P01-constraint",
+      "source": "F23",
+      "target": "P01",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P02-constraint",
+      "source": "F23",
+      "target": "P02",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P03-constraint",
+      "source": "F23",
+      "target": "P03",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P04-constraint",
+      "source": "F23",
+      "target": "P04",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P05-constraint",
+      "source": "F23",
+      "target": "P05",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P09-constraint",
+      "source": "F23",
+      "target": "P09",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P12-constraint",
+      "source": "F23",
+      "target": "P12",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P13-constraint",
+      "source": "F23",
+      "target": "P13",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F23-P14-constraint",
+      "source": "F23",
+      "target": "P14",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P06-constraint",
+      "source": "F22",
+      "target": "P06",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P07-constraint",
+      "source": "F22",
+      "target": "P07",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P08-constraint",
+      "source": "F22",
+      "target": "P08",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P09-constraint",
+      "source": "F22",
+      "target": "P09",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P10-constraint",
+      "source": "F22",
+      "target": "P10",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    },
+    {
+      "id": "F22-P14-constraint",
+      "source": "F22",
+      "target": "P14",
+      "type": "constraint",
+      "evidence": "editorial_hypothesis",
+      "claim": "编辑性设计映射；非已验证依赖、因果机制或疗效结论。"
+    }
+  ]
+}
