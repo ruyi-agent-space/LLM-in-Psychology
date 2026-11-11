@@ -1,7 +1,7 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-11T04:08:06Z",
-  "dailyUpdatedAt": "2026-11-11T04:08:06Z",
-  "weeklyUpdatedAt": "2026-11-11T04:03:16Z",
+  "lastAttemptAt": "2026-11-11T06:47:03Z",
+  "dailyUpdatedAt": "2026-11-11T06:47:03Z",
+  "weeklyUpdatedAt": "2026-11-11T06:47:03Z",
   "status": {
     "state": "partial",
     "message": "部分来源失败或处于冷却期；可用来源继续更新，样本覆盖不完整。",
@@ -10,7 +10,7 @@ window.RADAR_DATA = {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-11T04:08:06Z"
+        "lastAttemptAt": "2026-11-11T06:47:03Z"
       },
       {
         "source": "arXiv",
@@ -18,135 +18,448 @@ window.RADAR_DATA = {
         "httpStatus": 429,
         "message": "来源冷却期，未发起请求；覆盖不完整。",
         "lastAttemptAt": "2026-11-11T04:03:16Z",
-        "checkedAt": "2026-11-11T04:08:06Z",
+        "checkedAt": "2026-11-11T06:47:03Z",
         "retryAfterAt": "2026-11-12T04:03:16Z"
       }
     ]
   },
   "daily": [
     {
-      "id": "epmc:MED:42993888",
-      "title": "Toward Human-Centered Pedagogy in the Age of Generative AI Among Higher Education Educators: Qualitative Phenomenological Study.",
-      "url": "https://doi.org/10.2196/105172",
-      "publishedAt": "2026-11-06T00:00:00Z",
-      "updatedAt": null,
-      "type": "paper",
-      "source": "Europe PMC",
-      "theme": "education",
-      "reason": "公开元数据主题匹配；按发表新近性 + 标题关键词加分排序，并优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
       "id": "epmc:MED:42873163",
       "title": "Modeling of Therapist-Client Dynamics in Psychotherapy Using Large Language Model-Based Assessments: Retrospective Observational Study of 1573 Psychotherapy Sessions.",
       "url": "https://doi.org/10.2196/95389",
       "publishedAt": "2026-11-05T00:00:00Z",
+      "recordPublishedAt": "2026-11-05",
       "updatedAt": null,
       "type": "paper",
       "source": "Europe PMC",
       "theme": "clinical",
-      "reason": "公开元数据主题匹配；按发表新近性 + 标题关键词加分排序，并优先方向多样性。",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:MED:42873163",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.2196/95389",
+          "publishedAt": "2026-11-05",
+          "type": "paper"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "clinical:mental health",
+        "clinical:psychotherap"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
     },
     {
-      "id": "epmc:PPR:PPR1360792",
-      "title": "Do thoughts actually drive symptoms? Testing cognitive theories of posttraumatic stress with natural language processing in daily diaries",
-      "url": "https://doi.org/10.31234/osf.io/t8j5q",
-      "publishedAt": "2026-11-06T00:00:00Z",
+      "id": "epmc:MED:42998907",
+      "title": "Large language models in radiology education: a systematic review of applications and learning outcomes.",
+      "url": "https://doi.org/10.1067/j.cpradiol.2026.10.016",
+      "publishedAt": "2026-11-04T00:00:00Z",
+      "recordPublishedAt": "2026-11-04",
       "updatedAt": null,
-      "type": "preprint",
+      "type": "paper",
       "source": "Europe PMC",
-      "theme": "simulation",
-      "reason": "公开元数据主题匹配；按发表新近性 + 标题关键词加分排序，并优先方向多样性。",
+      "theme": "education",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:MED:42998907",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.1067/j.cpradiol.2026.10.016",
+          "publishedAt": "2026-11-04",
+          "type": "paper"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "education:educati",
+        "education:learning outcome",
+        "education:student",
+        "education:tutor"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
+      "id": "epmc:MED:42993888",
+      "title": "Toward Human-Centered Pedagogy in the Age of Generative AI Among Higher Education Educators: Qualitative Phenomenological Study.",
+      "url": "https://doi.org/10.2196/105172",
+      "publishedAt": "2026-11-06T00:00:00Z",
+      "recordPublishedAt": "2026-11-06",
+      "updatedAt": null,
+      "type": "paper",
+      "source": "Europe PMC",
+      "theme": "methods",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:MED:42993888",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.2196/105172",
+          "publishedAt": "2026-11-06",
+          "type": "paper"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "methods:qualitative",
+        "methods:thematic analys"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
     }
   ],
   "weekly": [
     {
-      "id": "clinical",
-      "title": "临床与心理健康 · Clinical & mental health",
-      "question": "如何验证心理支持的安全性与真实临床效益？",
-      "signal": "过去 7 天公开检索样本 3 条；非穷尽统计。 来源覆盖不完整。",
-      "count": 3,
+      "id": "methods",
+      "title": "质性方法与可复现性 · Qualitative methods & reproducibility",
+      "question": "如何审计质性编码、数据泄漏和复现流程？",
+      "signal": "过去 7 天检索样本 4 条；仅在五个预设方向中按数量排序。 来源覆盖不完整。",
+      "count": 4,
       "sourceIds": [
-        "epmc:MED:42873163",
-        "epmc:MED:42983913",
-        "epmc:MED:42996292"
+        "epmc:MED:42993682",
+        "epmc:MED:42993888",
+        "epmc:MED:42993929",
+        "epmc:PPR:PPR1360149"
+      ],
+      "papers": [
+        {
+          "id": "epmc:MED:42993682",
+          "title": "Artificial intelligence hallucinations in large language models for medical education and healthcare: a scoping review of detection, mitigation, and governance.",
+          "url": "https://doi.org/10.1080/10872981.2026.2756806",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "methods:thematic analys"
+          ]
+        },
+        {
+          "id": "epmc:MED:42993888",
+          "title": "Toward Human-Centered Pedagogy in the Age of Generative AI Among Higher Education Educators: Qualitative Phenomenological Study.",
+          "url": "https://doi.org/10.2196/105172",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "methods:qualitative",
+            "methods:thematic analys"
+          ]
+        },
+        {
+          "id": "epmc:MED:42993929",
+          "title": "Coexistence of AI Nurse and AI-Simulated Patient in Nursing Education Using a Bidirectional Fine-Tuning Pipeline: Development and Content Analysis Study.",
+          "url": "https://doi.org/10.2196/100778",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "methods:qualitative"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1360149",
+          "title": "Middle School Students and Generative AI Solving Exponent Problems: A Comparative Analysis of Written Solutions and Solution Reliability",
+          "url": "https://doi.org/10.21203/rs.3.rs-11239535/v1",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "methods:thematic analys"
+          ]
+        }
       ]
     },
     {
       "id": "simulation",
-      "title": "认知与社会模拟 · Cognitive & social simulation",
-      "question": "模型模拟能否跨情境复现人类认知与社会行为？",
-      "signal": "过去 7 天公开检索样本 8 条；非穷尽统计。 来源覆盖不完整。",
-      "count": 8,
+      "title": "认知与社会行为 · Cognition & social behavior",
+      "question": "如何检验认知测量、社会行为研究与人类模拟的外部效度？",
+      "signal": "过去 7 天检索样本 4 条；仅在五个预设方向中按数量排序。 来源覆盖不完整。",
+      "count": 4,
       "sourceIds": [
         "epmc:MED:42986726",
-        "epmc:MED:42986948",
-        "epmc:MED:42993784",
         "epmc:MED:42995166",
-        "epmc:PPR:PPR1359935",
         "epmc:PPR:PPR1360703",
-        "epmc:PPR:PPR1360764",
+        "epmc:PPR:PPR1360764"
+      ],
+      "papers": [
+        {
+          "id": "epmc:MED:42986726",
+          "title": "DP-LENS: A Density-Aware Polyfocal Lens with Topology-Driven Auto-Routing for Occlusion Management in Immersive 3D Analytics.",
+          "url": "https://doi.org/10.1109/tvcg.2026.3750988",
+          "publishedAt": "2026-11-05T00:00:00Z",
+          "recordPublishedAt": "2026-11-05",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "epmc:MED:42995166",
+          "title": "Large language models are unstable as autonomous medical evaluators across clinical tasks.",
+          "url": "https://doi.org/10.1093/jamia/ocag190",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1360703",
+          "title": "Persona Diversity and Error Structure in LLM Crowds",
+          "url": "https://doi.org/10.31234/osf.io/wrf6h",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1360764",
+          "title": "Echoes of Thought: Task Complexity, Inner Speech Analogs, and Prompt Design Shape LLMs’ Response Behavior in the Two-Step Task",
+          "url": "https://doi.org/10.31234/osf.io/mgq9r",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti",
+            "simulation:decision-making"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clinical",
+      "title": "临床与心理健康 · Clinical & mental health",
+      "question": "如何验证心理支持的安全性与真实临床效益？",
+      "signal": "过去 7 天检索样本 3 条；仅在五个预设方向中按数量排序。 来源覆盖不完整。",
+      "count": 3,
+      "sourceIds": [
+        "epmc:MED:42873163",
+        "epmc:MED:42996292",
         "epmc:PPR:PPR1360792"
+      ],
+      "papers": [
+        {
+          "id": "epmc:MED:42873163",
+          "title": "Modeling of Therapist-Client Dynamics in Psychotherapy Using Large Language Model-Based Assessments: Retrospective Observational Study of 1573 Psychotherapy Sessions.",
+          "url": "https://doi.org/10.2196/95389",
+          "publishedAt": "2026-11-05T00:00:00Z",
+          "recordPublishedAt": "2026-11-05",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "clinical:mental health",
+            "clinical:psychotherap"
+          ]
+        },
+        {
+          "id": "epmc:MED:42996292",
+          "title": "Quantifying the human visual exposome with vision language models.",
+          "url": "https://doi.org/10.1038/s44488-026-00023-x",
+          "publishedAt": "2026-11-05T00:00:00Z",
+          "recordPublishedAt": "2026-11-05",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "clinical:mental health"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1360792",
+          "title": "Do thoughts actually drive symptoms? Testing cognitive theories of posttraumatic stress with natural language processing in daily diaries",
+          "url": "https://doi.org/10.31234/osf.io/t8j5q",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "clinical:posttraumatic",
+            "clinical:ptsd"
+          ]
+        }
       ]
     },
     {
       "id": "measurement",
       "title": "心理测量 · Psychometrics",
       "question": "量表、人格与偏差测量是否具有构念效度？",
-      "signal": "过去 7 天公开检索样本 2 条；非穷尽统计。 来源覆盖不完整。",
+      "signal": "过去 7 天检索样本 2 条；仅在五个预设方向中按数量排序。 来源覆盖不完整。",
       "count": 2,
       "sourceIds": [
-        "epmc:MED:42986323",
+        "epmc:MED:42989818",
         "epmc:PPR:PPR1359596"
+      ],
+      "papers": [
+        {
+          "id": "epmc:MED:42989818",
+          "title": "Can Dental Professionals Distinguish Human-Authored From AI-Generated Scientific Abstracts? A Blinded Cross-Sectional Study.",
+          "url": "https://doi.org/10.1111/eje.70338",
+          "publishedAt": "2026-11-05T00:00:00Z",
+          "recordPublishedAt": "2026-11-05",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "measurement:response bias"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1359596",
+          "title": "Mapping Altered Temporality: Human-Validated LLM Analysis of Naturalistic Trip Reports",
+          "url": "https://doi.org/10.31234/osf.io/rfvbm",
+          "publishedAt": "2026-11-05T00:00:00Z",
+          "recordPublishedAt": "2026-11-05",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "measurement:psychometr"
+          ]
+        }
       ]
-    },
-    {
-      "id": "methods",
-      "title": "质性方法与可复现性 · Qualitative methods & reproducibility",
-      "question": "如何审计质性编码、数据泄漏和复现流程？",
-      "signal": "过去 7 天公开检索样本 0 条；非穷尽统计。 来源覆盖不完整。",
-      "count": 0,
-      "sourceIds": []
     },
     {
       "id": "education",
       "title": "教育与发展 · Education & development",
       "question": "学习与发展结果如何在真实环境中验证？",
-      "signal": "过去 7 天公开检索样本 16 条；非穷尽统计。 来源覆盖不完整。",
-      "count": 16,
+      "signal": "过去 7 天检索样本 1 条；仅在五个预设方向中按数量排序。 来源覆盖不完整。",
+      "count": 1,
       "sourceIds": [
-        "epmc:MED:42986217",
-        "epmc:MED:42987254",
-        "epmc:MED:42987314",
-        "epmc:MED:42989632",
-        "epmc:MED:42989818",
-        "epmc:MED:42993682",
-        "epmc:MED:42993743",
-        "epmc:MED:42993763",
-        "epmc:MED:42993888",
-        "epmc:MED:42993929",
-        "epmc:MED:42993960",
-        "epmc:PPR:PPR1359211",
-        "epmc:PPR:PPR1359296",
-        "epmc:PPR:PPR1359342",
-        "epmc:PPR:PPR1360130",
-        "epmc:PPR:PPR1360149"
+        "epmc:PPR:PPR1360130"
+      ],
+      "papers": [
+        {
+          "id": "epmc:PPR:PPR1360130",
+          "title": "Contributions of ChatGPT Adoption and Academic Integrity to Learning Engagement among Undergraduates",
+          "url": "https://doi.org/10.21203/rs.3.rs-11091710/v1",
+          "publishedAt": "2026-11-06T00:00:00Z",
+          "recordPublishedAt": "2026-11-06",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "education:educati",
+            "education:student"
+          ]
+        }
       ]
     }
   ],
   "methodology": [
-    "公开元数据样本：Europe PMC 最多 300 条、arXiv 最多 200 条；查询和覆盖有偏差，不代表穷尽检索或领域排名。",
-    "必须同时匹配 LLM 与心理学相关主题；质性/复现方法还需心理学或人类研究语境。DOI、规范化标题或来源 ID 去重。",
-    "日报仅纳入原始发表时间在过去 90 天内的项目；更新时间不刷新文献年龄，缺失或未来发表日期排除。",
-    "每日 3 条：分数 = 90 − 发表年龄（天）+ 3 × 标题主题命中数（上限 3）；先选不同方向，再补齐。分数不是质量或影响力。",
-    "周报每周一更新五个固定方向；数量是过去 7 天首次发表且通过筛选的公开样本，零值不表示没有研究；不是趋势增速或完整热度排名。",
-    "部分来源失败时仍更新足量的日报及到期周报，明确标记覆盖不完整，并单独保留最近完整覆盖时间；全部失败或日报不足 3 条时保留此前日报，不编造条目。HTTP 429 暂停该来源 24 小时。",
-    "精选综述与图谱为独立人工策展输入；自动任务不覆盖 data/research.json 或 data/graph.json，不自动改写综述结论。"
+    "公开元数据样本：Europe PMC最多300条，arXiv最多200条；记录查询、条数上限及达到上限的状态；数据库覆盖有偏差，不是穷尽检索。",
+    "LLM需在标题出现或摘要至少提及两次；教育主题另需元认知、学习结局等心理过程信号；认知/社会行为不自动等同于人类模拟。保留匹配词供审查。",
+    "先按DOI、规范化标题或来源ID合并已检索版本，再取样本内最早已知日期；无法保证找全作品的旧版本。日报窗口90天，周报7天；缺失或未来日期排除。",
+    "每日3条按90−样本内最早已知发表年龄+标题主题信号排序，优先方向多样性。分数不是质量、影响力或疗效。",
+    "周报每周一更新，并在筛选规则变化时重算；五个预设方向按样本数排序，保留逐篇标题、链接、日期和匹配信号。零值不代表没有研究，不能称全领域前五。",
+    "单源失败可更新足量候选，但标明覆盖不完整；全部失败或不足3条保留旧日报与日期。HTTP429停止即时重试并冷却24小时。",
+    "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "partial",
   "lastCompleteDailyAt": null,
   "weeklyCoverage": "partial",
-  "lastCompleteWeeklyAt": null
+  "lastCompleteWeeklyAt": null,
+  "screeningVersion": "1.1.0",
+  "attemptCoverage": {
+    "recordsFetched": 300,
+    "deduplicatedRecords": 296,
+    "eligibleRecords": 43,
+    "sourceLimits": {
+      "Europe PMC": 300,
+      "arXiv": 200
+    },
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "limitReached": true
+      },
+      {
+        "source": "arXiv",
+        "state": "deferred",
+        "count": null,
+        "limitReached": false
+      }
+    ],
+    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
+    "windowStart": "2026-08-13T06:47:03Z",
+    "windowEnd": "2026-11-11T06:47:03Z",
+    "queries": {
+      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
+      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
+    }
+  },
+  "dailyPolicyVersion": "1.1.0",
+  "dailySample": {
+    "recordsFetched": 300,
+    "deduplicatedRecords": 296,
+    "eligibleRecords": 43,
+    "sourceLimits": {
+      "Europe PMC": 300,
+      "arXiv": 200
+    },
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "limitReached": true
+      },
+      {
+        "source": "arXiv",
+        "state": "deferred",
+        "count": null,
+        "limitReached": false
+      }
+    ],
+    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
+    "windowStart": "2026-08-13T06:47:03Z",
+    "windowEnd": "2026-11-11T06:47:03Z",
+    "queries": {
+      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
+      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
+    }
+  },
+  "weeklySample": {
+    "recordsFetched": 300,
+    "deduplicatedRecords": 296,
+    "eligibleRecords": 43,
+    "sourceLimits": {
+      "Europe PMC": 300,
+      "arXiv": 200
+    },
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "limitReached": true
+      },
+      {
+        "source": "arXiv",
+        "state": "deferred",
+        "count": null,
+        "limitReached": false
+      }
+    ],
+    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
+    "windowStart": "2026-11-04T06:47:03Z",
+    "windowEnd": "2026-11-11T06:47:03Z",
+    "queries": {
+      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
+      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
+    },
+    "weeklyRecords": 14
+  },
+  "weeklyPolicyVersion": "1.1.0"
 };
