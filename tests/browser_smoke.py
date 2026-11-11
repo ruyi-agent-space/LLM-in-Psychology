@@ -3,6 +3,7 @@
 import argparse
 import functools
 import json
+import re
 import sys
 import tempfile
 import threading
@@ -45,7 +46,7 @@ def no_overflow(page, label):
     assert max(result['document'], result['body']) <= result['viewport'] + 1, (label, result)
 
 
-def run_case(browser, base, width, height, folder):
+def run_case(browser, base, width, height, folder, language):
     context = browser.new_context(viewport={'width':width, 'height':height}, accept_downloads=True, service_workers='block')
     errors, unexpected, responses = [], [], {}
     origin = urlsplit(base).netloc
@@ -70,6 +71,16 @@ def run_case(browser, base, width, height, folder):
     try:
         response = page.goto(base, wait_until='networkidle')
         assert response and response.status == 200
+        page.locator('#languageEn' if language == 'en' else '#languageZh').click()
+        expect(page.locator('html')).to_have_attribute('lang','en' if language == 'en' else 'zh-CN')
+        page.reload(wait_until='networkidle')
+        expect(page.locator('html')).to_have_attribute('lang','en' if language == 'en' else 'zh-CN')
+        expected_title = '心理语义任务 X 技术能力网络' if language == 'zh' else 'Psychological Semantic Tasks X Technical Capabilities Network'
+        expect(page.locator('#network h1')).to_have_text(expected_title)
+        expect(page.locator('#safetyText')).to_have_text('仅供研究使用和分享，目前不提供任何心理健康相关服务。' if language == 'zh' else 'For research use and sharing. No mental health services are currently provided.')
+        assert page.locator('#methodology').count() == 0
+        assert page.locator('input[type="password"]').count() == 0
+        assert page.locator('#automaticNote a[href="mailto:ruyiw20@gmail.com"]').count() == 1
         actual_radar = page.evaluate('window.RADAR_DATA')
         expected_radar = json.loads((ROOT / 'data/radar.json').read_text())
         assert actual_radar == expected_radar, 'Hosted radar differs from the checked deployment snapshot'
@@ -84,6 +95,8 @@ def run_case(browser, base, width, height, folder):
         expect(page.locator('#network.active')).to_be_visible()
         expect(page.locator('.graph-node')).to_have_count(len(graph['nodes']))
         no_overflow(page, 'network')
+        if language == 'en':
+            assert not re.search(r'[\u4e00-\u9fff]', page.locator('body').inner_text()), 'Mixed-language network view'
 
         node = page.locator('.graph-node[data-id="T01"]')
         node.click()
@@ -98,20 +111,29 @@ def run_case(browser, base, width, height, folder):
         expect(page.locator(f'.graph-node[data-id="{linked_id}"]')).to_have_attribute('aria-pressed','true')
         expect(detail.locator('.eyebrow')).to_contain_text(linked_id)
         no_overflow(page, 'related node')
+        if language == 'en':
+            assert not re.search(r'[\u4e00-\u9fff]', detail.inner_text()), 'Untranslated node detail'
         page.locator('#closeDetail').click()
         expect(detail).to_be_hidden()
 
+        page.locator('#search').fill('re-identification')
+        assert page.locator('.graph-node').count() > 0
         page.locator('#reset').click()
         with page.expect_download() as pending:
             page.locator('#export').click()
         download = pending.value
         assert download.suggested_filename == 'psychology-network.json'
-        output = folder / f'network-{width}.json'
+        output = folder / f'network-{width}-{language}.json'
         download.save_as(output)
         assert download.failure() is None
         raw = output.read_bytes()
         exported = json.loads(raw.decode('utf-8'))
-        assert exported == {'metadata':graph['metadata'], 'filters':{'domain':'all','query':'','edge':'all'}, 'nodes':graph['nodes'], 'edges':graph['edges']}
+        assert exported['metadata'] == graph['metadata']
+        assert exported['filters'] == {'domain':'all','query':'','edge':'all'}
+        assert exported['nodes'] == graph['nodes'] and exported['edges'] == graph['edges']
+        assert exported['view']['language'] == language
+        assert len(exported['view']['nodeLabels']) == len(graph['nodes'])
+        assert exported['view']['nodeLabels']['T01']['title'] == (graph['nodes'][0]['en'] if language == 'en' else graph['nodes'][0]['title'])
         assert graph['nodes'][0]['title'].encode('utf-8') in raw
 
         for section in ('weekly','daily','challenges','evidence'):
@@ -135,13 +157,15 @@ def run_case(browser, base, width, height, folder):
                 first.locator('summary').click()
                 expect(first).to_have_attribute('open','')
                 expect(first.locator('.challenge-body')).to_be_visible()
-                expect(first.locator('.challenge-body')).to_contain_text('如何验证')
+                expect(first.locator('.challenge-body')).to_contain_text('如何验证' if language == 'zh' else 'Evaluation approach')
             else:
                 expect(page.locator('#sourceList .source')).to_have_count(len(research['sources']))
             no_overflow(page, section)
+            if language == 'en':
+                assert not re.search(r'[\u4e00-\u9fff]', page.locator('body').inner_text()), 'Mixed-language section: ' + section
         assert not unexpected, unexpected
         assert not errors, errors
-        return {'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'dailyUpdatedAt':actual_radar.get('dailyUpdatedAt'), 'weeklyUpdatedAt':actual_radar.get('weeklyUpdatedAt'), 'coverage':actual_radar.get('status',{}).get('state'), 'status':'passed'}
+        return {'language':language, 'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'dailyUpdatedAt':actual_radar.get('dailyUpdatedAt'), 'weeklyUpdatedAt':actual_radar.get('weeklyUpdatedAt'), 'coverage':actual_radar.get('status',{}).get('state'), 'status':'passed'}
     except Exception:
         print(json.dumps({'viewport':width,'pageErrors':errors,'blockedRequests':unexpected}, ensure_ascii=False), file=sys.stderr)
         raise
@@ -161,7 +185,9 @@ def wait_for_public_site(base):
             with urlopen(Request(base + 'radar-data.js', headers=headers), timeout=15) as response:
                 wrapper = response.read(800000).decode('utf-8').strip()
             actual = json.loads(wrapper.removeprefix('window.RADAR_DATA = ').removesuffix(';').strip())
-            if 'PUBLIC RESEARCH ATLAS' in html and actual == expected:
+            with urlopen(Request(base + 'i18n.js', headers=headers), timeout=15) as response:
+                remote_i18n = response.read(300000).decode('utf-8')
+            if 'id="languageEn"' in html and remote_i18n == (SITE / 'i18n.js').read_text() and actual == expected:
                 return
             error = RuntimeError('The deployed page or radar snapshot is not current yet.')
         except Exception as exc:
@@ -191,7 +217,7 @@ def main():
             with sync_playwright() as playwright:
                 browser = playwright.chromium.launch(headless=True)
                 try:
-                    reports = [run_case(browser,base,width,height,Path(folder)) for width,height in ((1440,1000),(390,844))]
+                    reports = [run_case(browser,base,width,height,Path(folder),language) for width,height in ((1440,1000),(390,844)) for language in ('zh','en')]
                 finally:
                     browser.close()
     finally:

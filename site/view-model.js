@@ -20,7 +20,7 @@ const AtlasView = (() => {
     }
     if (state.query) {
       const query = state.query.toLowerCase();
-      const matches = new Set(nodes.filter(n => [n.title,n.en,n.description,n.risk,n.metric,n.id].join(' ').toLowerCase().includes(query)).map(n => n.id));
+      const matches = new Set(nodes.filter(n => [n.title,n.en,n.description,n.risk,n.metric,n.id,n.searchText||''].join(' ').toLowerCase().includes(query)).map(n => n.id));
       const relevant = new Set(matches);
       edges.forEach(e => {if(matches.has(e.source) || matches.has(e.target)){relevant.add(e.source);relevant.add(e.target);}});
       nodes = nodes.filter(n => relevant.has(n.id));
