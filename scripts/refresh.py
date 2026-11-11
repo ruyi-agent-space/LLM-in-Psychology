@@ -111,7 +111,8 @@ def deduplicate(records):
 
 def eligible(records, now, days=90):
     accepted = []
-    for row in deduplicate(records):
+    known = [row for row in records if stamp(row.get('publishedAt')) is not None and stamp(row.get('publishedAt')) <= now]
+    for row in deduplicate(known):
         pub = stamp(row.get('publishedAt'))
         theme, signals = screening(row)
         if not pub or not now - timedelta(days=days) <= pub <= now or not theme:
@@ -293,6 +294,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--force-weekly', action='store_true')
+    parser.add_argument('--summary', action='store_true', help='Print a public-metadata audit summary')
     args = parser.parse_args()
     # Validate read-only curated inputs; do not include their stale dates in the radar.
     for name in ('research.json', 'graph.json'):
@@ -307,6 +309,8 @@ def main():
         tmp.write_text(content, encoding='utf-8')
         tmp.replace(target)
     print(result['status']['message'])
+    if args.summary:
+        print(json.dumps({'state': result['status']['state'], 'dailyUpdatedAt': result.get('dailyUpdatedAt'), 'dailyPolicyVersion': result.get('dailyPolicyVersion'), 'daily': result['daily'], 'weeklyUpdatedAt': result.get('weeklyUpdatedAt'), 'weeklyPolicyVersion': result.get('weeklyPolicyVersion'), 'weekly': [{'id': row['id'], 'count': row.get('count'), 'papers': row.get('papers')} for row in result['weekly']], 'coverage': result.get('attemptCoverage')}, ensure_ascii=False))
     return 0 if result['status']['state'] in ('ok', 'partial') else 1
 
 

@@ -46,7 +46,7 @@ See [automation details](docs/AUTOMATION.md) and [validation record](docs/VALIDA
 python -m unittest discover -s tests -p 'test_*.py' -v
 node --check site/app.js
 node --check site/view-model.js
-node --test tests/test_view.cjs
+node --test tests/test_*.cjs
 python scripts/build_data.py
 python scripts/refresh.py --force-weekly
 ```

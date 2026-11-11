@@ -30,12 +30,12 @@ Metadata screening now requires an LLM title signal or at least two abstract men
 
 Observed examples motivated the changes: the baseline education sample included a nursing RAG review and an ophthalmic question-answering readability study. DP-LENS is legitimate adjacent HCI/cognitive-load research, but its presence does not establish human simulation. Its earlier July preprint also illustrates why a November journal date cannot guarantee a newly originated work.
 
-Retrieved versions are grouped before date filtering. The earliest observed group date is retained alongside the linked record's date and version list. Earlier unobserved versions may still exist because queries are capped; the UI and methodology state this limitation. Weekly papers, matching signals, query definitions, candidate counts and cap indicators are retained for audit. Policy changes rebuild the weekly snapshot.
+Retrieved versions are grouped before date filtering, excluding missing/future-dated versions before choosing the linked representative. The earliest observed group date is retained alongside the linked record's date and version list. Earlier unobserved versions may still exist because queries are capped; the UI and methodology state this limitation. Weekly papers, matching signals, query definitions, candidate counts and cap indicators are retained for audit. Policy changes rebuild the weekly snapshot.
 
 ## Validation and maintenance
 
 JavaScript syntax was independently compiled in V8, and sample-count sorting, the clinical privacy path and empty search were exercised against the committed-data candidate. These are not browser tests.
 
-The workflow now also runs four Node view regressions, checks JavaScript syntax, and rebuilds graph/bibliography artifacts to reject generated-data drift. Python regression fixtures cover the new screening, version-date and audit-record behavior. The exact Actions outcome is recorded in VALIDATION.md after the run. Old-policy weekly counts are withheld until recomputed; the PR job can produce a private preview without updating main.
+The workflow now also runs four Node view regressions and two simulated-DOM application regressions, checks JavaScript syntax, and rebuilds graph/bibliography artifacts to reject generated-data drift. Python regression fixtures cover the new screening, version-date and audit-record behavior. The exact Actions outcome is recorded in VALIDATION.md after the run. Old-policy weekly counts are withheld until recomputed; the PR job can produce a private preview without updating main.
 
 The downloaded dashboard remains a static local snapshot. Automatic updates occur in the private repository and downloadable artifact; a previously downloaded copy does not synchronize itself. arXiv's existing 429 cooldown is retained. A successful partial workflow does not establish complete provider coverage or guarantee future schedules.

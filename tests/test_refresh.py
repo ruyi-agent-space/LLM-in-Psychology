@@ -220,6 +220,17 @@ class RefreshTests(unittest.TestCase):
         self.assertEqual(recovered['weeklyUpdatedAt'], r.iso(NOW + timedelta(hours=2)))
         self.assertEqual(recovered['weeklyPolicyVersion'], r.SCREENING_VERSION)
 
+
+    def test_future_journal_cannot_replace_valid_preprint(self):
+        valid = paper('valid', 'LLM mental health preprint', days=10, doi='10/version', type='preprint')
+        future = paper('future', 'LLM mental health journal version', days=-1, doi='10/version')
+        rows = r.eligible([future, valid], NOW)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['url'], valid['url'])
+        self.assertEqual(rows[0]['type'], 'preprint')
+        self.assertLessEqual(r.stamp(rows[0]['recordPublishedAt']), NOW)
+        self.assertTrue(all(r.stamp(row['publishedAt']) <= NOW for row in rows[0]['versions']))
+
 if __name__ == '__main__':
     unittest.main()
 
