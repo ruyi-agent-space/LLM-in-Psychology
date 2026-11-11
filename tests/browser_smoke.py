@@ -46,11 +46,15 @@ def no_overflow(page, label):
     assert max(result['document'], result['body']) <= result['viewport'] + 1, (label, result)
 
 
-def assert_english_view(page, label):
+def assert_english_view(page, label, selector='body'):
     # Keep each language's own name in the language chooser.
-    visible = page.locator('body').inner_text()
+    visible = page.locator(selector).inner_text()
     chooser = page.locator('.language-switch').inner_text()
     visible = visible.replace(chooser, '', 1)
+    # Bibliographic titles retain the exact source text in either interface language.
+    titles = page.evaluate("""() => [...window.RESEARCH_DATA.sources, ...(window.RADAR_DATA.daily || []), ...(window.RADAR_DATA.weekly || []).flatMap(row => row.papers || [])].map(row => row.title).filter(Boolean)""")
+    for title in set(titles):
+        visible = visible.replace(title, '')
     mixed = [line for line in visible.splitlines() if re.search(r'[\u4e00-\u9fff]', line)]
     assert not mixed, (label, mixed)
 
@@ -137,7 +141,7 @@ def run_case(browser, base, width, height, folder, language):
         expect(detail.locator('.eyebrow')).to_contain_text(linked_id)
         no_overflow(page, 'related node')
         if language == 'en':
-            assert not re.search(r'[\u4e00-\u9fff]', detail.inner_text()), 'Untranslated node detail'
+            assert_english_view(page, 'Untranslated node detail', '#nodeDetail')
         page.locator('#closeDetail').click()
         expect(detail).to_be_hidden()
 
