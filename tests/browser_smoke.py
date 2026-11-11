@@ -111,7 +111,7 @@ def run_case(browser, base, width, height, folder, language):
         node.click()
         original_ids = page.locator('.graph-node').evaluate_all('(nodes) => nodes.map(node => node.dataset.id)')
         page.locator('#edgeFilter').select_option('support')
-        page.locator('#search').fill('LLM')
+        page.locator('#search').fill('Foundation')
         filtered_ids = page.locator('.graph-node').evaluate_all('(nodes) => nodes.map(node => node.dataset.id)')
         assert 'T01' in filtered_ids and len(filtered_ids) < len(original_ids)
         opposite_button = '#languageZh' if language == 'en' else '#languageEn'
@@ -119,7 +119,7 @@ def run_case(browser, base, width, height, folder, language):
         page.locator(opposite_button).click()
         assert page.locator('.graph-node').evaluate_all('(nodes) => nodes.map(node => node.dataset.id)') == filtered_ids
         expect(page.locator('.graph-node[data-id="T01"]')).to_have_attribute('aria-pressed','true')
-        expect(page.locator('#search')).to_have_value('LLM')
+        expect(page.locator('#search')).to_have_value('Foundation')
         expect(page.locator('#edgeFilter')).to_have_value('support')
         page.locator(current_button).click()
         page.locator('#reset').click()
