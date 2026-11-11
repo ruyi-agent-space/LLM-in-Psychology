@@ -31,3 +31,11 @@ First real run: https://github.com/ruyi-agent-space/LLM-in-Psychology/actions/ru
 ## Evidence limitations
 
 The bibliography is a targeted, curated map, not an exhaustive systematic review. Publication dates were checked on primary publisher/conference/preprint pages. Narrative frameworks and guides are not relabeled as systematic reviews. All graph edges are editorial hypotheses; coverage and citations do not establish clinical efficacy, causal mechanisms or suitability for individual psychological assessment. Developmental/child longitudinal evidence remains incomplete.
+
+## Strict review candidate · 2026-11-11
+
+The nine baseline bibliography entries were independently checked at their original pages; substantive limitations and uneven domain coverage are documented in [REVIEW-AUDIT.md](REVIEW-AUDIT.md). The candidate retains 60 nodes and 174 relationships, corrects clinical privacy filtering, and adds individually selected context references and explicit unverified relationship rationales.
+
+The candidate's JavaScript syntax, weekly sorting, clinical privacy path and empty-search behavior were exercised in V8. This is not a fresh browser QA run. Python execution is unavailable in the review thread; new Python and Node regressions are configured for read-only PR verification. Their exact result will be appended after the run. No new live metadata refresh has been claimed for this candidate.
+
+Automatic approval review rejected moving `main`: it required explicit authorization for a default-branch commit. Main therefore remains unchanged; the candidate is being retained for review separately. Publication and Pages remain disabled.
