@@ -51,7 +51,7 @@ class RefreshTests(unittest.TestCase):
             self.assertEqual(r.classify(paper(1, title)), theme)
 
     def test_dates(self):
-        self.assertEqual(len(r.eligible([paper(1, days=-1), paper(2, days=91), paper(3, publishedAt=None), paper(4, days=90)], NOW)), 1)
+        self.assertEqual(len(r.eligible([paper(1, 'LLM mental health future case', days=-1), paper(2, 'LLM mental health older case', days=91), paper(3, 'LLM mental health unknown case', publishedAt=None), paper(4, 'LLM mental health boundary case', days=90)], NOW)), 1)
         self.assertEqual(r.eligible([paper(1, updatedAt=r.iso(NOW + timedelta(days=1)))], NOW)[0]['updatedAt'], None)
         self.assertEqual(r.eligible([paper(1, days=95, updatedAt=r.iso(NOW))], NOW), [])
 

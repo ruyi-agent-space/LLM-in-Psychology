@@ -24,7 +24,7 @@ DIRECTIONS = {
 LLM = re.compile(r'\b(large language models?|LLMs?|ChatGPT|GPT[- ]?[345o]|generative (?:AI|artificial intelligence)|language model(?:s)?)\b', re.I)
 TERMS = {
     'clinical': r'mental health|psychotherap|psychiatr|depressi|anxiety|suicid|\bPTSD\b|post[- ]?traumatic|psycholog.{0,20}(?:support|counsel)|counseling|counselling',
-    'simulation': r'cogniti|social simulat|human behavio|theory of mind|social psycholog|decision.making|moral judgment',
+    'simulation': r'\bcogniti|social simulat|human behavio|theory of mind|social psycholog|decision.making|moral judgment',
     'measurement': r'psychometr|personality|big five|construct valid|psychological assess|psychological measur|psychological scale|response bias',
     'methods': r'qualitative|thematic analys|reproducib|replicab|research method|interview coding',
     'education': r'educati|learning outcome|student|child development|developmental psycholog|pedagog|tutor',
