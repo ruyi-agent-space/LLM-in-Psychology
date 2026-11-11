@@ -1,14 +1,12 @@
 # LLM in Psychology · Research Atlas
 
-A private, evidence-aware research dashboard connecting **foundation technology → reusable function → psychology task**. It follows the Finance dashboard's full-width network-first layout, with top navigation and supporting detail below the graph. No right sidebar, no diagnostic chatbot, no patient-data input, and no analytics.
+A public, evidence-aware research dashboard connecting **foundation technology → reusable function → psychology task**. It follows the Finance dashboard's full-width network-first layout, with top navigation and supporting detail below the graph. No right sidebar, no diagnostic chatbot, no patient-data input, and no analytics.
 
 ## Open the dashboard
 
-1. Download this repository using GitHub's **Code → Download ZIP**, then extract it.
-2. Open `site/index.html` in a modern browser. All application data is bundled locally; no installation is necessary.
-3. For the newest automatically refreshed data, download the repository again, or download the `psychology-dashboard` artifact from the latest [Actions run](https://github.com/ruyi-agent-space/LLM-in-Psychology/actions).
+GitHub Pages target: <https://ruyi-agent-space.github.io/LLM-in-Psychology/>. See the [Pages workflow](https://github.com/ruyi-agent-space/LLM-in-Psychology/actions/workflows/pages.yml) for the deployment result.
 
-**This repository is private. No GitHub Pages or public website is enabled. A downloaded local copy does not automatically synchronize with GitHub.** External source links open their respective public publisher pages; dashboard data stays local.
+The repository and website are public. Only `site/` is deployed. The hosted page is republished after successful radar updates; a downloaded copy remains a local snapshot and does not synchronize itself. To use it offline, download the repository or the latest dashboard artifact and open `site/index.html` (or the artifact's `index.html`).
 
 ## What is included
 
@@ -34,7 +32,7 @@ Every edge is an **unverified editorial design hypothesis**, with a direction an
 
 `.github/workflows/refresh.yml` runs **daily at 06:00 UTC**. Weekly sample counts update on Monday and catch up after a missed or failed Monday. A workflow change or manual dispatch also runs verification. GitHub schedules may be delayed.
 
-The stdlib script retrieves public Europe PMC and arXiv metadata, groups retrieved DOI/title/source-ID versions before date filtering, and retains the earliest known retrieved date. It cannot guarantee finding every older version. Education requires learning/psychological-process signals, while cognitive research is kept distinct from claims of human simulation. Daily and weekly snapshots preserve audit metadata, coverage and per-source status. It calls no model API, uses no personal data and needs no external secret. Its built-in workflow token has only `contents: write`. The workflow commits generated radar data and provides a downloadable static dashboard artifact, without publishing the repository.
+The stdlib script retrieves public Europe PMC and arXiv metadata, groups retrieved DOI/title/source-ID versions before date filtering, and retains the earliest known retrieved date. It cannot guarantee finding every older version. Education requires learning/psychological-process signals, while cognitive research is kept distinct from claims of human simulation. Daily and weekly snapshots preserve audit metadata, coverage and per-source status. It calls no model API, uses no personal data and needs no external secret. Its built-in workflow token has only `contents: write`. The workflow commits generated radar data and provides a downloadable static dashboard artifact. The separate Pages workflow then publishes the checked public site.
 
 If one source fails but another supplies at least three eligible candidates, a clearly labeled partial-coverage reading list can still refresh; the last fully covered success time is retained separately. All-source failure or fewer than three candidates preserves the previous daily content and date. HTTP 429 triggers a 24-hour cooldown rather than rapid retries. The page warns about partial coverage, source failures and stale data. Curated reviews, challenges and graph mappings are maintained separately, never overwritten by automated metadata screening.
 
@@ -63,7 +61,7 @@ python scripts/refresh.py --force-weekly
 - `tests/`: offline data-integrity and updater fixtures
 - `docs/`: methodology, automation and verification records
 
-No public-hosting configuration is included. Any future publication must preserve the user's intended audience and separately address synchronization.
+The Pages workflow validates the public repository and site configuration, tests both local and live browser interactions, and deploys only the checked site artifact. See [Pages operation](docs/PAGES.md).
 
 ## Review audit
 

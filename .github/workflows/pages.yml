@@ -1,0 +1,150 @@
+name: Deploy psychology Pages
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'tests/browser_smoke.py'
+      - 'tests/test_pages.py'
+      - 'scripts/check_pages.py'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Refresh psychology research radar']
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: psychology-pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.event != 'pull_request' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      source_sha: ${{ steps.source.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request'
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        if: github.event_name != 'pull_request'
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Record exact checked source
+        id: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Data and interaction regressions
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          node --test tests/test_*.cjs
+          node --check site/app.js
+          node --check site/view-model.js
+          python scripts/build_data.py
+          git diff --exit-code -- data/graph.json site/graph-data.js site/research-data.js
+      - name: Install browser checks
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Test project path, desktop, narrow screen and JSON download
+        run: python tests/browser_smoke.py
+      - name: Keep exact checked dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: psychology-pages-site
+          path: site/
+          if-no-files-found: error
+          retention-days: 14
+
+  deploy:
+    needs: validate
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.validate.outputs.source_sha }}
+          persist-credentials: false
+      - name: Verify public repository and existing Actions Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY" > "$RUNNER_TEMP/psychology-repository.json"
+          gh api "repos/$GITHUB_REPOSITORY/pages" > "$RUNNER_TEMP/psychology-pages.json"
+          python scripts/check_pages.py "$RUNNER_TEMP/psychology-repository.json" "$RUNNER_TEMP/psychology-pages.json"
+      - name: Configure existing Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
+      - name: Download exact checked site
+        uses: actions/download-artifact@v4
+        with:
+          name: psychology-pages-site
+          path: checked-site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: checked-site
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for this attempt's artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          for attempt in $(seq 1 12); do
+            count=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" --jq '.artifacts[] | select(.expired == false) | .name' | grep -Fxc "$ARTIFACT_NAME" || true)
+            if [ "$count" = "1" ]; then exit 0; fi
+            sleep 5
+          done
+          echo "::error::Pages artifact metadata did not become ready."
+          exit 1
+      - name: Recheck authorized public target
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY" > "$RUNNER_TEMP/psychology-repository.json"
+          gh api "repos/$GITHUB_REPOSITORY/pages" > "$RUNNER_TEMP/psychology-pages.json"
+          python scripts/check_pages.py "$RUNNER_TEMP/psychology-repository.json" "$RUNNER_TEMP/psychology-pages.json"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install live browser verification
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Verify live page and assets anonymously
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python tests/browser_smoke.py --url "$PAGES_URL"

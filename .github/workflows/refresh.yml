@@ -73,7 +73,7 @@ jobs:
         run: |
           node --check site/app.js
           node --check site/view-model.js
-          node --test tests/test_view.cjs
+          node --test tests/test_*.cjs
       - name: Check generated graph and bibliography
         run: |
           python scripts/build_data.py
