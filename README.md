@@ -10,7 +10,7 @@
 - 全宽三层图谱：18项技术、24项研究功能、18项心理任务及174条编辑映射；支持双语关键词筛选、领域/关系筛选、节点跳转和缩放。The three-layer graph supports bilingual text search, domain/relationship filters, linked-node navigation and zoom.
 - JSON导出保留原始图谱，并附所选语言的显示标签。JSON exports preserve source data and include labels in the selected language.
 - 一周研究热点按五个预设方向的近七天检索样本文献数排列；今日精读显示三篇候选；资源说明列出文献原始链接。Weekly counts rank five preset directions; the reading queue contains three candidates; Resources lists original references.
-- 图谱搜索在浏览器中筛选已加载节点。The current search filters the loaded graph in the browser.
+- 研究问题探索在浏览器内关联心理任务、技术、研究功能、挑战和来源，并显示匹配依据；图谱节点筛选可单独使用。The Research Question Explorer connects a question to tasks, technologies, research functions, challenges and references in the browser, with visible matching reasons. The graph also has its own node filter.
 
 **安全边界 / Safety boundary：**仅供研究使用和分享，目前不提供任何心理健康相关服务。For research use and sharing. No mental health services are currently provided.
 
@@ -30,7 +30,17 @@
 
 ## Research Question Explorer / 研究问题探索
 
-[架构建议 / Architecture proposal](docs/SERVICE_ARCHITECTURE.md)讨论登录搜索、账户、文献索引与付费服务。此项处于设计阶段；本次页面提供图谱本地筛选。The architecture document proposes a future authenticated research-search application. The current page provides local graph filtering.
+在 01 功能网络顶部输入研究问题，或选择示例问题。浏览器按预设的中英文主题词关联本站现有任务、技术、研究功能、研究挑战和原始文献，每类显示前 4 项；结果可以打开节点详情、定位挑战或访问原始来源。
+
+Enter a question above the network or choose an example. Deterministic Chinese/English topic-term matching connects it to the atlas's existing tasks, technologies, research functions, challenges and original references. Each category shows up to four results, with links to the corresponding node, challenge or source.
+
+匹配读取图谱节点及其中英文描述、研究挑战，以及人工整理文献与当前日报/周报中的文献元数据。直接主题命中优先，按主题覆盖、字段位置与词组具体程度排序；沿既有图谱的一跳关联和节点/挑战的文献引用分别标明依据。排序分数用于检索呈现，图谱的编辑映射状态和文献证据范围沿用原始记录。主题词组与英文停用词可在 `site/explorer.js` 中审查维护。
+
+The matcher indexes bilingual graph descriptions, research challenges, curated references and the current radar's publication metadata. Direct topic matches rank first, weighted by topic coverage, field position and phrase specificity. One-hop editorial graph connections and references attached to nodes or challenges display their own provenance. Ranking scores order retrieval results; the original graph status and evidence scope are preserved. Topic aliases and English stopwords are maintained in `site/explorer.js`.
+
+问题限 500 字符，在当前浏览器内存中处理；刷新页面后清空。语言切换保留当前问题及结果。Questions are limited to 500 characters and processed in browser memory. Reloading clears the question; language selection preserves it and the result set.
+
+[后续服务架构 / Future service architecture](docs/SERVICE_ARCHITECTURE.md)另列服务器检索、账户、注册和付费方案。The architecture document separately proposes server search, accounts, registration and payment services.
 
 ## Reviews and methodology
 
@@ -216,6 +226,7 @@ python -m unittest discover -s tests -p 'test_*.py' -v
 node --test tests/test_*.cjs
 node --check site/app.js
 node --check site/i18n.js
+node --check site/explorer.js
 python scripts/build_data.py
 python scripts/refresh.py --force-weekly
 python tests/browser_smoke.py

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local HTTP browser checks only; no deployment or external-source access."""
+"""Browser checks for the local project path or the authorized public Pages site."""
 import argparse
 import functools
 import json
@@ -62,6 +62,7 @@ def assert_english_view(page, label, selector='body'):
 def run_case(browser, base, width, height, folder, language):
     context = browser.new_context(viewport={'width':width, 'height':height}, accept_downloads=True, service_workers='block')
     errors, unexpected, responses = [], [], {}
+    request_events, response_events, failed_requests = [], [], []
     origin = urlsplit(base).netloc
 
     def local_only(route):
@@ -79,11 +80,17 @@ def run_case(browser, base, width, height, folder, language):
     context.route('**/*', local_only)
     page = context.new_page()
     page.set_default_timeout(15000)
-    page.on('pageerror', lambda error: errors.append(str(error)))
+    page.on('pageerror', lambda error: errors.append(getattr(error, 'stack', str(error))))
+    page.on('request', lambda request: request_events.append({'method':request.method,'url':request.url}))
+    page.on('requestfailed', lambda request: failed_requests.append({'url':request.url,'failure':request.failure}))
+    page.on('response', lambda response: response_events.append({'url':response.url,'status':response.status}))
     page.on('response', lambda response: responses.update({response.url:response.status}))
     try:
         response = page.goto(base, wait_until='networkidle')
         assert response and response.status == 200
+        assert page.evaluate("Boolean(window.ATLAS_I18N && window.ATLAS_EXPLORER && window.PSYCHOLOGY_ATLAS)"), 'First navigation dependencies failed'
+        expect(page.locator('.graph-node')).to_have_count(len(page.evaluate('window.GRAPH_DATA.nodes')))
+        assert not errors and not failed_requests, {'errors':errors,'failedRequests':failed_requests}
         page.locator('#languageEn' if language == 'en' else '#languageZh').click()
         expect(page.locator('html')).to_have_attribute('lang','en' if language == 'en' else 'zh-CN')
         page.reload(wait_until='networkidle')
@@ -165,6 +172,59 @@ def run_case(browser, base, width, height, folder, language):
         assert exported['view']['nodeLabels']['T01']['title'] == (graph['nodes'][0]['en'] if language == 'en' else graph['nodes'][0]['title'])
         assert graph['nodes'][0]['title'].encode('utf-8') in raw
 
+        # Submit through the actual form; the question stays in this browser.
+        question = '如何检验跨文化量表的测量不变性？' if language == 'zh' else 'How can I test measurement invariance across cultures and validate a psychological scale?'
+        question_input = page.locator('#researchQuestion')
+        expect(question_input).to_have_attribute('maxlength', '500')
+        question_input.fill(question)
+        before_requests = len(request_events)
+        page.locator('#exploreQuestion').click()
+        expect(page.locator('#explorerResults')).to_be_visible()
+        assert len(request_events) == before_requests, 'Question submission made a network request'
+        expect(page.locator('[data-explorer-group]')).to_have_count(5)
+        result_ids = page.locator('[data-explorer-id]').evaluate_all('(rows) => rows.map(row => row.dataset.explorerId)')
+        assert 'P02' in result_ids and 'T12' in result_ids, result_ids
+        assert page.locator('#explorerResults .match-basis').count() > 0
+        assert page.locator('[data-explorer-group="sources"] a[href^="https://"]').count() > 0
+        no_overflow(page, 'question results')
+        if language == 'en':
+            assert_english_view(page, 'Mixed-language question results')
+        page.locator(opposite_button).click()
+        assert page.locator('[data-explorer-id]').evaluate_all('(rows) => rows.map(row => row.dataset.explorerId)') == result_ids
+        expect(question_input).to_have_value(question)
+        page.locator(current_button).click()
+        assert page.evaluate("Object.keys(localStorage)") == ['psychology-atlas-language'], 'Unexpected question persistence'
+        open_node = page.locator('[data-explorer-node]').first
+        explorer_node = open_node.get_attribute('data-explorer-node')
+        page.locator('#domainFilter').select_option('education')
+        open_node.click()
+        expect(page.locator('#domainFilter')).to_have_value('all')
+        expect(page.locator(f'.graph-node[data-id="{explorer_node}"]')).to_have_attribute('aria-pressed','true')
+        expect(page.locator('#nodeDetail')).to_be_visible()
+        page.locator('#closeDetail').click()
+        open_challenge = page.locator('[data-explorer-challenge]').first
+        explorer_challenge = open_challenge.get_attribute('data-explorer-challenge')
+        open_challenge.click()
+        expect(page.locator('#challenges.active')).to_be_visible()
+        expect(page.locator(f'[data-challenge="{explorer_challenge}"]')).to_have_attribute('open','')
+        page.locator('.navigation a[href="#network"]').click()
+        expect(page.locator('#explorerResults')).to_be_visible()
+        question_input.fill('<img src=x onerror=alert(1)>')
+        page.locator('#exploreQuestion').click()
+        assert page.locator('#questionExplorer img').count() == 0
+        question_input.fill('quantum banana trombone')
+        page.locator('#exploreQuestion').click()
+        expect(page.locator('#explorerResults')).to_be_hidden()
+        expect(page.locator('#explorerStatus')).to_contain_text('暂未找到匹配资料' if language == 'zh' else 'No matching material yet')
+        page.locator('[data-explorer-example="explorerExamplePrivacy"]').click()
+        expect(page.locator('#explorerResults')).to_be_visible()
+        no_overflow(page, 'example question')
+        question_input.fill('')
+        page.locator('#exploreQuestion').click()
+        expect(page.locator('#explorerResults')).to_be_hidden()
+
+        page.locator('#challengeList details').evaluate_all('(items) => items.forEach(item => { item.open = false; })')
+
         for section in ('weekly','daily','challenges','evidence'):
             nav = page.locator(f'.navigation a[href="#{section}"]')
             nav.click()
@@ -194,9 +254,10 @@ def run_case(browser, base, width, height, folder, language):
                 assert_english_view(page, 'Mixed-language section: ' + section)
         assert not unexpected, unexpected
         assert not errors, errors
-        return {'language':language, 'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'dailyUpdatedAt':actual_radar.get('dailyUpdatedAt'), 'weeklyUpdatedAt':actual_radar.get('weeklyUpdatedAt'), 'coverage':actual_radar.get('status',{}).get('state'), 'status':'passed'}
+        assert not failed_requests, failed_requests
+        return {'language':language, 'viewport':f'{width}x{height}', 'nodes':len(graph['nodes']), 'edges':len(graph['edges']), 'exportBytes':len(raw), 'pageErrors':errors, 'dailyUpdatedAt':actual_radar.get('dailyUpdatedAt'), 'weeklyUpdatedAt':actual_radar.get('weeklyUpdatedAt'), 'coverage':actual_radar.get('status',{}).get('state'), 'explorer':'passed', 'status':'passed'}
     except Exception:
-        print(json.dumps({'viewport':width,'language':language,'pageErrors':errors,'blockedRequests':unexpected}, ensure_ascii=False), file=sys.stderr)
+        print(json.dumps({'viewport':width,'language':language,'pageErrors':errors,'blockedRequests':unexpected,'failedRequests':failed_requests,'responses':response_events}, ensure_ascii=False), file=sys.stderr)
         raise
     finally:
         context.close()
@@ -216,7 +277,9 @@ def wait_for_public_site(base):
             actual = json.loads(wrapper.removeprefix('window.RADAR_DATA = ').removesuffix(';').strip())
             with urlopen(Request(base + 'i18n.js', headers=headers), timeout=15) as response:
                 remote_i18n = response.read(300000).decode('utf-8')
-            if 'id="languageEn"' in html and remote_i18n == (SITE / 'i18n.js').read_text() and actual == expected:
+            with urlopen(Request(base + 'explorer.js', headers=headers), timeout=15) as response:
+                remote_explorer = response.read(300000).decode('utf-8')
+            if 'id="questionExplorer"' in html and remote_i18n == (SITE / 'i18n.js').read_text() and remote_explorer == (SITE / 'explorer.js').read_text() and actual == expected:
                 return
             error = RuntimeError('The deployed page or radar snapshot is not current yet.')
         except Exception as exc:

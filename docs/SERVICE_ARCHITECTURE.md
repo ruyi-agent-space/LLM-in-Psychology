@@ -1,6 +1,8 @@
 # Research Question Explorer / 研究问题探索
 
-**状态 / Status：架构建议。** 当前已发布的 Atlas 提供本地图谱筛选、文献导航与定期更新。本次改动没有创建账户、服务器搜索、注册接口或收款配置。The published Atlas currently provides browser-local graph filtering, literature navigation and scheduled snapshots. The following is a proposed service architecture.
+**当前实现 / Current implementation：** 已发布的 Atlas 提供浏览器内的研究问题主题词匹配、图谱筛选、文献导航与定期更新。问题关联已有任务、技术、研究功能、挑战和来源，并显示匹配依据。The published Atlas provides browser-local research-question matching, graph filtering, literature navigation and scheduled snapshots, with visible term and connection provenance.
+
+**后续方案 / Proposed service：** 下文讨论服务器检索、账户、注册和付费的后续架构。The following sections propose a later service with server search, accounts, registration and payment.
 
 ## 部署选择 / Hosting decision
 

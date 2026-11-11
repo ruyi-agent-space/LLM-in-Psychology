@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  const G=window.GRAPH_DATA,R=window.RESEARCH_DATA,Q=window.RADAR_DATA,I=window.ATLAS_I18N,V=window.ATLAS_VIEW;
+  const G=window.GRAPH_DATA,R=window.RESEARCH_DATA,Q=window.RADAR_DATA,I=window.ATLAS_I18N,V=window.ATLAS_VIEW,E=window.ATLAS_EXPLORER;
   const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safeUrl=u=>/^https:\/\//.test(String(u||''))?u:'#';
@@ -142,6 +142,68 @@
   function renderSummary(){
     $('#summaryGrid').innerHTML=[[G.nodes.length,'statNodes'],[G.edges.length,'statEdges'],[R.sources.length,'statSources'],[Object.keys(G.metadata.domains).length,'statDomains']].map(([value,key])=>`<article class="stat"><strong>${value}</strong><span>${esc(t(key))}</span></article>`).join('');
   }
+  let explorerResult=null,explorerMessage='explorerWaiting';
+  const explorerSources=new Map();
+  [...R.sources,...(Q.daily||[]),...(Q.weekly||[]).flatMap(row=>row.papers||[])].forEach(row=>{if(!explorerSources.has(row.id))explorerSources.set(row.id,row);});
+  function explorerBasis(item){
+ const parts=[];
+ const terms=values=>(values||[]).map(term=>term.label[state.language]).join(' / ');
+ if(item.matchedTerms?.length)parts.push(`${t('explorerMatched')}${colon()}${terms(item.matchedTerms)}`);
+ (item.relatedVia||[]).slice(0,2).forEach(via=>{
+  const node=byId[via.id],challenge=R.challenges.find(c=>c.id===via.id);
+  const title=node?nodeText(node,'title'):challenge?researchText(challenge,'challenges','title'):via.id;
+  const label=t(via.kind==='graph_edge'?'explorerRelated':'explorerSourceVia');
+  const relation=via.kind==='graph_edge'?' · '+t(via.type==='constraint'?'constraint':'support'):'';
+  parts.push(`${label}${colon()}${title}${relation}${via.matchedTerms?.length?' · '+terms(via.matchedTerms):''}`);
+ });
+ return parts.map(text=>`<p class="match-basis">${esc(text)}</p>`).join('');
+}
+  function renderExplorer(){
+ const output=$('#explorerResults'),status=$('#explorerStatus'),note=$('#explorerEvidence');
+ if(!explorerResult){output.hidden=true;output.innerHTML='';note.hidden=true;status.textContent=t(explorerMessage);return;}
+ const groups=Object.fromEntries(Object.entries(explorerResult.groups).map(([kind,rows])=>[kind,rows.slice(0,4)]));
+ const count=groups.task.length+groups.technology.length+groups.function.length;
+ const total=count+groups.challenges.length+groups.sources.length;
+ if(!total){output.hidden=true;output.innerHTML='';note.hidden=true;status.textContent=t('explorerEmpty');return;}
+ status.textContent=t('explorerSummary',{nodes:count,challenges:groups.challenges.length,sources:groups.sources.length});
+ const keys={task:'explorerTasks',technology:'explorerTechnologies',function:'explorerFunctions',challenges:'explorerChallenges',sources:'explorerSources'};
+ output.innerHTML=Object.entries(keys).map(([kind,key])=>{
+  const rows=groups[kind];
+  return `<section class="explorer-group ${kind==='sources'?'explorer-reference':''}" data-explorer-group="${kind}"><h3>${esc(t(key))} · ${rows.length}</h3>${rows.length?`<ul>${rows.map(item=>{
+   if(kind==='sources'){
+    const source=explorerSources.get(item.id);
+    if(!source)return '';
+    return `<li data-explorer-id="${esc(item.id)}"><h4>${link(source.url,source.title)}</h4><p>${esc(source.date||day(source.publishedAt))}</p>${explorerBasis(item)}</li>`;
+   }
+   if(kind==='challenges'){
+    const challenge=R.challenges.find(c=>c.id===item.id);
+    return `<li data-explorer-id="${esc(item.id)}"><h4>${esc(researchText(challenge,'challenges','title'))}</h4><p>${esc(researchText(challenge,'challenges','question'))}</p>${explorerBasis(item)}<button type="button" data-explorer-challenge="${esc(item.id)}">${esc(t('explorerOpenChallenge'))} →</button></li>`;
+   }
+   const node=byId[item.id];
+   return `<li data-explorer-id="${esc(item.id)}"><h4>${esc(nodeText(node,'title'))}</h4><p>${esc(nodeText(node,'description'))}</p>${explorerBasis(item)}<button type="button" data-explorer-node="${esc(item.id)}">${esc(t('explorerOpenNode'))} →</button></li>`;
+  }).join('')}</ul>`:`<p>${esc(t('explorerNoGroup'))}</p>`}</section>`;
+ }).join('');
+ output.hidden=false;note.hidden=false;
+ $$('[data-explorer-node]').forEach(button=>button.onclick=()=>{
+  Object.assign(state,{domain:'all',query:'',edge:'all'});
+  $('#domainFilter').value='all';$('#edgeFilter').value='all';$('#search').value='';
+  location.hash='network';route();selectNode(button.dataset.explorerNode);
+  $('#nodeDetail').scrollIntoView({block:'start',behavior:'smooth'});
+ });
+ $$('[data-explorer-challenge]').forEach(button=>button.onclick=()=>{
+  location.hash='challenges';route();
+  const challenge=$(`#challengeList [data-challenge="${button.dataset.explorerChallenge}"]`);
+  if(challenge){challenge.open=true;challenge.scrollIntoView({block:'center',behavior:'smooth'});challenge.querySelector?.('summary')?.focus();}
+ });
+}
+  function exploreQuestion(question=$('#researchQuestion').value){
+ const query=String(question??'').trim();
+ if(!query||query.length>500){
+  explorerResult=null;explorerMessage=query.length>500?'explorerTooLong':'explorerShort';renderExplorer();return;
+ }
+ explorerResult=E.search({graph:G,research:R,radar:Q,i18n:I},query);
+ explorerMessage='explorerWaiting';renderExplorer();
+}
   function applyLanguage(){
     document.documentElement.lang=state.language==='zh'?'zh-CN':'en';
     document.title=t('pageTitle');
@@ -153,7 +215,7 @@
     $('#domainFilter').innerHTML=`<option value="all">${esc(t('allDomains'))}</option>`+Object.entries(I.domains[state.language]).map(([key,value])=>`<option value="${key}">${esc(value)}</option>`).join('');
     $('#domainFilter').value=state.domain;$('#edgeFilter').value=state.edge;
     $('#editionDate').textContent=day(G.metadata.asOf);
-    renderWeekly();renderDaily();freshness('weekly');freshness('daily');renderChallenges();renderResources();renderSummary();refreshSelection();route();
+    renderWeekly();renderDaily();freshness('weekly');freshness('daily');renderChallenges();renderResources();renderSummary();renderExplorer();refreshSelection();route();
   }
   function setLanguage(language){
     if(!['zh','en'].includes(language))return;
@@ -176,7 +238,9 @@
     $('#toast').textContent=t('exported');$('#toast').style.display='block';setTimeout(()=>$('#toast').style.display='none',2500);
   };
   $$('[data-language]').forEach(button=>button.onclick=()=>setLanguage(button.dataset.language));
+  $('#questionForm').onsubmit=event=>{event.preventDefault();exploreQuestion();};
+  $$('[data-explorer-example]').forEach(button=>button.onclick=()=>{$('#researchQuestion').value=t(button.dataset.explorerExample);exploreQuestion();});
   window.addEventListener('hashchange',route);
-  window.PSYCHOLOGY_ATLAS={setLanguage,getLanguage:()=>state.language};
+  window.PSYCHOLOGY_ATLAS={setLanguage,getLanguage:()=>state.language,exploreQuestion};
   applyLanguage();
 })();
