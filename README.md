@@ -68,3 +68,7 @@ No public-hosting configuration is included. Any future publication must preserv
 ## Review audit
 
 See [the strict review and remaining limits](docs/REVIEW-AUDIT.md). Recent publication is not evidence of methodological quality: the learning review lacks independent coding and formal quality appraisal; the pedagogy umbrella review has internally inconsistent study counts and a 2025 search cutoff. Developmental, child longitudinal, older-adult and organizational psychology coverage remains incomplete.
+
+## GitHub Pages preparation
+
+A private-only, opt-in Pages workflow and real-browser path/export checks are prepared in this change. Pages remains disabled pending verified account eligibility and visitor access. See [Pages setup and acceptance criteria](docs/PAGES.md). Do not infer private website access from private repository visibility. The refresh-to-deploy chain listens for successful radar completion rather than relying on bot commits to trigger push workflows.

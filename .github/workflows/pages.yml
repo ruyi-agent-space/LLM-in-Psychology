@@ -1,0 +1,125 @@
+name: Validate and deploy private psychology Pages
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'tests/browser_smoke.py'
+      - 'tests/test_private_pages.py'
+      - 'scripts/check_private_pages.py'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Refresh psychology research radar']
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: psychology-pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.event != 'pull_request' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request'
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        if: github.event_name != 'pull_request'
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Data and interaction regressions
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          node --test tests/test_*.cjs
+          node --check site/app.js
+          node --check site/view-model.js
+          python scripts/build_data.py
+          git diff --exit-code -- data/graph.json site/graph-data.js site/research-data.js
+      - name: Install browser checks
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Test hosted path, desktop, narrow screen and JSON download
+        run: python tests/browser_smoke.py
+      - name: Keep private downloadable dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: psychology-pages-readiness
+          path: site/
+          if-no-files-found: error
+          retention-days: 14
+
+  deploy-private:
+    needs: validate
+    if: >-
+      github.event_name != 'pull_request' &&
+      github.ref == 'refs/heads/main' &&
+      vars.PSYCHOLOGY_PAGES_MODE == 'private'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Verify existing private repository and private Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY" > "$RUNNER_TEMP/psychology-repository.json"
+          gh api "repos/$GITHUB_REPOSITORY/pages" > "$RUNNER_TEMP/psychology-pages.json"
+          python scripts/check_private_pages.py "$RUNNER_TEMP/psychology-repository.json" "$RUNNER_TEMP/psychology-pages.json"
+      - name: Configure existing Pages without enabling a new site
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
+      - name: Use the exact checked dashboard
+        uses: actions/download-artifact@v4
+        with:
+          name: psychology-pages-readiness
+          path: checked-site
+      - name: Upload checked Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: checked-site
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Recheck private access immediately before deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY" > "$RUNNER_TEMP/psychology-repository.json"
+          gh api "repos/$GITHUB_REPOSITORY/pages" > "$RUNNER_TEMP/psychology-pages.json"
+          python scripts/check_private_pages.py "$RUNNER_TEMP/psychology-repository.json" "$RUNNER_TEMP/psychology-pages.json"
+      - name: Deploy only to the verified private Pages site
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
