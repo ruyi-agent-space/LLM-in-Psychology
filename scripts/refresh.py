@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
@@ -135,6 +136,12 @@ def fetch(url):
                 if len(body) > 8_000_000:
                     raise ValueError('Metadata response exceeds 8 MB limit')
                 return body
+        except HTTPError as exc:
+            if exc.code == 429:
+                raise
+            error = exc
+            if attempt < 2:
+                time.sleep(2 ** attempt)
         except Exception as exc:
             error = exc
             if attempt < 2:
@@ -186,7 +193,7 @@ METHODOLOGY = [
     '日报仅纳入原始发表时间在过去 90 天内的项目；更新时间不刷新文献年龄，缺失或未来发表日期排除。',
     '每日 3 条：分数 = 90 − 发表年龄（天）+ 3 × 标题主题命中数（上限 3）；先选不同方向，再补齐。分数不是质量或影响力。',
     '周报每周一更新五个固定方向；数量是过去 7 天首次发表且通过筛选的公开样本，零值不表示没有研究；不是趋势增速或完整热度排名。',
-    '任一来源失败时保留已有成功日报与周报及其时间戳；首次运行可展示足量的部分样本并明确警告。不足 3 条不编造日报。',
+    '部分来源失败时仍更新足量的日报及到期周报，明确标记覆盖不完整，并单独保留最近完整覆盖时间；全部失败或日报不足 3 条时保留此前日报，不编造条目。HTTP 429 暂停该来源 24 小时。',
     '精选综述与图谱为独立人工策展输入；自动任务不覆盖 data/research.json 或 data/graph.json，不自动改写综述结论。',
 ]
 
@@ -199,33 +206,55 @@ def refresh(previous, now, providers=None, force_weekly=False):
     output.setdefault('weekly', [])
     output.setdefault('dailyUpdatedAt', None)
     output.setdefault('weeklyUpdatedAt', None)
+    for period in ('daily', 'weekly'):
+        was_complete = previous.get('status', {}).get('state') == 'ok' and previous.get(period + 'UpdatedAt')
+        output.setdefault(period + 'Coverage', 'complete' if was_complete else None)
+        output.setdefault('lastComplete' + period.title() + 'At', previous.get(period + 'UpdatedAt') if was_complete else None)
+    previous_results = {result['source']: result for result in previous.get('status', {}).get('sourceResults', [])}
     records, results = [], []
     for name, provider in providers.items():
+        old = previous_results.get(name, {})
+        retry_at = stamp(old.get('retryAfterAt'))
+        legacy_429 = old.get('httpStatus') == 429 or bool(re.search(r'\b429\b', old.get('message', '')))
+        if retry_at is None and legacy_429:
+            attempted = stamp(old.get('lastAttemptAt')) or stamp(previous.get('lastAttemptAt')) or now
+            retry_at = attempted + timedelta(hours=24)
+        if retry_at and retry_at > now:
+            results.append({'source': name, 'state': 'deferred', 'httpStatus': old.get('httpStatus', 429 if legacy_429 else None), 'message': '来源冷却期，未发起请求；覆盖不完整。', 'lastAttemptAt': old.get('lastAttemptAt'), 'checkedAt': iso(now), 'retryAfterAt': iso(retry_at)})
+            continue
         try:
             rows = provider(now)
             records.extend(rows)
             results.append({'source': name, 'state': 'ok', 'count': len(rows), 'lastAttemptAt': iso(now)})
         except Exception as exc:
-            results.append({'source': name, 'state': 'error', 'message': str(exc)[:500], 'lastAttemptAt': iso(now)})
-    failures = any(r['state'] == 'error' for r in results)
-    all_failed = all(r['state'] == 'error' for r in results)
+            result = {'source': name, 'state': 'error', 'message': str(exc)[:500], 'lastAttemptAt': iso(now)}
+            if getattr(exc, 'code', None) == 429 or re.search(r'\b429\b', str(exc)):
+                result.update(httpStatus=429, retryAfterAt=iso(now + timedelta(hours=24)))
+            results.append(result)
+    failures = any(r['state'] != 'ok' for r in results)
+    all_failed = all(r['state'] != 'ok' for r in results)
     rows = eligible(records, now)
     daily = select_daily(rows, now)
     messages = []
     if failures:
-        messages.append('来源失败，已有成功内容与时间戳保持不变；新样本覆盖不完整。')
+        messages.append('部分来源失败或处于冷却期；可用来源继续更新，样本覆盖不完整。' if not all_failed else '全部来源不可用，保留此前内容与时间戳。')
     if len(daily) < 3:
         messages.append(f'90 天内合格样本仅 {len(daily)} 条，保留此前日报；不补造条目。')
-    if len(daily) == 3 and not all_failed and (not failures or not previous.get('daily')):
-        output.update(daily=daily, dailyUpdatedAt=iso(now))
+    if len(daily) == 3 and not all_failed:
+        output.update(daily=daily, dailyUpdatedAt=iso(now), dailyCoverage='partial' if failures else 'complete')
+        if not failures:
+            output['lastCompleteDailyAt'] = iso(now)
     last_weekly = stamp(previous.get('weeklyUpdatedAt'))
     week_start = (now - timedelta(days=now.weekday())).replace(hour=0, minute=0, second=0, microsecond=0)
     due = force_weekly or not previous.get('weekly') or last_weekly is None or last_weekly < week_start
-    if due and not all_failed and (not failures or not previous.get('weekly')):
+    if due and not all_failed:
         recent = [r for r in rows if stamp(r['publishedAt']) >= now - timedelta(days=7)]
         output['weekly'] = [{'id': key, 'title': title, 'question': question, 'signal': f'过去 7 天公开检索样本 {sum(r["theme"] == key for r in recent)} 条；非穷尽统计。' + (' 来源覆盖不完整。' if failures else ''), 'count': sum(r['theme'] == key for r in recent), 'sourceIds': [r['id'] for r in recent if r['theme'] == key]} for key, (title, question) in DIRECTIONS.items()]
         output['weeklyUpdatedAt'] = iso(now)
-    output['status'] = {'state': 'error' if all_failed else 'warning' if messages else 'ok', 'message': ' '.join(messages) or '公开元数据刷新成功；精选综述独立维护。', 'sourceResults': results}
+        output['weeklyCoverage'] = 'partial' if failures else 'complete'
+        if not failures:
+            output['lastCompleteWeeklyAt'] = iso(now)
+    output['status'] = {'state': 'error' if all_failed else 'warning' if len(daily) < 3 else 'partial' if failures else 'ok', 'message': ' '.join(messages) or '公开元数据刷新成功；精选综述独立维护。', 'sourceResults': results}
     return output
 
 
@@ -247,7 +276,7 @@ def main():
         tmp.write_text(content, encoding='utf-8')
         tmp.replace(target)
     print(result['status']['message'])
-    return 1 if result['status']['state'] != 'ok' else 0
+    return 0 if result['status']['state'] in ('ok', 'partial') else 1
 
 
 if __name__ == '__main__':

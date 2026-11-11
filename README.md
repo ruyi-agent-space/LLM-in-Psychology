@@ -36,7 +36,7 @@ Every edge is an **editorial design hypothesis**, not an established dependency,
 
 The stdlib script retrieves public Europe PMC and arXiv metadata, validates dates, deduplicates DOI/title/source IDs, selects three recent candidates and records source status. It calls no model API, uses no personal data and needs no external secret. Its built-in workflow token has only `contents: write`. The workflow commits generated radar data and provides a downloadable static dashboard artifact, without publishing the repository.
 
-If a source fails, previous successful content and timestamps remain intact. If fewer than three candidates qualify, the script does not invent a complete daily list. The page warns about source failures and stale data. Curated reviews, challenges and graph mappings are maintained separately, never overwritten by automated metadata screening.
+If one source fails but another supplies at least three eligible candidates, a clearly labeled partial-coverage reading list can still refresh; the last fully covered success time is retained separately. All-source failure or fewer than three candidates preserves the previous daily content and date. HTTP 429 triggers a 24-hour cooldown rather than rapid retries. The page warns about partial coverage, source failures and stale data. Curated reviews, challenges and graph mappings are maintained separately, never overwritten by automated metadata screening.
 
 See [automation details](docs/AUTOMATION.md) and [validation record](docs/VALIDATION.md).
 

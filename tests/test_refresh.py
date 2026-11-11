@@ -1,7 +1,8 @@
 import importlib.util
 from pathlib import Path
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
+from urllib.error import HTTPError
 import json
 from datetime import datetime, timedelta, timezone
 
@@ -71,17 +72,73 @@ class RefreshTests(unittest.TestCase):
 
     def test_failure_preservation(self):
         previous = r.refresh({}, NOW, {'one': lambda _: self.rows()})
-        for providers in [{'one': fail, 'two': lambda _: self.rows()}, {'one': fail}]:
-            result = r.refresh(previous, NOW + timedelta(days=7), providers)
-            for key in ('daily', 'weekly', 'dailyUpdatedAt', 'weeklyUpdatedAt'):
-                self.assertEqual(previous[key], result[key])
-            self.assertNotEqual(previous['lastAttemptAt'], result['lastAttemptAt'])
-            self.assertIn(result['status']['state'], ['warning', 'error'])
+        result = r.refresh(previous, NOW + timedelta(days=7), {'one': fail})
+        for key in ('daily', 'weekly', 'dailyUpdatedAt', 'weeklyUpdatedAt', 'lastCompleteDailyAt', 'lastCompleteWeeklyAt', 'dailyCoverage', 'weeklyCoverage'):
+            self.assertEqual(previous[key], result[key])
+        self.assertNotEqual(previous['lastAttemptAt'], result['lastAttemptAt'])
+        self.assertEqual(result['status']['state'], 'error')
+
+    def test_partial_advances_and_preserves_complete(self):
+        previous = r.refresh({}, NOW, {'one': lambda _: self.rows()})
+        later = NOW + timedelta(days=7)
+        result = r.refresh(previous, later, {'one': fail, 'two': lambda _: self.rows()})
+        self.assertEqual(result['status']['state'], 'partial')
+        for period in ('daily', 'weekly'):
+            self.assertEqual(result[period + 'UpdatedAt'], r.iso(later))
+            self.assertEqual(result[period + 'Coverage'], 'partial')
+            self.assertEqual(result['lastComplete' + period.title() + 'At'], r.iso(NOW))
+
+    def test_partial_keeps_not_due_weekly(self):
+        previous = r.refresh({}, NOW, {'one': lambda _: self.rows()})
+        result = r.refresh(previous, NOW + timedelta(days=1), {'one': fail, 'two': lambda _: self.rows()})
+        self.assertEqual(result['dailyCoverage'], 'partial')
+        self.assertEqual(result['weeklyCoverage'], 'complete')
+        self.assertEqual(result['weeklyUpdatedAt'], previous['weeklyUpdatedAt'])
+
+    def test_cooldown_migrates_legacy_429_and_does_not_slide(self):
+        provider = Mock(return_value=self.rows())
+        old = {'lastAttemptAt': r.iso(NOW), 'status': {'sourceResults': [{'source': 'arXiv', 'state': 'error', 'message': 'HTTPError: HTTP Error 429: Unknown Error', 'lastAttemptAt': r.iso(NOW)}]}}
+        result = r.refresh(old, NOW + timedelta(minutes=1), {'arXiv': provider, 'other': lambda _: self.rows()})
+        provider.assert_not_called()
+        self.assertEqual(result['status']['state'], 'partial')
+        source = result['status']['sourceResults'][0]
+        self.assertEqual(source['state'], 'deferred')
+        self.assertEqual(source['retryAfterAt'], r.iso(NOW + timedelta(hours=24)))
+        again = r.refresh(result, NOW + timedelta(hours=1), {'arXiv': provider})
+        provider.assert_not_called()
+        self.assertEqual(again['status']['sourceResults'][0]['retryAfterAt'], source['retryAfterAt'])
+        self.assertEqual(again['status']['state'], 'error')
+        r.refresh(again, NOW + timedelta(hours=24), {'arXiv': provider})
+        provider.assert_called_once()
+
+    def test_explicit_cooldown_without_429(self):
+        provider = Mock()
+        old = {'status': {'sourceResults': [{'source': 'one', 'retryAfterAt': r.iso(NOW + timedelta(hours=1))}]}}
+        result = r.refresh(old, NOW, {'one': provider})
+        provider.assert_not_called()
+        self.assertEqual(result['status']['sourceResults'][0]['state'], 'deferred')
+
+    def test_429_stops_retry_and_records_cooldown(self):
+        error = HTTPError('https://example.org', 429, 'rate limited', {}, None)
+        with patch.object(r, 'urlopen', side_effect=error) as request, patch.object(r.time, 'sleep') as sleep:
+            result = r.refresh({}, NOW, {'arXiv': lambda _: r.fetch('https://example.org')})
+        request.assert_called_once()
+        sleep.assert_not_called()
+        self.assertEqual(result['status']['sourceResults'][0]['retryAfterAt'], r.iso(NOW + timedelta(hours=24)))
+
+    def test_partial_insufficient_does_not_fabricate(self):
+        previous = r.refresh({}, NOW, {'one': lambda _: self.rows()})
+        for count in (0, 1, 2):
+            result = r.refresh(previous, NOW + timedelta(days=1), {'one': fail, 'two': lambda _: self.rows()[:count]})
+            self.assertEqual(result['daily'], previous['daily'])
+            self.assertEqual(result['dailyUpdatedAt'], previous['dailyUpdatedAt'])
+            self.assertEqual(result['status']['state'], 'warning')
 
     def test_partial_bootstrap(self):
         result = r.refresh({}, NOW, {'one': fail, 'two': lambda _: self.rows()})
         self.assertEqual(len(result['daily']), 3)
-        self.assertEqual(result['status']['state'], 'warning')
+        self.assertEqual(result['status']['state'], 'partial')
+        self.assertIsNone(result['lastCompleteDailyAt'])
         self.assertEqual(len(result['weekly']), 5)
 
     def test_insufficient(self):

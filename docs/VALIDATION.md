@@ -2,7 +2,7 @@
 
 ## Local checks · 2026-11-11
 
-- Python 3.12: 21 offline tests passed, covering graph integrity, date/source references, JSON/browser wrapper equality, all required support paths, metadata parsing, relevance, transitive deduplication, freshness, diversity, failure preservation and missed-Monday recovery.
+- Python 3.12: 27 offline tests passed, covering graph integrity, date/source references, JSON/browser wrapper equality, all required support paths, metadata parsing, relevance, transitive deduplication, freshness, diversity, failure preservation and missed-Monday recovery.
 - `node --check site/app.js` passed.
 - Cloud-browser QA at desktop width: graph renders all 60 nodes and 174 links; node selection shows lower-panel detail; empty-search state works; reset and navigation work; Weekly/Daily/Challenges/Evidence content renders; challenge disclosure expands.
 - Mobile QA in a real 390px iframe viewport: reading cards and graph controls adapt; body client/scroll widths both 375px (15px browser scrollbar), so no document-level horizontal overflow. The wide network and top navigation intentionally scroll within their containers. Developmental filter returned 16 nodes and 23 links.
@@ -12,7 +12,13 @@
 
 ## Real automation verification
 
-Initial GitHub workflow run is pending at the time this file is first committed. Do not interpret the seed data as a completed automatic fetch. This section will be updated after the run and data readback.
+First real run: https://github.com/ruyi-agent-space/LLM-in-Psychology/actions/runs/42956686052
+
+- All 21 initial tests passed in GitHub Actions.
+- Europe PMC returned 300 records; arXiv returned HTTP 429.
+- The workflow correctly wrote a source warning, preserved the seed daily readings, generated a visibly partial weekly sample, committed the output as `54648c7c35d37f9f0d8dfebb1a8ad4e033bd746f`, and uploaded the private downloadable artifact.
+- That first run intentionally concluded failure because the original policy required every source to succeed.
+- The next version permits explicitly marked partial-coverage daily refresh, while separately retaining last-complete timestamps. HTTP 429 now stops immediate retries and persists a 24-hour source cooldown. Its 27 offline tests pass. A follow-up real verification run is pending for this adjustment.
 
 ## Evidence limitations
 
