@@ -1,6 +1,6 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-13T13:58:14Z",
-  "dailyUpdatedAt": "2026-11-13T13:58:14Z",
+  "lastAttemptAt": "2026-11-14T12:59:56Z",
+  "dailyUpdatedAt": "2026-11-14T12:59:56Z",
   "weeklyUpdatedAt": "2026-11-11T06:47:03Z",
   "status": {
     "state": "ok",
@@ -10,47 +10,20 @@ window.RADAR_DATA = {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-13T13:58:14Z"
+        "lastAttemptAt": "2026-11-14T12:59:56Z"
       },
       {
         "source": "arXiv",
         "state": "ok",
         "count": 200,
-        "lastAttemptAt": "2026-11-13T13:58:14Z"
+        "lastAttemptAt": "2026-11-14T12:59:56Z"
       }
     ]
   },
   "daily": [
     {
-      "id": "epmc:PMC:PMC13752036",
-      "title": "University students’ overreliance on generative AI feedback in the learning process: the effects of perceived cognitive load, cognitive offloading, and metacognitive monitoring",
-      "url": "https://europepmc.org/article/PMC/PMC13752036",
-      "publishedAt": "2026-11-12T00:00:00Z",
-      "recordPublishedAt": "2026-11-12",
-      "updatedAt": null,
-      "type": "paper",
-      "source": "Europe PMC",
-      "theme": "simulation",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "epmc:PMC:PMC13752036",
-          "source": "Europe PMC",
-          "url": "https://europepmc.org/article/PMC/PMC13752036",
-          "publishedAt": "2026-11-12",
-          "type": "paper"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:title",
-        "simulation:cogniti"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
       "id": "epmc:MED:43019512",
-      "title": "Text Psychometrics: Assessing psychological constructs in text using natural language processing. ",
+      "title": "Text Psychometrics: Assessing psychological constructs in text using natural language processing.",
       "url": "https://doi.org/10.1371/journal.pdig.0001757",
       "publishedAt": "2026-11-12T00:00:00Z",
       "recordPublishedAt": "2026-11-12",
@@ -77,9 +50,36 @@ window.RADAR_DATA = {
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
     },
     {
-      "id": "epmc:PMC:PMC13751964",
-      "title": "Generative AI and student motivation: an SDT-guided systematic review of learning activities, motivational regulation, and measurement",
-      "url": "https://europepmc.org/article/PMC/PMC13751964",
+      "id": "epmc:MED:43020403",
+      "title": "Toward automated cognitive assessment in Parkinson's disease using pretrained language models.",
+      "url": "https://doi.org/10.1016/j.jbi.2026.105126",
+      "publishedAt": "2026-11-12T00:00:00Z",
+      "recordPublishedAt": "2026-11-12",
+      "updatedAt": null,
+      "type": "paper",
+      "source": "Europe PMC",
+      "theme": "simulation",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:MED:43020403",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.1016/j.jbi.2026.105126",
+          "publishedAt": "2026-11-12",
+          "type": "paper"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "simulation:cogniti"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
+      "id": "epmc:MED:43023367",
+      "title": "Integrating ChatGPT into Pharmacology Simulation: A Structured Framework for Prescribing and Medication-Safety Education - A Narrative Review.",
+      "url": "https://doi.org/10.2174/0115748863530047261105111229",
       "publishedAt": "2026-11-12T00:00:00Z",
       "recordPublishedAt": "2026-11-12",
       "updatedAt": null,
@@ -89,15 +89,17 @@ window.RADAR_DATA = {
       "dateBasis": "earliest_retrieved_version",
       "versions": [
         {
-          "id": "epmc:PMC:PMC13751964",
+          "id": "epmc:MED:43023367",
           "source": "Europe PMC",
-          "url": "https://europepmc.org/article/PMC/PMC13751964",
+          "url": "https://doi.org/10.2174/0115748863530047261105111229",
           "publishedAt": "2026-11-12",
           "type": "paper"
         }
       ],
       "matchedSignals": [
         "LLM-primary:title",
+        "education:educati",
+        "education:learning outcome",
         "education:student"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
@@ -358,14 +360,14 @@ window.RADAR_DATA = {
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-13T13:58:14Z",
+  "lastCompleteDailyAt": "2026-11-14T12:59:56Z",
   "weeklyCoverage": "partial",
   "lastCompleteWeeklyAt": null,
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 494,
-    "eligibleRecords": 118,
+    "deduplicatedRecords": 492,
+    "eligibleRecords": 128,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -385,8 +387,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-15T13:58:14Z",
-    "windowEnd": "2026-11-13T13:58:14Z",
+    "windowStart": "2026-08-16T12:59:56Z",
+    "windowEnd": "2026-11-14T12:59:56Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -395,8 +397,8 @@ window.RADAR_DATA = {
   "dailyPolicyVersion": "1.1.0",
   "dailySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 494,
-    "eligibleRecords": 118,
+    "deduplicatedRecords": 492,
+    "eligibleRecords": 128,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -416,8 +418,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-15T13:58:14Z",
-    "windowEnd": "2026-11-13T13:58:14Z",
+    "windowStart": "2026-08-16T12:59:56Z",
+    "windowEnd": "2026-11-14T12:59:56Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
