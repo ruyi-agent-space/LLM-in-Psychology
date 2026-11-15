@@ -1,6 +1,6 @@
 {
-  "lastAttemptAt": "2026-11-14T12:59:56Z",
-  "dailyUpdatedAt": "2026-11-14T12:59:56Z",
+  "lastAttemptAt": "2026-11-15T13:28:31Z",
+  "dailyUpdatedAt": "2026-11-15T13:28:31Z",
   "weeklyUpdatedAt": "2026-11-11T06:47:03Z",
   "status": {
     "state": "ok",
@@ -10,13 +10,13 @@
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-14T12:59:56Z"
+        "lastAttemptAt": "2026-11-15T13:28:31Z"
       },
       {
         "source": "arXiv",
         "state": "ok",
         "count": 200,
-        "lastAttemptAt": "2026-11-14T12:59:56Z"
+        "lastAttemptAt": "2026-11-15T13:28:31Z"
       }
     ]
   },
@@ -360,7 +360,7 @@
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-14T12:59:56Z",
+  "lastCompleteDailyAt": "2026-11-15T13:28:31Z",
   "weeklyCoverage": "partial",
   "lastCompleteWeeklyAt": null,
   "screeningVersion": "1.1.0",
@@ -387,8 +387,8 @@
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-16T12:59:56Z",
-    "windowEnd": "2026-11-14T12:59:56Z",
+    "windowStart": "2026-08-17T13:28:31Z",
+    "windowEnd": "2026-11-15T13:28:31Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -418,8 +418,8 @@
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-16T12:59:56Z",
-    "windowEnd": "2026-11-14T12:59:56Z",
+    "windowStart": "2026-08-17T13:28:31Z",
+    "windowEnd": "2026-11-15T13:28:31Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
