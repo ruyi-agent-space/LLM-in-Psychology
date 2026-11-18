@@ -1,22 +1,24 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-17T15:32:26Z",
+  "lastAttemptAt": "2026-11-18T15:10:23Z",
   "dailyUpdatedAt": "2026-11-17T15:32:26Z",
   "weeklyUpdatedAt": "2026-11-16T14:52:38Z",
   "status": {
-    "state": "ok",
-    "message": "公开元数据刷新成功；精选综述独立维护。",
+    "state": "error",
+    "message": "全部来源不可用，保留此前内容与时间戳。 90 天内合格样本仅 0 条，保留此前日报；不补造条目。",
     "sourceResults": [
       {
         "source": "Europe PMC",
-        "state": "ok",
-        "count": 300,
-        "lastAttemptAt": "2026-11-17T15:32:26Z"
+        "state": "error",
+        "message": "HTTPError: HTTP Error 503: ",
+        "lastAttemptAt": "2026-11-18T15:10:23Z"
       },
       {
         "source": "arXiv",
-        "state": "ok",
-        "count": 200,
-        "lastAttemptAt": "2026-11-17T15:32:26Z"
+        "state": "error",
+        "message": "HTTP Error 429: Too Many Requests",
+        "lastAttemptAt": "2026-11-18T15:10:23Z",
+        "httpStatus": 429,
+        "retryAfterAt": "2026-11-19T15:10:23Z"
       }
     ]
   },
@@ -660,9 +662,9 @@ window.RADAR_DATA = {
   "lastCompleteWeeklyAt": "2026-11-16T14:52:38Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
-    "recordsFetched": 500,
-    "deduplicatedRecords": 493,
-    "eligibleRecords": 138,
+    "recordsFetched": 0,
+    "deduplicatedRecords": 0,
+    "eligibleRecords": 0,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -670,20 +672,20 @@ window.RADAR_DATA = {
     "sourceResults": [
       {
         "source": "Europe PMC",
-        "state": "ok",
-        "count": 300,
-        "limitReached": true
+        "state": "error",
+        "count": null,
+        "limitReached": false
       },
       {
         "source": "arXiv",
-        "state": "ok",
-        "count": 200,
-        "limitReached": true
+        "state": "error",
+        "count": null,
+        "limitReached": false
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-19T15:32:26Z",
-    "windowEnd": "2026-11-17T15:32:26Z",
+    "windowStart": "2026-08-20T15:10:23Z",
+    "windowEnd": "2026-11-18T15:10:23Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
