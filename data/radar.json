@@ -1,106 +1,103 @@
 {
-  "lastAttemptAt": "2026-11-18T15:10:23Z",
-  "dailyUpdatedAt": "2026-11-17T15:32:26Z",
+  "lastAttemptAt": "2026-11-19T15:18:37Z",
+  "dailyUpdatedAt": "2026-11-19T15:18:37Z",
   "weeklyUpdatedAt": "2026-11-16T14:52:38Z",
   "status": {
-    "state": "error",
-    "message": "全部来源不可用，保留此前内容与时间戳。 90 天内合格样本仅 0 条，保留此前日报；不补造条目。",
+    "state": "ok",
+    "message": "公开元数据刷新成功；精选综述独立维护。",
     "sourceResults": [
       {
         "source": "Europe PMC",
-        "state": "error",
-        "message": "HTTPError: HTTP Error 503: ",
-        "lastAttemptAt": "2026-11-18T15:10:23Z"
+        "state": "ok",
+        "count": 300,
+        "lastAttemptAt": "2026-11-19T15:18:37Z"
       },
       {
         "source": "arXiv",
-        "state": "error",
-        "message": "HTTP Error 429: Too Many Requests",
-        "lastAttemptAt": "2026-11-18T15:10:23Z",
-        "httpStatus": 429,
-        "retryAfterAt": "2026-11-19T15:10:23Z"
+        "state": "ok",
+        "count": 200,
+        "lastAttemptAt": "2026-11-19T15:18:37Z"
       }
     ]
   },
   "daily": [
     {
-      "id": "epmc:MED:43040009",
-      "title": "Cognitive grounding improves LLM simulation of collective human behavior. ",
-      "url": "https://doi.org/10.1038/s43588-026-01080-z",
-      "publishedAt": "2026-11-16T00:00:00Z",
-      "recordPublishedAt": "2026-11-16",
-      "updatedAt": null,
-      "type": "paper",
-      "source": "Europe PMC",
+      "id": "arxiv:2611.24149",
+      "title": "Human-LLM Cognitive Extension: A Framework for Studying Coupled Cognition",
+      "url": "https://arxiv.org/abs/2611.24149v1",
+      "publishedAt": "2026-11-18T09:54:43Z",
+      "recordPublishedAt": "2026-11-18T09:54:43Z",
+      "updatedAt": "2026-11-18T09:54:43Z",
+      "type": "preprint",
+      "source": "arXiv",
       "theme": "simulation",
       "dateBasis": "earliest_retrieved_version",
       "versions": [
         {
-          "id": "epmc:MED:43040009",
-          "source": "Europe PMC",
-          "url": "https://doi.org/10.1038/s43588-026-01080-z",
-          "publishedAt": "2026-11-16",
-          "type": "paper"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:title",
-        "simulation:cogniti",
-        "simulation:human behavio"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
-      "id": "epmc:PPR:PPR1368288",
-      "title": "A Knowledge Graph and Large Language Model Framework for Personalized Clinical Decision Support in Bipolar Disorder and Borderline Personality Disorder: The KG- Psy Framework",
-      "url": "https://doi.org/10.21203/rs.3.rs-9621282/v1",
-      "publishedAt": "2026-11-16T00:00:00Z",
-      "recordPublishedAt": "2026-11-16",
-      "updatedAt": null,
-      "type": "preprint",
-      "source": "Europe PMC",
-      "theme": "measurement",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "epmc:PPR:PPR1368288",
-          "source": "Europe PMC",
-          "url": "https://doi.org/10.21203/rs.3.rs-9621282/v1",
-          "publishedAt": "2026-11-16",
+          "id": "arxiv:2611.24149",
+          "source": "arXiv",
+          "url": "https://arxiv.org/abs/2611.24149v1",
+          "publishedAt": "2026-11-18T09:54:43Z",
           "type": "preprint"
         }
       ],
       "matchedSignals": [
         "LLM-primary:title",
-        "measurement:personality"
+        "simulation:cogniti"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
     },
     {
-      "id": "epmc:PPR:PPR1368343",
-      "title": "CliniCIRCA: LLM-powered Clinical Timeline Generation and Summarization from Unstructured EHR Texts for Mental Health Patients",
-      "url": "https://doi.org/10.21203/rs.3.rs-11472328/v1",
-      "publishedAt": "2026-11-16T00:00:00Z",
-      "recordPublishedAt": "2026-11-16",
-      "updatedAt": null,
+      "id": "arxiv:2611.22248",
+      "title": "OAK-Mind: Zero-Training Mental Health Change Inference from Passive Sensing via Knowledge-Grounded Multi-Agent LLMs",
+      "url": "https://arxiv.org/abs/2611.22248v1",
+      "publishedAt": "2026-11-17T05:52:52Z",
+      "recordPublishedAt": "2026-11-17T05:52:52Z",
+      "updatedAt": "2026-11-17T05:52:52Z",
       "type": "preprint",
-      "source": "Europe PMC",
+      "source": "arXiv",
       "theme": "clinical",
       "dateBasis": "earliest_retrieved_version",
       "versions": [
         {
-          "id": "epmc:PPR:PPR1368343",
-          "source": "Europe PMC",
-          "url": "https://doi.org/10.21203/rs.3.rs-11472328/v1",
-          "publishedAt": "2026-11-16",
+          "id": "arxiv:2611.22248",
+          "source": "arXiv",
+          "url": "https://arxiv.org/abs/2611.22248v1",
+          "publishedAt": "2026-11-17T05:52:52Z",
           "type": "preprint"
         }
       ],
       "matchedSignals": [
         "LLM-primary:title",
         "clinical:mental health"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
+      "id": "epmc:MED:43044104",
+      "title": "Use of Large Language Models for Structured Quantitative and Qualitative Analysis of Simulation Debriefings Using the DASH Framework (AIDE Study): Prospective Observational Study.",
+      "url": "https://doi.org/10.2196/101797",
+      "publishedAt": "2026-11-17T00:00:00Z",
+      "recordPublishedAt": "2026-11-17",
+      "updatedAt": null,
+      "type": "paper",
+      "source": "Europe PMC",
+      "theme": "methods",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:MED:43044104",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.2196/101797",
+          "publishedAt": "2026-11-17",
+          "type": "paper"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "methods:qualitative"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
@@ -657,44 +654,13 @@
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-17T15:32:26Z",
+  "lastCompleteDailyAt": "2026-11-19T15:18:37Z",
   "weeklyCoverage": "complete",
   "lastCompleteWeeklyAt": "2026-11-16T14:52:38Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
-    "recordsFetched": 0,
-    "deduplicatedRecords": 0,
-    "eligibleRecords": 0,
-    "sourceLimits": {
-      "Europe PMC": 300,
-      "arXiv": 200
-    },
-    "sourceResults": [
-      {
-        "source": "Europe PMC",
-        "state": "error",
-        "count": null,
-        "limitReached": false
-      },
-      {
-        "source": "arXiv",
-        "state": "error",
-        "count": null,
-        "limitReached": false
-      }
-    ],
-    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-20T15:10:23Z",
-    "windowEnd": "2026-11-18T15:10:23Z",
-    "queries": {
-      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
-      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
-    }
-  },
-  "dailyPolicyVersion": "1.1.0",
-  "dailySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 493,
+    "deduplicatedRecords": 492,
     "eligibleRecords": 138,
     "sourceLimits": {
       "Europe PMC": 300,
@@ -715,8 +681,39 @@
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-19T15:32:26Z",
-    "windowEnd": "2026-11-17T15:32:26Z",
+    "windowStart": "2026-08-21T15:18:37Z",
+    "windowEnd": "2026-11-19T15:18:37Z",
+    "queries": {
+      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
+      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
+    }
+  },
+  "dailyPolicyVersion": "1.1.0",
+  "dailySample": {
+    "recordsFetched": 500,
+    "deduplicatedRecords": 492,
+    "eligibleRecords": 138,
+    "sourceLimits": {
+      "Europe PMC": 300,
+      "arXiv": 200
+    },
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "limitReached": true
+      },
+      {
+        "source": "arXiv",
+        "state": "ok",
+        "count": 200,
+        "limitReached": true
+      }
+    ],
+    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
+    "windowStart": "2026-08-21T15:18:37Z",
+    "windowEnd": "2026-11-19T15:18:37Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
