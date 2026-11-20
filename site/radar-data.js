@@ -1,6 +1,6 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-19T15:18:37Z",
-  "dailyUpdatedAt": "2026-11-19T15:18:37Z",
+  "lastAttemptAt": "2026-11-20T14:55:44Z",
+  "dailyUpdatedAt": "2026-11-20T14:55:44Z",
   "weeklyUpdatedAt": "2026-11-16T14:52:38Z",
   "status": {
     "state": "ok",
@@ -10,13 +10,13 @@ window.RADAR_DATA = {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-19T15:18:37Z"
+        "lastAttemptAt": "2026-11-20T14:55:44Z"
       },
       {
         "source": "arXiv",
         "state": "ok",
         "count": 200,
-        "lastAttemptAt": "2026-11-19T15:18:37Z"
+        "lastAttemptAt": "2026-11-20T14:55:44Z"
       }
     ]
   },
@@ -654,14 +654,14 @@ window.RADAR_DATA = {
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-19T15:18:37Z",
+  "lastCompleteDailyAt": "2026-11-20T14:55:44Z",
   "weeklyCoverage": "complete",
   "lastCompleteWeeklyAt": "2026-11-16T14:52:38Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 492,
-    "eligibleRecords": 138,
+    "deduplicatedRecords": 495,
+    "eligibleRecords": 125,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -681,8 +681,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-21T15:18:37Z",
-    "windowEnd": "2026-11-19T15:18:37Z",
+    "windowStart": "2026-08-22T14:55:44Z",
+    "windowEnd": "2026-11-20T14:55:44Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -691,8 +691,8 @@ window.RADAR_DATA = {
   "dailyPolicyVersion": "1.1.0",
   "dailySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 492,
-    "eligibleRecords": 138,
+    "deduplicatedRecords": 495,
+    "eligibleRecords": 125,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -712,8 +712,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-21T15:18:37Z",
-    "windowEnd": "2026-11-19T15:18:37Z",
+    "windowStart": "2026-08-22T14:55:44Z",
+    "windowEnd": "2026-11-20T14:55:44Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
