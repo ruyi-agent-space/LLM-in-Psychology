@@ -1,6 +1,6 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-20T14:55:44Z",
-  "dailyUpdatedAt": "2026-11-20T14:55:44Z",
+  "lastAttemptAt": "2026-11-21T14:16:30Z",
+  "dailyUpdatedAt": "2026-11-21T14:16:30Z",
   "weeklyUpdatedAt": "2026-11-16T14:52:38Z",
   "status": {
     "state": "ok",
@@ -10,13 +10,13 @@ window.RADAR_DATA = {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-20T14:55:44Z"
+        "lastAttemptAt": "2026-11-21T14:16:30Z"
       },
       {
         "source": "arXiv",
         "state": "ok",
         "count": 200,
-        "lastAttemptAt": "2026-11-20T14:55:44Z"
+        "lastAttemptAt": "2026-11-21T14:16:30Z"
       }
     ]
   },
@@ -49,28 +49,29 @@ window.RADAR_DATA = {
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
     },
     {
-      "id": "arxiv:2611.22248",
-      "title": "OAK-Mind: Zero-Training Mental Health Change Inference from Passive Sensing via Knowledge-Grounded Multi-Agent LLMs",
-      "url": "https://arxiv.org/abs/2611.22248v1",
-      "publishedAt": "2026-11-17T05:52:52Z",
-      "recordPublishedAt": "2026-11-17T05:52:52Z",
-      "updatedAt": "2026-11-17T05:52:52Z",
-      "type": "preprint",
-      "source": "arXiv",
+      "id": "epmc:MED:43045144",
+      "title": "Generative artificial intelligence in psychotherapy: a multicountry qualitative analysis of mental health professionals' open-text survey responses.",
+      "url": "https://doi.org/10.1136/bmjment-2026-302991",
+      "publishedAt": "2026-11-17T00:00:00Z",
+      "recordPublishedAt": "2026-11-17",
+      "updatedAt": null,
+      "type": "paper",
+      "source": "Europe PMC",
       "theme": "clinical",
       "dateBasis": "earliest_retrieved_version",
       "versions": [
         {
-          "id": "arxiv:2611.22248",
-          "source": "arXiv",
-          "url": "https://arxiv.org/abs/2611.22248v1",
-          "publishedAt": "2026-11-17T05:52:52Z",
-          "type": "preprint"
+          "id": "epmc:MED:43045144",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.1136/bmjment-2026-302991",
+          "publishedAt": "2026-11-17",
+          "type": "paper"
         }
       ],
       "matchedSignals": [
         "LLM-primary:title",
-        "clinical:mental health"
+        "clinical:mental health",
+        "clinical:psychotherap"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
@@ -654,14 +655,14 @@ window.RADAR_DATA = {
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-20T14:55:44Z",
+  "lastCompleteDailyAt": "2026-11-21T14:16:30Z",
   "weeklyCoverage": "complete",
   "lastCompleteWeeklyAt": "2026-11-16T14:52:38Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 495,
-    "eligibleRecords": 125,
+    "deduplicatedRecords": 496,
+    "eligibleRecords": 129,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -681,8 +682,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-22T14:55:44Z",
-    "windowEnd": "2026-11-20T14:55:44Z",
+    "windowStart": "2026-08-23T14:16:30Z",
+    "windowEnd": "2026-11-21T14:16:30Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -691,8 +692,8 @@ window.RADAR_DATA = {
   "dailyPolicyVersion": "1.1.0",
   "dailySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 495,
-    "eligibleRecords": 125,
+    "deduplicatedRecords": 496,
+    "eligibleRecords": 129,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -712,8 +713,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-22T14:55:44Z",
-    "windowEnd": "2026-11-20T14:55:44Z",
+    "windowStart": "2026-08-23T14:16:30Z",
+    "windowEnd": "2026-11-21T14:16:30Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
