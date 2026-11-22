@@ -1,53 +1,28 @@
 {
-  "lastAttemptAt": "2026-11-21T14:16:30Z",
-  "dailyUpdatedAt": "2026-11-21T14:16:30Z",
+  "lastAttemptAt": "2026-11-22T14:06:16Z",
+  "dailyUpdatedAt": "2026-11-22T14:06:16Z",
   "weeklyUpdatedAt": "2026-11-16T14:52:38Z",
   "status": {
-    "state": "ok",
-    "message": "公开元数据刷新成功；精选综述独立维护。",
+    "state": "partial",
+    "message": "部分来源失败或处于冷却期；可用来源继续更新，样本覆盖不完整。",
     "sourceResults": [
       {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-21T14:16:30Z"
+        "lastAttemptAt": "2026-11-22T14:06:16Z"
       },
       {
         "source": "arXiv",
-        "state": "ok",
-        "count": 200,
-        "lastAttemptAt": "2026-11-21T14:16:30Z"
+        "state": "error",
+        "message": "HTTP Error 429: Unknown Error",
+        "lastAttemptAt": "2026-11-22T14:06:16Z",
+        "httpStatus": 429,
+        "retryAfterAt": "2026-11-23T14:06:16Z"
       }
     ]
   },
   "daily": [
-    {
-      "id": "arxiv:2611.24149",
-      "title": "Human-LLM Cognitive Extension: A Framework for Studying Coupled Cognition",
-      "url": "https://arxiv.org/abs/2611.24149v1",
-      "publishedAt": "2026-11-18T09:54:43Z",
-      "recordPublishedAt": "2026-11-18T09:54:43Z",
-      "updatedAt": "2026-11-18T09:54:43Z",
-      "type": "preprint",
-      "source": "arXiv",
-      "theme": "simulation",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "arxiv:2611.24149",
-          "source": "arXiv",
-          "url": "https://arxiv.org/abs/2611.24149v1",
-          "publishedAt": "2026-11-18T09:54:43Z",
-          "type": "preprint"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:title",
-        "simulation:cogniti"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
     {
       "id": "epmc:MED:43045144",
       "title": "Generative artificial intelligence in psychotherapy: a multicountry qualitative analysis of mental health professionals' open-text survey responses.",
@@ -72,6 +47,34 @@
         "LLM-primary:title",
         "clinical:mental health",
         "clinical:psychotherap"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
+      "id": "epmc:MED:43040009",
+      "title": "Cognitive grounding improves LLM simulation of collective human behavior.",
+      "url": "https://doi.org/10.1038/s43588-026-01080-z",
+      "publishedAt": "2026-11-16T00:00:00Z",
+      "recordPublishedAt": "2026-11-16",
+      "updatedAt": null,
+      "type": "paper",
+      "source": "Europe PMC",
+      "theme": "simulation",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:MED:43040009",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.1038/s43588-026-01080-z",
+          "publishedAt": "2026-11-16",
+          "type": "paper"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "simulation:cogniti",
+        "simulation:human behavio"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
@@ -654,15 +657,15 @@
     "单源失败可更新足量候选，但标明覆盖不完整；全部失败或不足3条保留旧日报与日期。HTTP429停止即时重试并冷却24小时。",
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
-  "dailyCoverage": "complete",
+  "dailyCoverage": "partial",
   "lastCompleteDailyAt": "2026-11-21T14:16:30Z",
   "weeklyCoverage": "complete",
   "lastCompleteWeeklyAt": "2026-11-16T14:52:38Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
-    "recordsFetched": 500,
-    "deduplicatedRecords": 496,
-    "eligibleRecords": 129,
+    "recordsFetched": 300,
+    "deduplicatedRecords": 296,
+    "eligibleRecords": 47,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -676,14 +679,14 @@
       },
       {
         "source": "arXiv",
-        "state": "ok",
-        "count": 200,
-        "limitReached": true
+        "state": "error",
+        "count": null,
+        "limitReached": false
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-23T14:16:30Z",
-    "windowEnd": "2026-11-21T14:16:30Z",
+    "windowStart": "2026-08-24T14:06:16Z",
+    "windowEnd": "2026-11-22T14:06:16Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -691,9 +694,9 @@
   },
   "dailyPolicyVersion": "1.1.0",
   "dailySample": {
-    "recordsFetched": 500,
-    "deduplicatedRecords": 496,
-    "eligibleRecords": 129,
+    "recordsFetched": 300,
+    "deduplicatedRecords": 296,
+    "eligibleRecords": 47,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -707,14 +710,14 @@
       },
       {
         "source": "arXiv",
-        "state": "ok",
-        "count": 200,
-        "limitReached": true
+        "state": "error",
+        "count": null,
+        "limitReached": false
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-23T14:16:30Z",
-    "windowEnd": "2026-11-21T14:16:30Z",
+    "windowStart": "2026-08-24T14:06:16Z",
+    "windowEnd": "2026-11-22T14:06:16Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
