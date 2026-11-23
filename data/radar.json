@@ -1,28 +1,53 @@
 {
-  "lastAttemptAt": "2026-11-22T14:06:16Z",
-  "dailyUpdatedAt": "2026-11-22T14:06:16Z",
-  "weeklyUpdatedAt": "2026-11-16T14:52:38Z",
+  "lastAttemptAt": "2026-11-23T17:27:57Z",
+  "dailyUpdatedAt": "2026-11-23T17:27:57Z",
+  "weeklyUpdatedAt": "2026-11-23T17:27:57Z",
   "status": {
-    "state": "partial",
-    "message": "部分来源失败或处于冷却期；可用来源继续更新，样本覆盖不完整。",
+    "state": "ok",
+    "message": "公开元数据刷新成功；精选综述独立维护。",
     "sourceResults": [
       {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-22T14:06:16Z"
+        "lastAttemptAt": "2026-11-23T17:27:57Z"
       },
       {
         "source": "arXiv",
-        "state": "error",
-        "message": "HTTP Error 429: Unknown Error",
-        "lastAttemptAt": "2026-11-22T14:06:16Z",
-        "httpStatus": 429,
-        "retryAfterAt": "2026-11-23T14:06:16Z"
+        "state": "ok",
+        "count": 200,
+        "lastAttemptAt": "2026-11-23T17:27:57Z"
       }
     ]
   },
   "daily": [
+    {
+      "id": "arxiv:2611.24149",
+      "title": "Human-LLM Cognitive Extension: A Framework for Studying Coupled Cognition",
+      "url": "https://arxiv.org/abs/2611.24149v1",
+      "publishedAt": "2026-11-18T09:54:43Z",
+      "recordPublishedAt": "2026-11-18T09:54:43Z",
+      "updatedAt": "2026-11-18T09:54:43Z",
+      "type": "preprint",
+      "source": "arXiv",
+      "theme": "simulation",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "arxiv:2611.24149",
+          "source": "arXiv",
+          "url": "https://arxiv.org/abs/2611.24149v1",
+          "publishedAt": "2026-11-18T09:54:43Z",
+          "type": "preprint"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "simulation:cogniti"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
     {
       "id": "epmc:MED:43045144",
       "title": "Generative artificial intelligence in psychotherapy: a multicountry qualitative analysis of mental health professionals' open-text survey responses.",
@@ -47,34 +72,6 @@
         "LLM-primary:title",
         "clinical:mental health",
         "clinical:psychotherap"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
-      "id": "epmc:MED:43040009",
-      "title": "Cognitive grounding improves LLM simulation of collective human behavior.",
-      "url": "https://doi.org/10.1038/s43588-026-01080-z",
-      "publishedAt": "2026-11-16T00:00:00Z",
-      "recordPublishedAt": "2026-11-16",
-      "updatedAt": null,
-      "type": "paper",
-      "source": "Europe PMC",
-      "theme": "simulation",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "epmc:MED:43040009",
-          "source": "Europe PMC",
-          "url": "https://doi.org/10.1038/s43588-026-01080-z",
-          "publishedAt": "2026-11-16",
-          "type": "paper"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:title",
-        "simulation:cogniti",
-        "simulation:human behavio"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
@@ -112,59 +109,68 @@
       "id": "simulation",
       "title": "认知与社会行为 · Cognition & social behavior",
       "question": "如何检验认知测量、社会行为研究与人类模拟的外部效度？",
-      "signal": "过去 7 天检索样本 18 条；仅在五个预设方向中按数量排序。",
-      "count": 18,
+      "signal": "过去 7 天检索样本 13 条；仅在五个预设方向中按数量排序。",
+      "count": 13,
       "sourceIds": [
-        "epmc:MED:43008791",
-        "epmc:MED:43015568",
-        "epmc:MED:43020403",
-        "epmc:MED:43024780",
-        "epmc:MED:43034186",
-        "epmc:MED:43035140",
-        "arxiv:2611.13161",
-        "arxiv:2611.13561",
-        "arxiv:2611.14242",
-        "arxiv:2611.14382",
-        "arxiv:2611.15651",
-        "arxiv:2611.16662",
-        "arxiv:2611.16667",
-        "arxiv:2611.17918",
-        "epmc:PPR:PPR1363532",
-        "epmc:PPR:PPR1363662",
-        "epmc:PPR:PPR1365464",
-        "epmc:PPR:PPR1366386"
+        "epmc:MED:43043919",
+        "epmc:MED:43064238",
+        "arxiv:2611.22006",
+        "arxiv:2611.22252",
+        "arxiv:2611.22415",
+        "arxiv:2611.23106",
+        "arxiv:2611.24149",
+        "arxiv:2611.24830",
+        "arxiv:2611.25502",
+        "epmc:PPR:PPR1369538",
+        "epmc:PPR:PPR1371543",
+        "epmc:PPR:PPR1372358",
+        "epmc:PPR:PPR1372583"
       ],
       "papers": [
         {
-          "id": "epmc:MED:43008791",
-          "title": "[Generative artificial intelligence in orthopedics and trauma surgery-Guidelines for responsible use in undergraduate and continuing education].",
-          "url": "https://doi.org/10.1055/a-2990-8732",
-          "publishedAt": "2026-11-10T00:00:00Z",
-          "recordPublishedAt": "2026-11-10",
+          "id": "epmc:MED:43043919",
+          "title": "Human-AI rating asymmetries across evaluative dimensions in instruction-tuned open-weight language models: A descriptive multi-model audit.",
+          "url": "https://doi.org/10.1371/journal.pone.0354555",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
+            "simulation:decision-making",
+            "simulation:moral judgment"
+          ]
+        },
+        {
+          "id": "epmc:MED:43064238",
+          "title": "Artificial Intelligence in Thoracic Pathology and Biomarker Assessment: An IASLC Pathology Committee Review.",
+          "url": "https://doi.org/10.1016/j.jtho.2026.106259",
+          "publishedAt": "2026-11-20T00:00:00Z",
+          "recordPublishedAt": "2026-11-20",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "arxiv:2611.22006",
+          "title": "Supporting Researcher Control in AI-Assisted Social Media Analysis: A Mixed-Methods Study of AI4OSN",
+          "url": "https://arxiv.org/abs/2611.22006v1",
+          "publishedAt": "2026-11-16T23:40:20Z",
+          "recordPublishedAt": "2026-11-16T23:40:20Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "simulation:cogniti",
             "simulation:decision-making"
           ]
         },
         {
-          "id": "epmc:MED:43015568",
-          "title": "An Analysis of Large Language Model Performance on Hematology Key Feature Questions.",
-          "url": "https://doi.org/10.1007/s13187-026-03025-6",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:decision-making"
-          ]
-        },
-        {
-          "id": "epmc:MED:43020403",
-          "title": "Toward automated cognitive assessment in Parkinson's disease using pretrained language models.",
-          "url": "https://doi.org/10.1016/j.jbi.2026.105126",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
+          "id": "arxiv:2611.22252",
+          "title": "A Visual Information Extraction System Using Multimodal Large Language Models for Scanned Cognitive and Behavioral Assessments",
+          "url": "https://arxiv.org/abs/2611.22252v1",
+          "publishedAt": "2026-11-17T05:56:48Z",
+          "recordPublishedAt": "2026-11-17T05:56:48Z",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
@@ -172,11 +178,95 @@
           ]
         },
         {
-          "id": "epmc:MED:43024780",
-          "title": "Verifiable summarization of electronic health records using large language models to support chart review.",
-          "url": "https://doi.org/10.1093/jamia/ocag181",
-          "publishedAt": "2026-11-13T00:00:00Z",
-          "recordPublishedAt": "2026-11-13",
+          "id": "arxiv:2611.22415",
+          "title": "SpatialMind: Adaptive Multi-Level Geometric Fusion for Spatial Reasoning in Multimodal Large Language Models",
+          "url": "https://arxiv.org/abs/2611.22415v1",
+          "publishedAt": "2026-11-17T08:51:37Z",
+          "recordPublishedAt": "2026-11-17T08:51:37Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "arxiv:2611.23106",
+          "title": "Natural Language Programming: Rethinking Language, Memory, and Cognition in the Era of Generative AI",
+          "url": "https://arxiv.org/abs/2611.23106v1",
+          "publishedAt": "2026-11-17T17:27:01Z",
+          "recordPublishedAt": "2026-11-17T17:27:01Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "arxiv:2611.24149",
+          "title": "Human-LLM Cognitive Extension: A Framework for Studying Coupled Cognition",
+          "url": "https://arxiv.org/abs/2611.24149v1",
+          "publishedAt": "2026-11-18T09:54:43Z",
+          "recordPublishedAt": "2026-11-18T09:54:43Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "arxiv:2611.24830",
+          "title": "A Foundation Model to Measure and Predict Human Behaviour",
+          "url": "https://arxiv.org/abs/2611.24830v1",
+          "publishedAt": "2026-11-18T17:59:08Z",
+          "recordPublishedAt": "2026-11-18T17:59:08Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "simulation:human behavio"
+          ]
+        },
+        {
+          "id": "arxiv:2611.25502",
+          "title": "Coordinated Use of Large Language Models in Academic Research",
+          "url": "https://arxiv.org/abs/2611.25502v1",
+          "publishedAt": "2026-11-19T04:47:57Z",
+          "recordPublishedAt": "2026-11-19T04:47:57Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1369538",
+          "title": "Thinking With AI, Reasoning Without It: Cognitive Offloading to Generative AI Weakens Effort Regulation",
+          "url": "https://doi.org/10.31234/osf.io/83jum",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1371543",
+          "title": "Human-first learning: scaffolding reasoning before AI assistance improves diagnostic accuracy",
+          "url": "https://doi.org/10.21203/rs.3.rs-11417031/v1",
+          "publishedAt": "2026-11-19T00:00:00Z",
+          "recordPublishedAt": "2026-11-19",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "simulation:cogniti"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1372358",
+          "title": "A Multi-Agent Knowledge-Based System for Epistemic Uncertainty Management in Data Center Applications: Integrating Thermodynamic Optimization and Large Language Models for Reliable Operational Decision Support",
+          "url": "https://doi.org/10.20944/preprints202611.1886.v1",
+          "publishedAt": "2026-11-18T00:00:00Z",
+          "recordPublishedAt": "2026-11-18",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
@@ -185,171 +275,11 @@
           ]
         },
         {
-          "id": "epmc:MED:43034186",
-          "title": "Personas shift clinical action thresholds in large language models.",
-          "url": "https://doi.org/10.1038/s44401-026-00121-z",
-          "publishedAt": "2026-11-14T00:00:00Z",
-          "recordPublishedAt": "2026-11-14",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "epmc:MED:43035140",
-          "title": "Cognitive Evaluation of Multimodal Large Language Models in Dental Radiography. ",
-          "url": "https://doi.org/10.1016/j.jdent.2026.107174",
-          "publishedAt": "2026-11-15T00:00:00Z",
-          "recordPublishedAt": "2026-11-15",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti",
-            "simulation:decision-making"
-          ]
-        },
-        {
-          "id": "arxiv:2611.13161",
-          "title": "Cognitive Multi-Agent Search and Rescue: Language-Grounded Hierarchical Reinforcement Learning for Collaborative Robotics",
-          "url": "https://arxiv.org/abs/2611.13161v1",
-          "publishedAt": "2026-11-09T19:45:28Z",
-          "recordPublishedAt": "2026-11-09T19:45:28Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "arxiv:2611.13561",
-          "title": "Discovering Structurally Plausible and Interpretable Cognitive Models with Large Language Models",
-          "url": "https://arxiv.org/abs/2611.13561v1",
-          "publishedAt": "2026-11-10T04:26:29Z",
-          "recordPublishedAt": "2026-11-10T04:26:29Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "arxiv:2611.14242",
-          "title": "PARLEY: Evaluating LLM Collaboration Through Cooperative Asymmetric Puzzles",
-          "url": "https://arxiv.org/abs/2611.14242v1",
-          "publishedAt": "2026-11-10T15:54:12Z",
-          "recordPublishedAt": "2026-11-10T15:54:12Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "arxiv:2611.14382",
-          "title": "Cognitive Mapping of Learning by Thinking Mechanisms in Large Language Models",
-          "url": "https://arxiv.org/abs/2611.14382v1",
-          "publishedAt": "2026-11-10T17:37:13Z",
-          "recordPublishedAt": "2026-11-10T17:37:13Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "arxiv:2611.15651",
-          "title": "Recover, Don't Just Continue: Learning from Feedback for Physical Failure Understanding and Correction",
-          "url": "https://arxiv.org/abs/2611.15651v1",
-          "publishedAt": "2026-11-11T16:01:28Z",
-          "recordPublishedAt": "2026-11-11T16:01:28Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "arxiv:2611.16662",
-          "title": "MuSeToM: Multi-Sensory Evaluation of Belief Revision with Textual Cues Across Six Senses",
-          "url": "https://arxiv.org/abs/2611.16662v1",
-          "publishedAt": "2026-11-12T11:38:52Z",
-          "recordPublishedAt": "2026-11-12T11:38:52Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "simulation:cogniti",
-            "simulation:theory of mind"
-          ]
-        },
-        {
-          "id": "arxiv:2611.16667",
-          "title": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
-          "url": "https://arxiv.org/abs/2611.16667v1",
-          "publishedAt": "2026-11-12T11:42:54Z",
-          "recordPublishedAt": "2026-11-12T11:42:54Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "arxiv:2611.17918",
-          "title": "Condensing Law of Security Information",
-          "url": "https://arxiv.org/abs/2611.17918v1",
-          "publishedAt": "2026-11-13T08:57:58Z",
-          "recordPublishedAt": "2026-11-13T08:57:58Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "epmc:PPR:PPR1363532",
-          "title": "Developing human-AI complementarity: Augmenting everyday decision making with Large Language Models",
-          "url": "https://doi.org/10.31234/osf.io/gzp7r",
-          "publishedAt": "2026-11-10T00:00:00Z",
-          "recordPublishedAt": "2026-11-10",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti",
-            "simulation:decision making"
-          ]
-        },
-        {
-          "id": "epmc:PPR:PPR1363662",
-          "title": "LLM Embeddings Complement Theory-Driven Language Features and Cognitive Scores for APOE4 and Aβ Prediction",
-          "url": "https://doi.org/10.64898/2026.11.09.26367620",
-          "publishedAt": "2026-11-10T00:00:00Z",
-          "recordPublishedAt": "2026-11-10",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti"
-          ]
-        },
-        {
-          "id": "epmc:PPR:PPR1365464",
-          "title": "Conversational Lexicons in Human–AI Interaction: A Mixed-Methods Study of Generative AI–Supported Lexical Decision-Making",
-          "url": "https://doi.org/10.21203/rs.3.rs-11255152/v1",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "simulation:cogniti",
-            "simulation:decision-making"
-          ]
-        },
-        {
-          "id": "epmc:PPR:PPR1366386",
-          "title": "From Large Language Models (LLMs) to Agentic AI for IoT Security: A Survey",
-          "url": "https://doi.org/10.20944/preprints202611.1411.v1",
-          "publishedAt": "2026-11-13T00:00:00Z",
-          "recordPublishedAt": "2026-11-13",
+          "id": "epmc:PPR:PPR1372583",
+          "title": "A Comprehensive Survey of the LLM-Based Agent: The Contextual Cognition Perspective",
+          "url": "https://doi.org/10.20944/preprints202604.0935.v2",
+          "publishedAt": "2026-11-19T00:00:00Z",
+          "recordPublishedAt": "2026-11-19",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
@@ -362,46 +292,48 @@
       "id": "clinical",
       "title": "临床与心理健康 · Clinical & mental health",
       "question": "如何验证心理支持的安全性与真实临床效益？",
-      "signal": "过去 7 天检索样本 5 条；仅在五个预设方向中按数量排序。",
-      "count": 5,
+      "signal": "过去 7 天检索样本 6 条；仅在五个预设方向中按数量排序。",
+      "count": 6,
       "sourceIds": [
-        "epmc:MED:43019347",
-        "epmc:MED:43021690",
-        "epmc:MED:43035153",
-        "arxiv:2611.12814",
-        "epmc:PPR:PPR1363035"
+        "epmc:MED:43044101",
+        "epmc:MED:43045144",
+        "epmc:MED:43050295",
+        "arxiv:2611.22248",
+        "epmc:PPR:PPR1373350",
+        "epmc:PPR:PPR1373409"
       ],
       "papers": [
         {
-          "id": "epmc:MED:43019347",
-          "title": "Prompt design in large language model health coaching chatbots: A scoping review.",
-          "url": "https://doi.org/10.1371/journal.pdig.0001827",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
+          "id": "epmc:MED:43044101",
+          "title": "Using a Large Language Model Chatbot for Allergen Avoidance Counseling in Contact Dermatitis: Quantitative Evaluation Study.",
+          "url": "https://doi.org/10.2196/100364",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
-            "clinical:mental health"
+            "clinical:counseling"
           ]
         },
         {
-          "id": "epmc:MED:43021690",
-          "title": "Evo2VED: a database of DNA large language model-derived scores for variant interpretation.",
-          "url": "https://doi.org/10.1093/nar/gkag1076",
-          "publishedAt": "2026-11-13T00:00:00Z",
-          "recordPublishedAt": "2026-11-13",
+          "id": "epmc:MED:43045144",
+          "title": "Generative artificial intelligence in psychotherapy: a multicountry qualitative analysis of mental health professionals' open-text survey responses.",
+          "url": "https://doi.org/10.1136/bmjment-2026-302991",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
-            "clinical:depressi"
+            "clinical:mental health",
+            "clinical:psychotherap"
           ]
         },
         {
-          "id": "epmc:MED:43035153",
-          "title": "Can AI-assisted analysis of antidepressant drug online reviewers (ADORE) inform real-world use of antidepressants? ",
-          "url": "https://doi.org/10.1016/j.jad.2026.122743",
-          "publishedAt": "2026-11-15T00:00:00Z",
-          "recordPublishedAt": "2026-11-15",
+          "id": "epmc:MED:43050295",
+          "title": "Performance of AI models in ECG interpretation and risk stratification for major adverse cardiac events in the emergency department.",
+          "url": "https://doi.org/10.1177/09287329261509123",
+          "publishedAt": "2026-11-18T00:00:00Z",
+          "recordPublishedAt": "2026-11-18",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:abstract>=2",
@@ -409,11 +341,11 @@
           ]
         },
         {
-          "id": "arxiv:2611.12814",
-          "title": "Curbside Chatbots: Auditing the Mental Health Interventions Large Language Models Recommend to Clinicians, Caregivers, and Patients",
-          "url": "https://arxiv.org/abs/2611.12814v1",
-          "publishedAt": "2026-11-09T18:19:30Z",
-          "recordPublishedAt": "2026-11-09T18:19:30Z",
+          "id": "arxiv:2611.22248",
+          "title": "OAK-Mind: Zero-Training Mental Health Change Inference from Passive Sensing via Knowledge-Grounded Multi-Agent LLMs",
+          "url": "https://arxiv.org/abs/2611.22248v1",
+          "publishedAt": "2026-11-17T05:52:52Z",
+          "recordPublishedAt": "2026-11-17T05:52:52Z",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
@@ -421,14 +353,27 @@
           ]
         },
         {
-          "id": "epmc:PPR:PPR1363035",
-          "title": "TETI, an LLM‑Augmented Telegram Chatbot for WHO Self‑Help Plus (SH+): Single‑arm mixed‑methods feasibility study protocol",
-          "url": "https://doi.org/10.21203/rs.3.rs-8592161/v1",
-          "publishedAt": "2026-11-10T00:00:00Z",
-          "recordPublishedAt": "2026-11-10",
+          "id": "epmc:PPR:PPR1373350",
+          "title": "Global Displacement Patterns and Healthcare Access Among Ukrainian Refugees: A Mixed-Methods Analysis",
+          "url": "https://doi.org/10.21203/rs.3.rs-11721475/v1",
+          "publishedAt": "2026-11-20T00:00:00Z",
+          "recordPublishedAt": "2026-11-20",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
-            "LLM-primary:title",
+            "LLM-primary:abstract>=2",
+            "clinical:mental health"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1373409",
+          "title": "Examining HiTOP Through Naturalistic Symptom Descriptions in Anonymous Online Mental Health Forums: A Mixed-Methods Study Protocol",
+          "url": "https://doi.org/10.31234/osf.io/ahrts",
+          "publishedAt": "2026-11-20T00:00:00Z",
+          "recordPublishedAt": "2026-11-20",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:abstract>=2",
+            "clinical:depressi",
             "clinical:mental health"
           ]
         }
@@ -441,19 +386,55 @@
       "signal": "过去 7 天检索样本 5 条；仅在五个预设方向中按数量排序。",
       "count": 5,
       "sourceIds": [
-        "epmc:MED:43019552",
-        "epmc:MED:43022181",
-        "epmc:MED:43024358",
-        "epmc:MED:43034204",
-        "epmc:PPR:PPR1366799"
+        "epmc:MED:43044104",
+        "epmc:MED:43044766",
+        "epmc:MED:43063990",
+        "arxiv:2611.21476",
+        "epmc:PPR:PPR1370974"
       ],
       "papers": [
         {
-          "id": "epmc:MED:43019552",
-          "title": "Integrating Large Language Models Into Patient Health Education: Interview Study Among Nurses.",
-          "url": "https://doi.org/10.2196/102846",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
+          "id": "epmc:MED:43044104",
+          "title": "Use of Large Language Models for Structured Quantitative and Qualitative Analysis of Simulation Debriefings Using the DASH Framework (AIDE Study): Prospective Observational Study.",
+          "url": "https://doi.org/10.2196/101797",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "methods:qualitative"
+          ]
+        },
+        {
+          "id": "epmc:MED:43044766",
+          "title": "Generative Artificial Intelligence-Based Dietary Advice: A Scoping Review of Nutritional Accuracy, Safety, and Eating-Related Risks.",
+          "url": "https://doi.org/10.1016/j.clnesp.2026.105251",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "methods:reproducib"
+          ]
+        },
+        {
+          "id": "epmc:MED:43063990",
+          "title": "Evaluating a Large Language Model Conversational Agent for Collecting Standardized Back Pain Data: A Cross-Over Study of Accuracy, Usability, and User Preference.",
+          "url": "https://doi.org/10.1055/a-3009-7011",
+          "publishedAt": "2026-11-20T00:00:00Z",
+          "recordPublishedAt": "2026-11-20",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "methods:qualitative"
+          ]
+        },
+        {
+          "id": "arxiv:2611.21476",
+          "title": "Generative AI and the Crisis of Higher Education Assessments: Examining 'AI-Proofing' Strategies for College-Level Assessments",
+          "url": "https://arxiv.org/abs/2611.21476v1",
+          "publishedAt": "2026-11-16T17:50:14Z",
+          "recordPublishedAt": "2026-11-16T17:50:14Z",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
@@ -461,52 +442,15 @@
           ]
         },
         {
-          "id": "epmc:MED:43022181",
-          "title": "Evaluating a large language model-powered system for semi-structured interview in health research.",
-          "url": "https://doi.org/10.1093/jamiaopen/ooag218",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
+          "id": "epmc:PPR:PPR1370974",
+          "title": "How closely do large language model scores from parent interviews match self-reported parenting?",
+          "url": "https://doi.org/10.31234/osf.io/47nvm",
+          "publishedAt": "2026-11-18T00:00:00Z",
+          "recordPublishedAt": "2026-11-18",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
             "methods:qualitative"
-          ]
-        },
-        {
-          "id": "epmc:MED:43024358",
-          "title": "Effects of a Personalized Retrieval-Augmented Generation Chatbot on Information Needs in Patients With Chronic Kidney Disease: Mixed Methods Randomized Controlled Trial.",
-          "url": "https://doi.org/10.2196/96501",
-          "publishedAt": "2026-11-13T00:00:00Z",
-          "recordPublishedAt": "2026-11-13",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "methods:qualitative"
-          ]
-        },
-        {
-          "id": "epmc:MED:43034204",
-          "title": "Artificial intelligence and clinical reasoning - a qualitative study with general practice trainees in Germany.",
-          "url": "https://doi.org/10.1186/s12909-026-10736-3",
-          "publishedAt": "2026-11-14T00:00:00Z",
-          "recordPublishedAt": "2026-11-14",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "methods:qualitative"
-          ]
-        },
-        {
-          "id": "epmc:PPR:PPR1366799",
-          "title": "Retrieval augmented consistency scoring for model agnostic hallucination detection in large language models",
-          "url": "https://doi.org/10.21203/rs.3.rs-11187042/v1",
-          "publishedAt": "2026-11-13T00:00:00Z",
-          "recordPublishedAt": "2026-11-13",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "methods:qualitative",
-            "methods:reproducib"
           ]
         }
       ]
@@ -515,67 +459,37 @@
       "id": "education",
       "title": "教育与发展 · Education & development",
       "question": "学习与发展结果如何在真实环境中验证？",
-      "signal": "过去 7 天检索样本 4 条；仅在五个预设方向中按数量排序。",
-      "count": 4,
+      "signal": "过去 7 天检索样本 2 条；仅在五个预设方向中按数量排序。",
+      "count": 2,
       "sourceIds": [
-        "epmc:MED:43023367",
-        "arxiv:2611.13366",
-        "arxiv:2611.14798",
-        "epmc:PPR:PPR1366475"
+        "arxiv:2611.25428",
+        "epmc:PPR:PPR1369713"
       ],
       "papers": [
         {
-          "id": "epmc:MED:43023367",
-          "title": "Integrating ChatGPT into Pharmacology Simulation: A Structured Framework for Prescribing and Medication-Safety Education - A Narrative Review.",
-          "url": "https://doi.org/10.2174/0115748863530047261105111229",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
+          "id": "arxiv:2611.25428",
+          "title": "GenAI-DBT: Evaluating a DBT-Informed Generative AI Platform for Mindfulness Skills Training: A Pilot Randomized Study",
+          "url": "https://arxiv.org/abs/2611.25428v1",
+          "publishedAt": "2026-11-19T03:09:14Z",
+          "recordPublishedAt": "2026-11-19T03:09:14Z",
+          "dateBasis": "earliest_retrieved_version",
+          "matchedSignals": [
+            "LLM-primary:title",
+            "education:student"
+          ]
+        },
+        {
+          "id": "epmc:PPR:PPR1369713",
+          "title": "Assessing the Learning Gains and User Experience of Large Language Model Simulations for Clinical Medical Education: A Pilot Observational Study",
+          "url": "https://doi.org/10.21203/rs.3.rs-10529565/v1",
+          "publishedAt": "2026-11-17T00:00:00Z",
+          "recordPublishedAt": "2026-11-17",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
             "education:educati",
             "education:learning outcome",
             "education:student"
-          ]
-        },
-        {
-          "id": "arxiv:2611.13366",
-          "title": "Mapping Instructors' Attitudes Towards Cheating with AI: An Exploratory Analysis Using Forum Analysis",
-          "url": "https://arxiv.org/abs/2611.13366v1",
-          "publishedAt": "2026-11-09T23:39:11Z",
-          "recordPublishedAt": "2026-11-09T23:39:11Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "education:student"
-          ]
-        },
-        {
-          "id": "arxiv:2611.14798",
-          "title": "Who (or what) are they prompting? How CS students conceptualize and use LLMs",
-          "url": "https://arxiv.org/abs/2611.14798v1",
-          "publishedAt": "2026-11-10T22:34:14Z",
-          "recordPublishedAt": "2026-11-10T22:34:14Z",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:title",
-            "education:educati",
-            "education:learning outcome",
-            "education:student"
-          ]
-        },
-        {
-          "id": "epmc:PPR:PPR1366475",
-          "title": "Artificial Hivemind in K-12 Education: A Case Study",
-          "url": "https://doi.org/10.20944/preprints202611.1317.v1",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "education:educati",
-            "education:student",
-            "education:tutor"
           ]
         }
       ]
@@ -584,65 +498,35 @@
       "id": "measurement",
       "title": "心理测量 · Psychometrics",
       "question": "量表、人格与偏差测量是否具有构念效度？",
-      "signal": "过去 7 天检索样本 4 条；仅在五个预设方向中按数量排序。",
-      "count": 4,
+      "signal": "过去 7 天检索样本 2 条；仅在五个预设方向中按数量排序。",
+      "count": 2,
       "sourceIds": [
-        "epmc:MED:43019478",
-        "epmc:MED:43019512",
-        "arxiv:2611.16586",
-        "epmc:PPR:PPR1366065"
+        "arxiv:2611.22761",
+        "arxiv:2611.24888"
       ],
       "papers": [
         {
-          "id": "epmc:MED:43019478",
-          "title": "The structure and history of English words that describe people.",
-          "url": "https://doi.org/10.1037/pspp0000627",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "measurement:personality"
-          ]
-        },
-        {
-          "id": "epmc:MED:43019512",
-          "title": "Text Psychometrics: Assessing psychological constructs in text using natural language processing.",
-          "url": "https://doi.org/10.1371/journal.pdig.0001757",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
-          "dateBasis": "earliest_retrieved_version",
-          "matchedSignals": [
-            "LLM-primary:abstract>=2",
-            "measurement:psychological assess",
-            "measurement:psychometr"
-          ]
-        },
-        {
-          "id": "arxiv:2611.16586",
-          "title": "Large Language Models as Digital Twins: a Distribution-Aware Questionnaire-Based Evaluation",
-          "url": "https://arxiv.org/abs/2611.16586v1",
-          "publishedAt": "2026-11-12T10:18:16Z",
-          "recordPublishedAt": "2026-11-12T10:18:16Z",
+          "id": "arxiv:2611.22761",
+          "title": "Network-Exposed Configuration Attacks on LLM-Controlled Social Robots",
+          "url": "https://arxiv.org/abs/2611.22761v1",
+          "publishedAt": "2026-11-17T13:27:57Z",
+          "recordPublishedAt": "2026-11-17T13:27:57Z",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:title",
-            "measurement:big five",
             "measurement:personality"
           ]
         },
         {
-          "id": "epmc:PPR:PPR1366065",
-          "title": "Designing AI-Agents with Personalities: A Psychometric Approach",
-          "url": "https://doi.org/10.31234/osf.io/2kfw3_v3",
-          "publishedAt": "2026-11-12T00:00:00Z",
-          "recordPublishedAt": "2026-11-12",
+          "id": "arxiv:2611.24888",
+          "title": "Who are you? The Personal Imitation Game",
+          "url": "https://arxiv.org/abs/2611.24888v1",
+          "publishedAt": "2026-11-18T18:32:14Z",
+          "recordPublishedAt": "2026-11-18T18:32:14Z",
           "dateBasis": "earliest_retrieved_version",
           "matchedSignals": [
             "LLM-primary:abstract>=2",
-            "measurement:big five",
-            "measurement:personality",
-            "measurement:psychometr"
+            "measurement:personality"
           ]
         }
       ]
@@ -657,76 +541,15 @@
     "单源失败可更新足量候选，但标明覆盖不完整；全部失败或不足3条保留旧日报与日期。HTTP429停止即时重试并冷却24小时。",
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
-  "dailyCoverage": "partial",
-  "lastCompleteDailyAt": "2026-11-21T14:16:30Z",
+  "dailyCoverage": "complete",
+  "lastCompleteDailyAt": "2026-11-23T17:27:57Z",
   "weeklyCoverage": "complete",
-  "lastCompleteWeeklyAt": "2026-11-16T14:52:38Z",
+  "lastCompleteWeeklyAt": "2026-11-23T17:27:57Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
-    "recordsFetched": 300,
-    "deduplicatedRecords": 296,
-    "eligibleRecords": 47,
-    "sourceLimits": {
-      "Europe PMC": 300,
-      "arXiv": 200
-    },
-    "sourceResults": [
-      {
-        "source": "Europe PMC",
-        "state": "ok",
-        "count": 300,
-        "limitReached": true
-      },
-      {
-        "source": "arXiv",
-        "state": "error",
-        "count": null,
-        "limitReached": false
-      }
-    ],
-    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-24T14:06:16Z",
-    "windowEnd": "2026-11-22T14:06:16Z",
-    "queries": {
-      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
-      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
-    }
-  },
-  "dailyPolicyVersion": "1.1.0",
-  "dailySample": {
-    "recordsFetched": 300,
-    "deduplicatedRecords": 296,
-    "eligibleRecords": 47,
-    "sourceLimits": {
-      "Europe PMC": 300,
-      "arXiv": 200
-    },
-    "sourceResults": [
-      {
-        "source": "Europe PMC",
-        "state": "ok",
-        "count": 300,
-        "limitReached": true
-      },
-      {
-        "source": "arXiv",
-        "state": "error",
-        "count": null,
-        "limitReached": false
-      }
-    ],
-    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-24T14:06:16Z",
-    "windowEnd": "2026-11-22T14:06:16Z",
-    "queries": {
-      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
-      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
-    }
-  },
-  "weeklySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 492,
-    "eligibleRecords": 131,
+    "deduplicatedRecords": 497,
+    "eligibleRecords": 121,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -746,13 +569,74 @@
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-11-09T14:52:38Z",
-    "windowEnd": "2026-11-16T14:52:38Z",
+    "windowStart": "2026-08-25T17:27:57Z",
+    "windowEnd": "2026-11-23T17:27:57Z",
+    "queries": {
+      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
+      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
+    }
+  },
+  "dailyPolicyVersion": "1.1.0",
+  "dailySample": {
+    "recordsFetched": 500,
+    "deduplicatedRecords": 497,
+    "eligibleRecords": 121,
+    "sourceLimits": {
+      "Europe PMC": 300,
+      "arXiv": 200
+    },
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "limitReached": true
+      },
+      {
+        "source": "arXiv",
+        "state": "ok",
+        "count": 200,
+        "limitReached": true
+      }
+    ],
+    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
+    "windowStart": "2026-08-25T17:27:57Z",
+    "windowEnd": "2026-11-23T17:27:57Z",
+    "queries": {
+      "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
+      "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
+    }
+  },
+  "weeklySample": {
+    "recordsFetched": 500,
+    "deduplicatedRecords": 497,
+    "eligibleRecords": 121,
+    "sourceLimits": {
+      "Europe PMC": 300,
+      "arXiv": 200
+    },
+    "sourceResults": [
+      {
+        "source": "Europe PMC",
+        "state": "ok",
+        "count": 300,
+        "limitReached": true
+      },
+      {
+        "source": "arXiv",
+        "state": "ok",
+        "count": 200,
+        "limitReached": true
+      }
+    ],
+    "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
+    "windowStart": "2026-11-16T17:27:57Z",
+    "windowEnd": "2026-11-23T17:27:57Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
     },
-    "weeklyRecords": 36
+    "weeklyRecords": 28
   },
   "weeklyPolicyVersion": "1.1.0"
 }
