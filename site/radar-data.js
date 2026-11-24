@@ -1,6 +1,6 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-23T17:27:57Z",
-  "dailyUpdatedAt": "2026-11-23T17:27:57Z",
+  "lastAttemptAt": "2026-11-24T16:59:46Z",
+  "dailyUpdatedAt": "2026-11-24T16:59:46Z",
   "weeklyUpdatedAt": "2026-11-23T17:27:57Z",
   "status": {
     "state": "ok",
@@ -10,50 +10,23 @@ window.RADAR_DATA = {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-23T17:27:57Z"
+        "lastAttemptAt": "2026-11-24T16:59:46Z"
       },
       {
         "source": "arXiv",
         "state": "ok",
         "count": 200,
-        "lastAttemptAt": "2026-11-23T17:27:57Z"
+        "lastAttemptAt": "2026-11-24T16:59:46Z"
       }
     ]
   },
   "daily": [
     {
-      "id": "arxiv:2611.24149",
-      "title": "Human-LLM Cognitive Extension: A Framework for Studying Coupled Cognition",
-      "url": "https://arxiv.org/abs/2611.24149v1",
-      "publishedAt": "2026-11-18T09:54:43Z",
-      "recordPublishedAt": "2026-11-18T09:54:43Z",
-      "updatedAt": "2026-11-18T09:54:43Z",
-      "type": "preprint",
-      "source": "arXiv",
-      "theme": "simulation",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "arxiv:2611.24149",
-          "source": "arXiv",
-          "url": "https://arxiv.org/abs/2611.24149v1",
-          "publishedAt": "2026-11-18T09:54:43Z",
-          "type": "preprint"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:title",
-        "simulation:cogniti"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
-      "id": "epmc:MED:43045144",
-      "title": "Generative artificial intelligence in psychotherapy: a multicountry qualitative analysis of mental health professionals' open-text survey responses.",
-      "url": "https://doi.org/10.1136/bmjment-2026-302991",
-      "publishedAt": "2026-11-17T00:00:00Z",
-      "recordPublishedAt": "2026-11-17",
+      "id": "epmc:MED:43073188",
+      "title": "When Patients Speak More to Machines: Active Ingredients, Mechanisms, and Limitations of Mental Health Support from Large Language Models. ",
+      "url": "https://doi.org/10.1192/j.eurpsy.2026.12280",
+      "publishedAt": "2026-11-24T00:00:00Z",
+      "recordPublishedAt": "2026-11-24",
       "updatedAt": null,
       "type": "paper",
       "source": "Europe PMC",
@@ -61,44 +34,71 @@ window.RADAR_DATA = {
       "dateBasis": "earliest_retrieved_version",
       "versions": [
         {
-          "id": "epmc:MED:43045144",
+          "id": "epmc:MED:43073188",
           "source": "Europe PMC",
-          "url": "https://doi.org/10.1136/bmjment-2026-302991",
-          "publishedAt": "2026-11-17",
+          "url": "https://doi.org/10.1192/j.eurpsy.2026.12280",
+          "publishedAt": "2026-11-24",
           "type": "paper"
         }
       ],
       "matchedSignals": [
         "LLM-primary:title",
-        "clinical:mental health",
-        "clinical:psychotherap"
+        "clinical:mental health"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
     },
     {
-      "id": "epmc:MED:43044104",
-      "title": "Use of Large Language Models for Structured Quantitative and Qualitative Analysis of Simulation Debriefings Using the DASH Framework (AIDE Study): Prospective Observational Study.",
-      "url": "https://doi.org/10.2196/101797",
-      "publishedAt": "2026-11-17T00:00:00Z",
-      "recordPublishedAt": "2026-11-17",
+      "id": "epmc:PPR:PPR1374310",
+      "title": "An Exploratory Study on Perceptibility of Personality-Conditioned AI-Generated Virtual Patient Dialogue",
+      "url": "https://doi.org/10.21203/rs.3.rs-11640898/v1",
+      "publishedAt": "2026-11-23T00:00:00Z",
+      "recordPublishedAt": "2026-11-23",
       "updatedAt": null,
-      "type": "paper",
+      "type": "preprint",
       "source": "Europe PMC",
-      "theme": "methods",
+      "theme": "measurement",
       "dateBasis": "earliest_retrieved_version",
       "versions": [
         {
-          "id": "epmc:MED:43044104",
+          "id": "epmc:PPR:PPR1374310",
           "source": "Europe PMC",
-          "url": "https://doi.org/10.2196/101797",
-          "publishedAt": "2026-11-17",
-          "type": "paper"
+          "url": "https://doi.org/10.21203/rs.3.rs-11640898/v1",
+          "publishedAt": "2026-11-23",
+          "type": "preprint"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:abstract>=2",
+        "measurement:big five",
+        "measurement:personality"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
+      "id": "epmc:PPR:PPR1375035",
+      "title": "Do AI Systems Zone Out? Functional Homeostasis and Graceful Degradation in LLM Agents under Cognitive Load",
+      "url": "https://doi.org/10.21203/rs.3.rs-11810033/v1",
+      "publishedAt": "2026-11-23T00:00:00Z",
+      "recordPublishedAt": "2026-11-23",
+      "updatedAt": null,
+      "type": "preprint",
+      "source": "Europe PMC",
+      "theme": "simulation",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:PPR:PPR1375035",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.21203/rs.3.rs-11810033/v1",
+          "publishedAt": "2026-11-23",
+          "type": "preprint"
         }
       ],
       "matchedSignals": [
         "LLM-primary:title",
-        "methods:qualitative"
+        "simulation:cogniti"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
@@ -542,13 +542,13 @@ window.RADAR_DATA = {
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-23T17:27:57Z",
+  "lastCompleteDailyAt": "2026-11-24T16:59:46Z",
   "weeklyCoverage": "complete",
   "lastCompleteWeeklyAt": "2026-11-23T17:27:57Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 497,
+    "deduplicatedRecords": 496,
     "eligibleRecords": 121,
     "sourceLimits": {
       "Europe PMC": 300,
@@ -569,8 +569,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-25T17:27:57Z",
-    "windowEnd": "2026-11-23T17:27:57Z",
+    "windowStart": "2026-08-26T16:59:46Z",
+    "windowEnd": "2026-11-24T16:59:46Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -579,7 +579,7 @@ window.RADAR_DATA = {
   "dailyPolicyVersion": "1.1.0",
   "dailySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 497,
+    "deduplicatedRecords": 496,
     "eligibleRecords": 121,
     "sourceLimits": {
       "Europe PMC": 300,
@@ -600,8 +600,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-25T17:27:57Z",
-    "windowEnd": "2026-11-23T17:27:57Z",
+    "windowStart": "2026-08-26T16:59:46Z",
+    "windowEnd": "2026-11-24T16:59:46Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
