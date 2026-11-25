@@ -1,6 +1,6 @@
 window.RADAR_DATA = {
-  "lastAttemptAt": "2026-11-24T16:59:46Z",
-  "dailyUpdatedAt": "2026-11-24T16:59:46Z",
+  "lastAttemptAt": "2026-11-25T16:51:01Z",
+  "dailyUpdatedAt": "2026-11-25T16:51:01Z",
   "weeklyUpdatedAt": "2026-11-23T17:27:57Z",
   "status": {
     "state": "ok",
@@ -10,20 +10,76 @@ window.RADAR_DATA = {
         "source": "Europe PMC",
         "state": "ok",
         "count": 300,
-        "lastAttemptAt": "2026-11-24T16:59:46Z"
+        "lastAttemptAt": "2026-11-25T16:51:01Z"
       },
       {
         "source": "arXiv",
         "state": "ok",
         "count": 200,
-        "lastAttemptAt": "2026-11-24T16:59:46Z"
+        "lastAttemptAt": "2026-11-25T16:51:01Z"
       }
     ]
   },
   "daily": [
     {
+      "id": "epmc:PPR:PPR1375621",
+      "title": "AGI and Education 5.0: A Systematic Review of AGI-Driven Sustainable Education Across the Learning Lifespan",
+      "url": "https://doi.org/10.20944/preprints202611.2451.v1",
+      "publishedAt": "2026-11-24T00:00:00Z",
+      "recordPublishedAt": "2026-11-24",
+      "updatedAt": null,
+      "type": "preprint",
+      "source": "Europe PMC",
+      "theme": "education",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "epmc:PPR:PPR1375621",
+          "source": "Europe PMC",
+          "url": "https://doi.org/10.20944/preprints202611.2451.v1",
+          "publishedAt": "2026-11-24",
+          "type": "preprint"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:abstract>=2",
+        "education:educati"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
+      "id": "arxiv:2611.31851",
+      "title": "Modeling Event-Conditioned Emotional Expression Response with LLM Agents in a Synthetic Social Simulation",
+      "url": "https://arxiv.org/abs/2611.31851v1",
+      "publishedAt": "2026-11-24T02:49:21Z",
+      "recordPublishedAt": "2026-11-24T02:49:21Z",
+      "updatedAt": "2026-11-24T02:49:21Z",
+      "type": "preprint",
+      "source": "arXiv",
+      "theme": "simulation",
+      "dateBasis": "earliest_retrieved_version",
+      "versions": [
+        {
+          "id": "arxiv:2611.31851",
+          "source": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31851v1",
+          "publishedAt": "2026-11-24T02:49:21Z",
+          "type": "preprint"
+        }
+      ],
+      "matchedSignals": [
+        "LLM-primary:title",
+        "simulation:decision-making",
+        "simulation:human behavio",
+        "simulation:social simulat"
+      ],
+      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
+      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
+    },
+    {
       "id": "epmc:MED:43073188",
-      "title": "When Patients Speak More to Machines: Active Ingredients, Mechanisms, and Limitations of Mental Health Support from Large Language Models. ",
+      "title": "When Patients Speak More to Machines: Active Ingredients, Mechanisms, and Limitations of Mental Health Support from Large Language Models.",
       "url": "https://doi.org/10.1192/j.eurpsy.2026.12280",
       "publishedAt": "2026-11-24T00:00:00Z",
       "recordPublishedAt": "2026-11-24",
@@ -44,61 +100,6 @@ window.RADAR_DATA = {
       "matchedSignals": [
         "LLM-primary:title",
         "clinical:mental health"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
-      "id": "epmc:PPR:PPR1374310",
-      "title": "An Exploratory Study on Perceptibility of Personality-Conditioned AI-Generated Virtual Patient Dialogue",
-      "url": "https://doi.org/10.21203/rs.3.rs-11640898/v1",
-      "publishedAt": "2026-11-23T00:00:00Z",
-      "recordPublishedAt": "2026-11-23",
-      "updatedAt": null,
-      "type": "preprint",
-      "source": "Europe PMC",
-      "theme": "measurement",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "epmc:PPR:PPR1374310",
-          "source": "Europe PMC",
-          "url": "https://doi.org/10.21203/rs.3.rs-11640898/v1",
-          "publishedAt": "2026-11-23",
-          "type": "preprint"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:abstract>=2",
-        "measurement:big five",
-        "measurement:personality"
-      ],
-      "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
-      "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
-    },
-    {
-      "id": "epmc:PPR:PPR1375035",
-      "title": "Do AI Systems Zone Out? Functional Homeostasis and Graceful Degradation in LLM Agents under Cognitive Load",
-      "url": "https://doi.org/10.21203/rs.3.rs-11810033/v1",
-      "publishedAt": "2026-11-23T00:00:00Z",
-      "recordPublishedAt": "2026-11-23",
-      "updatedAt": null,
-      "type": "preprint",
-      "source": "Europe PMC",
-      "theme": "simulation",
-      "dateBasis": "earliest_retrieved_version",
-      "versions": [
-        {
-          "id": "epmc:PPR:PPR1375035",
-          "source": "Europe PMC",
-          "url": "https://doi.org/10.21203/rs.3.rs-11810033/v1",
-          "publishedAt": "2026-11-23",
-          "type": "preprint"
-        }
-      ],
-      "matchedSignals": [
-        "LLM-primary:title",
-        "simulation:cogniti"
       ],
       "reason": "公开元数据筛选：LLM为主要主题，并匹配心理学过程/任务；按样本内最早已知日期与标题相关信号排序，优先方向多样性。",
       "caution": "仅元数据筛选，不是质量评审；预印本可能未经同行评审，临床结论需独立验证。"
@@ -542,14 +543,14 @@ window.RADAR_DATA = {
     "来源全部可用只表示配置来源请求成功，不等于全领域完整覆盖。人工综述、挑战和图谱独立维护，自动任务不改写结论。"
   ],
   "dailyCoverage": "complete",
-  "lastCompleteDailyAt": "2026-11-24T16:59:46Z",
+  "lastCompleteDailyAt": "2026-11-25T16:51:01Z",
   "weeklyCoverage": "complete",
   "lastCompleteWeeklyAt": "2026-11-23T17:27:57Z",
   "screeningVersion": "1.1.0",
   "attemptCoverage": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 496,
-    "eligibleRecords": 121,
+    "deduplicatedRecords": 495,
+    "eligibleRecords": 117,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -569,8 +570,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-26T16:59:46Z",
-    "windowEnd": "2026-11-24T16:59:46Z",
+    "windowStart": "2026-08-27T16:51:01Z",
+    "windowEnd": "2026-11-25T16:51:01Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
@@ -579,8 +580,8 @@ window.RADAR_DATA = {
   "dailyPolicyVersion": "1.1.0",
   "dailySample": {
     "recordsFetched": 500,
-    "deduplicatedRecords": 496,
-    "eligibleRecords": 121,
+    "deduplicatedRecords": 495,
+    "eligibleRecords": 117,
     "sourceLimits": {
       "Europe PMC": 300,
       "arXiv": 200
@@ -600,8 +601,8 @@ window.RADAR_DATA = {
       }
     ],
     "dateBasis": "earliest retrieved version; earlier unobserved versions may exist",
-    "windowStart": "2026-08-26T16:59:46Z",
-    "windowEnd": "2026-11-24T16:59:46Z",
+    "windowStart": "2026-08-27T16:51:01Z",
+    "windowEnd": "2026-11-25T16:51:01Z",
     "queries": {
       "Europe PMC": "(large language model OR large language models OR ChatGPT) AND (psychology OR mental OR cognitive OR personality OR education OR qualitative), FIRST_PDATE within 90 days",
       "arXiv": "(large language model OR ChatGPT) AND (psychology OR mental health OR cognitive OR personality OR education OR qualitative), submittedDate descending"
